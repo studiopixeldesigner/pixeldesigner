@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Designer - Création de Sites Vitrines | Propulsé par l'IA</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Configuration Tailwind pour les animations -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'border-slide': 'borderSlide 3s linear infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        borderSlide: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                            '100%': { backgroundPosition: '0% 50%' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradient-text {
+            background: linear-gradient(270deg, #60a5fa, #818cf8, #c084fc, #60a5fa);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 6s ease infinite;
+        }
+
+        .btn-animated-border {
+            background: linear-gradient(60deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+            background-size: 200% 200%;
+        }
+
+        .card-glow:hover {
+            box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.15);
+        }
+
+        .input-glow:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased bg-grid selection:bg-blue-500 selection:text-white overflow-x-hidden">
+
+    <!-- ORBES LUMINEUX EN ARRIÈRE-PLAN -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
+    <div class="fixed bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/60 backdrop-blur-xl border-b border-slate-900 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-400 via-indigo-300 to-white bg-clip-text text-transparent hover:opacity-85 transition flex items-center gap-2">
+                <span class="w-3 h-3 bg-blue-500 rounded-sm inline-block shadow-lg shadow-blue-500/50 animate-float"></span>
+                Pixel<span class="text-blue-500 font-light">Designer</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
+                <a href="#projets" class="hover:text-blue-400 transition hover:-translate-y-0.5 duration-200">Réalisations</a>
+                <a href="#approche" class="hover:text-blue-400 transition hover:-translate-y-0.5 duration-200">L'Approche IA</a>
+                <a href="#services" class="hover:text-blue-400 transition hover:-translate-y-0.5 duration-200">Tarifs & Offres</a>
+            </nav>
+            <a href="#contact" class="relative group overflow-hidden rounded-full p-[1.5px] focus:outline-none shadow-lg shadow-purple-500/15">
+                <span class="absolute inset-0 btn-animated-border rounded-full animate-border-slide"></span>
+                <span class="relative px-5 py-2.5 rounded-full bg-slate-950 text-white text-xs font-semibold tracking-wide flex items-center gap-2 group-hover:bg-slate-900/90 transition-colors">
+                    Lancer un projet
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-40 pb-28 md:pt-48 md:pb-36 px-6 text-center max-w-5xl mx-auto">
+        <div data-aos="fade-down" data-aos-duration="1000">
+            <span class="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6 border border-blue-500/20 backdrop-blur-md shadow-lg shadow-blue-500/5">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span> 
+                Pixel Designer — Propulsé par l'IA & le Code Sur-Mesure
+            </span>
+        </div>
+        
+        <h1 data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000" class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
+            Des sites vitrines d'exception pour <span class="animate-gradient-text">Pro & Particuliers</span>
+        </h1>
+        
+        <p data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" class="text-base sm:text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+            Alliez la précision du design numérique, la puissance de l'IA et une esthétique soignée pour propulser votre présence en ligne.
+        </p>
+        
+        <div data-aos="fade-up" data-aos-delay="450" data-aos-duration="1000" class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#projets" class="group relative px-8 py-4 rounded-2xl bg-blue-600 text-white font-medium text-sm overflow-hidden shadow-xl shadow-blue-600/25 hover:bg-blue-500 transition duration-300 transform hover:-translate-y-1">
+                <span class="relative z-10 flex items-center justify-center gap-2">
+                    Voir les réalisations 
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </span>
+            </a>
+            <a href="#contact" class="px-8 py-4 rounded-2xl bg-slate-900/85 text-slate-200 font-medium text-sm border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition duration-300 transform hover:-translate-y-1 backdrop-blur-md">
+                Discuter de votre idée
+            </a>
+        </div>
+    </section>
+
+    <!-- PROJETS SECTION -->
+    <section id="projets" class="py-28 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight animate-gradient-text">Réalisations Récentes</h2>
+            <p class="text-slate-400 max-w-lg mx-auto font-light">Une vitrine de mes derniers sites conçus avec assistance IA et design moderne.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Projet 1 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-900/40 border border-slate-900 hover:border-slate-700/80 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 card-glow backdrop-blur-sm flex flex-col">
+                <div class="h-52 bg-slate-900/80 relative overflow-hidden flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <span class="text-slate-500 text-sm font-mono tracking-wider group-hover:scale-110 transition-transform duration-500">[ Capture d'écran ]</span>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Réparation Informatique</span>
+                        <span class="text-xs text-slate-500 font-mono">2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">SMART REPARE</h3>
+                    <p class="text-slate-400 text-sm mb-6 font-light leading-relaxed flex-grow">Design épuré axé sur la conversion rapide des visiteurs en appels téléphoniques.</p>
+                    <a href="https://smart-repare.fr" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-blue-400 group-hover:text-blue-300 transition-colors">
+                        Visiter le site 
+                        <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-900/40 border border-slate-900 hover:border-slate-700/80 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 card-glow backdrop-blur-sm flex flex-col">
+                <div class="h-52 bg-slate-900/80 relative overflow-hidden flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <span class="text-slate-500 text-sm font-mono tracking-wider group-hover:scale-110 transition-transform duration-500">[ Capture d'écran ]</span>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">RESTAURATION</span>
+                        <span class="text-xs text-slate-500 font-mono">2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">CHICKEN BURGER</h3>
+                    <p class="text-slate-400 text-sm mb-6 font-light leading-relaxed flex-grow">Galerie immersive minimaliste mettant en valeur les clichés haute définition.</p>
+                    <a href="https://chicken-burger.fr" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-indigo-400 group-hover:text-indigo-300 transition-colors">
+                        Visiter le site 
+                        <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-900/40 border border-slate-900 hover:border-slate-700/80 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 card-glow backdrop-blur-sm flex flex-col">
+                <div class="h-52 bg-slate-900/80 relative overflow-hidden flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <span class="text-slate-500 text-sm font-mono tracking-wider group-hover:scale-110 transition-transform duration-500">[ Capture d'écran ]</span>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">PORTFOLIO / CRÉATIF</span>
+                        <span class="text-xs text-slate-500 font-mono">2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">LUMEN STUDIO</h3>
+                    <p class="text-slate-400 text-sm mb-6 font-light leading-relaxed flex-grow">Portfolio dynamique avec micro-interactions et typographie forte.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-purple-400 group-hover:text-purple-300 transition-colors">
+                        Voir le cas d'usage 
+                        <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION APPROCHE IA -->
+    <section id="approche" class="py-28 bg-slate-900/20 border-y border-slate-900/80 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-blue-400 text-xs font-semibold uppercase tracking-widest">Le futur du développement web</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 tracking-tight animate-gradient-text">Pourquoi l'IA est l'outil idéal pour vos projets ?</h2>
+                <p class="text-slate-400 text-sm max-w-2xl mx-auto mt-4 font-light leading-relaxed">
+                    Aujourd'hui, l'intelligence artificielle est devenue l'accélérateur ultime de projets. Elle permet de fusionner rapidité d'exécution et excellence technique pour donner vie à n'importe quelle vision web instantanément.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Carte 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-900/40 border border-slate-900 hover:border-blue-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/5">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors">Vitesse d'Exécution</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">Génération instantanée de structures complexes et de codes propres pour un déploiement éclair.</p>
+                </div>
+
+                <!-- Carte 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-900/40 border border-slate-900 hover:border-indigo-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-indigo-400 transition-colors">Sur-Mesure & Créativité</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">L'IA sert de levier créatif. Je supervise l'architecture et peaufine chaque détail pour un design unique.</p>
+                </div>
+
+                <!-- Carte 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-900/40 border border-slate-900 hover:border-purple-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/5">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition-colors">Rapport Qualité/Prix</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">Un gain de temps massif répercuté directement sur les tarifs pour rendre le web pro accessible.</p>
+                </div>
+
+                <!-- Carte 4 -->
+                <div data-aos="fade-up" data-aos-delay="400" class="group bg-slate-900/40 border border-slate-900 hover:border-pink-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/5">
+                    <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-pink-400 transition-colors">Responsive Natif</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">Adaptabilité fluide garantie sur tous les écrans : mobiles, tablettes et ordinateurs de bureau.</p>
+                </div>
+
+                <!-- Carte 5 -->
+                <div data-aos="fade-up" data-aos-delay="500" class="group bg-slate-900/40 border border-slate-900 hover:border-teal-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-500/5">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-teal-400 transition-colors">Code Optimisé & Propre</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">Des performances techniques de pointe favorisant le référencement et la vitesse de chargement.</p>
+                </div>
+
+                <!-- Carte 6 -->
+                <div data-aos="fade-up" data-aos-delay="600" class="group bg-slate-900/40 border border-slate-900 hover:border-amber-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/5">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2 group-hover:text-amber-400 transition-colors">Évolution Infinie</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed">Ajout de fonctionnalités, refontes ou extensions facilitées grâce à une structure modulaire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TARIFS & OFFRES -->
+    <section id="services" class="py-28 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <span class="text-blue-400 text-xs font-semibold uppercase tracking-widest">Transparence & Efficacité</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-2 tracking-tight animate-gradient-text">Tarifs & Offres</h2>
+            <p class="text-slate-400 max-w-lg mx-auto font-light mt-4">Des prix justes rendus possibles grâce à l'optimisation par l'intelligence artificielle.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <!-- Offre 1 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-900/40 border border-slate-900 hover:border-slate-700 p-8 rounded-3xl flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 card-glow">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Essentiel</span>
+                    <h3 class="text-2xl font-bold mt-6 mb-2">One-Page</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed mb-6">Idéal pour démarrer ou présenter une activité locale rapidement.</p>
+                    <div class="text-3xl font-extrabold mb-6">450 € <span class="text-xs font-normal text-slate-500">/ projet</span></div>
+                    <ul class="space-y-3 text-xs text-slate-300 font-light mb-8">
+                        <li class="flex items-center gap-2">✓ Design responsive natif</li>
+                        <li class="flex items-center gap-2">✓ Sections clés sur-mesure</li>
+                        <li class="flex items-center gap-2">✓ Formulaire de contact</li>
+                        <li class="flex items-center gap-2">✓ Mise en ligne rapide</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-center text-xs font-semibold transition">Choisir Essentiel</a>
+            </div>
+
+            <!-- Offre 2 (Populaire) -->
+            <div data-aos="fade-up" data-aos-delay="200" class="group bg-gradient-to-b from-blue-950/45 to-slate-900/40 border border-blue-500/40 hover:border-blue-500 p-8 rounded-3xl flex flex-col justify-between backdrop-blur-sm relative shadow-2xl shadow-blue-500/10 transition-all duration-300 hover:-translate-y-2">
+                <span class="animate-bounce absolute -top-3 right-8 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-lg">Populaire</span>
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">Business</span>
+                    <h3 class="text-2xl font-bold mt-6 mb-2">Vitrine Pro</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed mb-6">La solution complète pour asseoir une vraie crédibilité en ligne.</p>
+                    <div class="text-3xl font-extrabold mb-6">850 € <span class="text-xs font-normal text-slate-500">/ projet</span></div>
+                    <ul class="space-y-3 text-xs text-slate-300 font-light mb-8">
+                        <li class="flex items-center gap-2">✓ Jusqu'à 5 pages dédiées</li>
+                        <li class="flex items-center gap-2">✓ Animations avancées (AOS)</li>
+                        <li class="flex items-center gap-2">✓ Optimisation SEO on-page</li>
+                        <li class="flex items-center gap-2">✓ Accompagnement & retouches</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-center text-xs font-semibold transition shadow-lg shadow-blue-600/25">Choisir Pro</a>
+            </div>
+
+            <!-- Offre 3 -->
+            <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-900/40 border border-slate-900 hover:border-slate-700 p-8 rounded-3xl flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 card-glow">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Sur-Mesure</span>
+                    <h3 class="text-2xl font-bold mt-6 mb-2">App / Spécifique</h3>
+                    <p class="text-slate-400 text-xs font-light leading-relaxed mb-6">Fonctionnalités avancées, mini-catalogue, connexion base de données.</p>
+                    <div class="text-3xl font-extrabold mb-6">Dépend de la demande du client</div>
+                    <ul class="space-y-3 text-xs text-slate-300 font-light mb-8">
+                        <li class="flex items-center gap-2">✓ Architecture sur-mesure</li>
+                        <li class="flex items-center gap-2">✓ Base de données (Supabase...)</li>
+                        <li class="flex items-center gap-2">✓ Logique applicative dédiée</li>
+                        <li class="flex items-center gap-2">✓ Support prioritaire</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-center text-xs font-semibold transition">Discuter du projet</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-32 px-6 max-w-3xl mx-auto">
+        <div data-aos="zoom-in" class="bg-gradient-to-b from-slate-900/90 to-slate-950 border border-slate-800/80 p-8 md:p-14 rounded-[2.5rem] backdrop-blur-xl relative overflow-hidden shadow-2xl transition-all duration-500 hover:border-slate-700">
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight animate-gradient-text">Parlons de votre projet</h2>
+                <p class="text-slate-400 text-sm font-light">
+                    Remplissez ce formulaire rapide pour m'envoyer un message. Réponse sous 24h.
+                </p>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+    <input type="hidden" name="access_key" value="b3358fe1-a9d5-4b16-b6bf-54a1fab31529">
+    <input type="hidden" name="to" value="studio.pixeldesigner@proton.me">
+    <input type="hidden" name="subject" value="Nouveau contact depuis Pixel Designer">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Votre Nom</label>
+            <input type="text" name="name" required class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300" placeholder="Jean Dupont">
+        </div>
+        <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Votre E-mail</label>
+            <input type="email" name="email" required class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300" placeholder="jean@exemple.com">
+        </div>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Type de projet</label>
+            <select name="type_projet" class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300 cursor-pointer">
+                <option value="Pro - Site Vitrine Entreprise/Artisan">Professionnel (Artisan, Entreprise, Commerce)</option>
+                <option value="Particulier - Portfolio / Blog / Perso">Particulier (Portfolio, Blog, Projet perso)</option>
+                <option value="Autre demande">Autre demande</option>
+            </select>
+        </div>
+        <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Sélection d'offre</label>
+            <select name="offre" class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300 cursor-pointer">
+                <option value="Essentiel - One-Page (450€)">Essentiel — One-Page (450 €)</option>
+                <option value="Business - Vitrine Pro (850€)">Business — Vitrine Pro (850 €)</option>
+                <option value="Sur-Mesure - App / Spécifique">Sur-Mesure — App / Spécifique (Dépend de la demande du client)</option>
+                <option value="Indecis">Je ne sais pas encore quelle offre choisir</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Votre Message</label>
+        <textarea name="message" rows="4" required class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300 resize-none" placeholder="Décrivez votre projet en quelques lignes..."></textarea>
+    </div>
+
+    <!-- Anti-spam honeypot (recommandé) -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+    <button type="submit" class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition duration-300 shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 group transform hover:-translate-y-0.5">
+        <span>Envoyer le message</span>
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+    </button>
+</form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-slate-900 text-center text-xs text-slate-500 font-light">
+        <p>&copy; 2026 Pixel Designer — Conçu avec passion & IA. Hébergé sur GitHub Pages.</p>
+    </footer>
+
+    <!-- Script JavaScript pour initialiser AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
+    </script>
+</body>
+</html>
