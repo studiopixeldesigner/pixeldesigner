@@ -3,35 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Designer - Création de Sites Vitrines | Propulsé par l'IA</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Pixel Designer - Hyper-Cyber HUD Giga-Animé</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- AOS (Animate on Scroll) Library -->
+    <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Configuration Tailwind pour les animations -->
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['"Chakra Petch"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    borderRadius: {'none': '0px'},
                     animation: {
-                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'border-slide': 'borderSlide 3s linear infinite',
-                        'float': 'float 4s ease-in-out infinite',
+                        'fast-pulse': 'pulse 0.6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'border-slide': 'borderSlide 1.5s linear infinite',
+                        'matrix-glow': 'matrixGlow 1s ease-in-out infinite alternate',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'spin-reverse': 'spinReverse 6s linear infinite',
+                        'glitch': 'glitchAnim 0.3s cubic-bezier(.25, .46, .45, .94) infinite both',
                     },
                     keyframes: {
                         borderSlide: {
                             '0%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
-                            '100%': { backgroundPosition: '0% 50%' },
+                            '100%': { backgroundPosition: '200% 50%' },
                         },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-6px)' },
+                        matrixGlow: {
+                            '0%': { opacity: '0.3', textShadow: '0 0 4px rgba(59, 130, 246, 0.5)' },
+                            '100%': { opacity: '1', textShadow: '0 0 20px rgba(59, 130, 246, 1), 0 0 30px rgba(6, 182, 212, 0.8)' },
+                        },
+                        spinReverse: {
+                            '0%': { transform: 'rotate(360deg)' },
+                            '100%': { transform: 'rotate(0deg)' },
+                        },
+                        glitchAnim: {
+                            '0%': { transform: 'translate(0px, 0px) skew(0deg)' },
+                            '20%': { transform: 'translate(-4px, 2px) skew(-12deg)', textShadow: '2px 0 #22d3ee, -2px 0 #ef4444' },
+                            '40%': { transform: 'translate(-2px, -2px) skew(8deg)', textShadow: '-2px 0 #22d3ee, 2px 0 #3b82f6' },
+                            '60%': { transform: 'translate(4px, 2px) skew(-6deg)', textShadow: '3px 0 #ef4444, -3px 0 #22d3ee' },
+                            '80%': { transform: 'translate(-2px, -2px) skew(4deg)' },
+                            '100%': { transform: 'translate(0px, 0px) skew(0deg)' }
                         }
                     }
                 }
@@ -40,9 +62,10 @@
     </script>
     <style>
         .bg-grid {
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-image: 
+                linear-gradient(to right, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
         }
 
         @keyframes gradientMove {
@@ -52,129 +75,357 @@
         }
 
         .animate-gradient-text {
-            background: linear-gradient(270deg, #60a5fa, #818cf8, #c084fc, #60a5fa);
+            background: linear-gradient(270deg, #60a5fa, #3924fd, #4255ff, #06b6d4, #60a5fa);
             background-size: 300% 300%;
-            -webkit-background-clip: text;
             background-clip: text;
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradientMove 6s ease infinite;
+            animation: gradientMove 4s ease infinite;
         }
 
         .btn-animated-border {
-            background: linear-gradient(60deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
-            background-size: 200% 200%;
+            background: linear-gradient(60deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6, #06b6d4);
+            background-size: 300% 300%;
         }
 
-        .card-glow:hover {
-            box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.15);
+        .card-hyper:hover {
+            box-shadow: 0 0 45px -5px rgba(59, 130, 246, 0.6), inset 0 0 15px rgba(59, 130, 246, 0.2);
+            border-color: rgba(6, 182, 212, 1);
         }
 
-        .input-glow:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        .hud-3d-box {
+            transform-style: preserve-3d;
+            perspective: 1200px;
+        }
+
+        @keyframes laserX {
+            0% { transform: translateX(-100%); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateX(200%); opacity: 0; }
+        }
+        @keyframes laserY {
+            0% { transform: translateY(-100%); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(200%); opacity: 0; }
+        }
+        .laser-line-x { animation: laserX 3s ease-in-out infinite; }
+        .laser-line-y { animation: laserY 3.5s ease-in-out infinite; }
+
+        .cursor-blink::after {
+            content: '█';
+            animation: blink 0.5s infinite;
+        }
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+
+        @keyframes tickerLoop {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-wrapper-infinite {
+            display: flex;
+            width: max-content;
+            animation: tickerLoop 18s linear infinite;
+            will-change: transform;
+        }
+
+        .diagonal-glitch-banner {
+            transform: rotate(-4deg);
+            background: linear-gradient(90deg, rgba(6,182,212,0.15) 0%, rgba(59,130,246,0.3) 50%, rgba(6,182,212,0.15) 100%);
+            border-top: 1px dashed rgba(34, 211, 238, 0.5);
+            border-bottom: 1px dashed rgba(34, 211, 238, 0.5);
+            box-shadow: 0 0 35px rgba(6, 182, 212, 0.3);
+        }
+        .glitch-text-hover:hover {
+            animation: glitchAnim 0.3s infinite;
+            color: #22d3ee;
+        }
+
+        .form-hyper-input:focus {
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.4), inset 0 0 10px rgba(6, 182, 212, 0.2);
+            border-color: #22d3ee;
+            transform: scale(1.01);
+        }
+        .form-hyper-input {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes fieldScan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+        .field-laser-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            width: 50%;
+            background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+            animation: fieldScan 3s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        .form-field-wrapper:focus-within .field-laser-bar {
+            opacity: 1;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased bg-grid selection:bg-blue-500 selection:text-white overflow-x-hidden">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased bg-grid selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden relative">
 
-    <!-- ORBES LUMINEUX EN ARRIÈRE-PLAN -->
-    <div class="fixed top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
-    <div class="fixed bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse-slow"></div>
+    <!-- CANVAS PARTICULES / ORBES GÉOMÉTRIQUES FLOTTANTES DYNAMIQUES -->
+    <div class="fixed top-0 left-10 w-96 h-96 bg-blue-600/25 rounded-none blur-[120px] pointer-events-none animate-pulse"></div>
+    <div class="fixed top-1/2 right-10 w-[500px] h-[500px] bg-cyan-600/25 rounded-none blur-[140px] pointer-events-none animate-pulse" style="animation-delay: 1s;"></div>
+    <div class="fixed bottom-0 left-1/3 w-[400px] h-[400px] bg-indigo-600/25 rounded-none blur-[130px] pointer-events-none animate-pulse" style="animation-delay: 2s;"></div>
+
+    <!-- PLUIE DE LASERS GÉOMÉTRIQUES EN BACKGROUND -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden opacity-30 z-0">
+        <div class="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent laser-line-x"></div>
+        <div class="absolute top-2/3 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent laser-line-x" style="animation-delay: 1.5s;"></div>
+        <div class="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-indigo-400 to-transparent laser-line-y"></div>
+        <div class="absolute top-0 left-3/4 w-[1px] h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent laser-line-y" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- TICKER LIVE STREAM D'INFOS EN HAUT DE PAGE -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-slate-950/95 border-b border-slate-800 overflow-hidden h-7 flex items-center text-[10px] font-mono text-cyan-400">
+        <div class="ticker-wrapper-infinite" style="animation-duration: 20s;">
+            <div class="flex items-center shrink-0">
+                <span class="mx-6">⚡ [SYSTEM_GIGA_ACTIVE] // CPU_LOAD: <span id="ticker-cpu">94.2%</span> // RENDER: 60FPS // GRID: LOCKED // STATUS: HYPER-BOOSTED</span>
+                <span class="mx-6">⚡ [SECURITY_CHECK] // ENCRYPTION: AES-256 // NODES: 128 ACTIVE // PING: 0.14ms // READY FOR OVERDRIVE</span>
+            </div>
+            <div class="flex items-center shrink-0" aria-hidden="true">
+                <span class="mx-6">⚡ [SYSTEM_GIGA_ACTIVE] // CPU_LOAD: <span id="ticker-cpu-2">91.8%</span> // RENDER: 60FPS // GRID: LOCKED // STATUS: HYPER-BOOSTED</span>
+                <span class="mx-6">⚡ [SECURITY_CHECK] // ENCRYPTION: AES-256 // NODES: 128 ACTIVE // PING: 0.14ms // READY FOR OVERDRIVE</span>
+            </div>
+        </div>
+    </div>
 
     <!-- HEADER / NAVIGATION -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/60 backdrop-blur-xl border-b border-slate-900 transition-all duration-300">
+    <header class="fixed top-7 left-0 right-0 z-40 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80 transition-all">
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-tight bg-gradient-to-r from-blue-400 via-indigo-300 to-white bg-clip-text text-transparent hover:opacity-85 transition flex items-center gap-2">
-                <span class="w-3 h-3 bg-blue-500 rounded-sm inline-block shadow-lg shadow-blue-500/50 animate-float"></span>
-                Pixel<span class="text-blue-500 font-light">Designer</span>
+            <a href="#" class="text-lg font-bold tracking-widest uppercase text-white hover:text-cyan-400 transition flex items-center gap-3 group">
+                <span class="relative w-4 h-4 flex items-center justify-center">
+                    <span class="w-full h-full bg-blue-500 rounded-none animate-ping absolute opacity-75"></span>
+                    <span class="w-3 h-3 bg-cyan-400 rounded-none relative z-10 group-hover:rotate-45 transition-transform duration-300"></span>
+                </span>
+                PIXEL<span class="text-cyan-400 font-normal">DESIGNER</span>
             </a>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
-                <a href="#projets" class="hover:text-blue-400 transition hover:-translate-y-0.5 duration-200">Réalisations</a>
-                <a href="#approche" class="hover:text-blue-400 transition hover:-translate-y-0.5 duration-200">L'Approche IA</a>
-                <a href="#services" class="hover:text-blue-400 transition hover:-translate-y-0.5 duration-200">Tarifs & Offres</a>
+            <nav class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <a href="#projets" class="hover:text-cyan-400 transition relative py-1 group/nav">Réalisations<span class="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-400 group-hover/nav:w-full transition-all duration-300"></span></a>
+                <a href="#approche" class="hover:text-cyan-400 transition relative py-1 group/nav">L'Approche IA<span class="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-400 group-hover/nav:w-full transition-all duration-300"></span></a>
+                <a href="#services" class="hover:text-cyan-400 transition relative py-1 group/nav">Tarifs & Offres<span class="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-400 group-hover/nav:w-full transition-all duration-300"></span></a>
             </nav>
-            <a href="#contact" class="relative group overflow-hidden rounded-full p-[1.5px] focus:outline-none shadow-lg shadow-purple-500/15">
-                <span class="absolute inset-0 btn-animated-border rounded-full animate-border-slide"></span>
-                <span class="relative px-5 py-2.5 rounded-full bg-slate-950 text-white text-xs font-semibold tracking-wide flex items-center gap-2 group-hover:bg-slate-900/90 transition-colors">
-                    Lancer un projet
+            <a href="#contact" class="relative group overflow-hidden rounded-none p-[1.5px]">
+                <span class="absolute inset-0 btn-animated-border rounded-none animate-border-slide"></span>
+                <span class="relative px-5 py-2.5 rounded-none bg-slate-950 text-white text-xs font-bold tracking-widest uppercase flex items-center gap-2 group-hover:bg-slate-900 transition-colors">
+                    COMMENCER [►]
                 </span>
             </a>
         </div>
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-40 pb-28 md:pt-48 md:pb-36 px-6 text-center max-w-5xl mx-auto">
-        <div data-aos="fade-down" data-aos-duration="1000">
-            <span class="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider mb-6 border border-blue-500/20 backdrop-blur-md shadow-lg shadow-blue-500/5">
-                <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span> 
-                Pixel Designer — Propulsé par l'IA & le Code Sur-Mesure
-            </span>
-        </div>
-        
-        <h1 data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000" class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
-            Des sites vitrines d'exception pour <span class="animate-gradient-text">Pro & Particuliers</span>
-        </h1>
-        
-        <p data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000" class="text-base sm:text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-            Alliez la précision du design numérique, la puissance de l'IA et une esthétique soignée pour propulser votre présence en ligne.
-        </p>
-        
-        <div data-aos="fade-up" data-aos-delay="450" data-aos-duration="1000" class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#projets" class="group relative px-8 py-4 rounded-2xl bg-blue-600 text-white font-medium text-sm overflow-hidden shadow-xl shadow-blue-600/25 hover:bg-blue-500 transition duration-300 transform hover:-translate-y-1">
-                <span class="relative z-10 flex items-center justify-center gap-2">
-                    Voir les réalisations 
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+    <section class="relative pt-48 pb-20 md:pt-56 md:pb-28 px-6 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
+        <div class="lg:col-span-7 text-left">
+            <div data-aos="fade-down" data-aos-duration="500" class="flex flex-wrap gap-2 mb-6">
+                <span class="inline-flex items-center gap-2 bg-blue-500/15 text-blue-300 text-[10px] font-bold px-3 py-1 rounded-none border border-blue-500/40 uppercase tracking-widest animate-pulse">
+                    <span class="w-2 h-2 bg-cyan-400 rounded-none animate-ping"></span> 
+                    OVERDRIVE_MODE: ON
                 </span>
-            </a>
-            <a href="#contact" class="px-8 py-4 rounded-2xl bg-slate-900/85 text-slate-200 font-medium text-sm border border-slate-800 hover:border-slate-700 hover:bg-slate-900 transition duration-300 transform hover:-translate-y-1 backdrop-blur-md">
-                Discuter de votre idée
-            </a>
+                <span class="inline-flex items-center gap-2 bg-cyan-500/15 text-cyan-300 text-[10px] font-bold px-3 py-1 rounded-none border border-cyan-500/40 uppercase tracking-widest font-mono">
+                    FPS: <span id="hero-fps-counter">60</span>
+                </span>
+            </div>
+            
+            <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tighter uppercase mb-8 leading-[1.05]">
+                Des sites vitrines d'exception pour <span class="animate-gradient-text">Pro & Particuliers</span>
+            </h1>
+            
+            <p data-aos="fade-up" data-aos-delay="200" class="text-sm sm:text-base md:text-lg text-slate-400 mb-12 max-w-2xl font-normal leading-relaxed">
+                Alliez la précision du design numérique, la puissance de l'IA et une esthétique soignée pour propulser votre présence en ligne.
+            </p>
+            
+            <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4">
+                <a href="#projets" class="group relative px-8 py-4 rounded-none bg-cyan-500 text-slate-950 font-bold text-xs uppercase tracking-widest overflow-hidden shadow-lg shadow-cyan-500/40 hover:bg-cyan-400 transition duration-300">
+                    <span class="relative z-10 flex items-center justify-center gap-3">
+                        Voir mes projets 
+                        <span class="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                    </span>
+                </a>
+                <a href="#contact" class="px-8 py-4 rounded-none bg-slate-900 text-slate-200 font-bold text-xs uppercase tracking-widest border border-slate-700 hover:border-cyan-400 hover:bg-slate-800 transition duration-300 text-center">
+                   Je me lance
+                </a>
+            </div>
+        </div>
+
+        <!-- HUD TERMINAL ULTRA-ANIMÉ -->
+        <div class="lg:col-span-5 hud-3d-box" data-aos="fade-left" data-aos-duration="700">
+            <div class="bg-slate-950/95 border-2 border-cyan-500/50 hover:border-cyan-400 rounded-none overflow-hidden relative shadow-[0_0_50px_rgba(6,182,212,0.25)] transition-all duration-300 group">
+                
+                <div class="absolute top-1 left-1 w-3 h-3 border-t-2 border-l-2 border-cyan-400 pointer-events-none z-30"></div>
+                <div class="absolute top-1 right-1 w-3 h-3 border-t-2 border-r-2 border-cyan-400 pointer-events-none z-30"></div>
+                <div class="absolute bottom-1 left-1 w-3 h-3 border-b-2 border-l-2 border-cyan-400 pointer-events-none z-30"></div>
+                <div class="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-cyan-400 pointer-events-none z-30"></div>
+
+                <div class="bg-slate-900 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between font-mono text-[10px]">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-cyan-400 animate-spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2" stroke-dasharray="4 4"/></svg>
+                        <span class="text-slate-200 font-bold">HUD_CORE//LIVE_STREAM_v9.9</span>
+                    </div>
+                    <div class="text-cyan-400 animate-matrix-glow font-bold">[LOCKED_90°]</div>
+                </div>
+
+                <div class="p-4 space-y-3 font-mono text-xs relative">
+                    <div class="grid grid-cols-4 gap-2 text-[10px]">
+                        <div class="bg-slate-900 border border-slate-800 hover:border-cyan-400 p-2 transition-all relative overflow-hidden group/box">
+                            <div class="text-slate-500 text-[9px]">CPU_IA</div>
+                            <div id="live-cpu" class="text-cyan-400 font-bold mt-0.5 text-xs">96.8%</div>
+                            <div class="w-full bg-slate-950 h-1 mt-1.5 overflow-hidden"><div id="bar-cpu" class="h-full bg-cyan-400 w-[96%] transition-all duration-300"></div></div>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 hover:border-blue-400 p-2 transition-all">
+                            <div class="text-slate-500 text-[9px]">PING</div>
+                            <div id="live-ping" class="text-blue-400 font-bold mt-0.5 text-xs">0.18ms</div>
+                            <div class="w-full bg-slate-950 h-1 mt-1.5 overflow-hidden"><div id="bar-ping" class="h-full bg-blue-400 w-[25%] transition-all duration-300"></div></div>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 hover:border-purple-400 p-2 transition-all">
+                            <div class="text-slate-500 text-[9px]">MEM_BUF</div>
+                            <div id="live-mem" class="text-purple-400 font-bold mt-0.5 text-xs">4.2 GB</div>
+                            <div class="w-full bg-slate-950 h-1 mt-1.5 overflow-hidden"><div id="bar-mem" class="h-full bg-purple-400 w-[70%] transition-all duration-300"></div></div>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 hover:border-emerald-400 p-2 transition-all">
+                            <div class="text-slate-500 text-[9px]">NODES</div>
+                            <div id="live-node-count" class="text-emerald-400 font-bold mt-0.5 text-xs">128_CH</div>
+                            <div class="w-full bg-slate-950 h-1 mt-1.5 overflow-hidden"><div id="bar-node" class="h-full bg-emerald-400 w-[90%] transition-all duration-300"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/80 border border-slate-800 p-3 relative flex items-center justify-between overflow-hidden">
+                        <div class="space-y-1 relative z-10">
+                            <div class="text-[9px] text-slate-400">// VECTOR_MATRIX_SYNC</div>
+                            <div class="text-sm font-bold text-white flex items-center gap-2">
+                                <span class="w-2 h-2 bg-cyan-400 animate-ping"></span>
+                                <span id="vector-status-text">GRID_OPTIMIZED</span>
+                            </div>
+                            <div class="text-[9px] text-cyan-400 font-mono" id="vector-coords">X: 1024 / Y: 768 / Z: 90</div>
+                        </div>
+                        <div class="relative w-16 h-16 flex items-center justify-center">
+                            <svg class="w-full h-full text-blue-500/40 animate-spin-slow" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="10 5"/></svg>
+                            <svg class="w-10 h-10 text-cyan-400 animate-spin-reverse absolute" viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" stroke-width="6"/></svg>
+                            <span id="center-ticker-num" class="text-[9px] font-bold text-white z-20">99</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 p-2.5 space-y-2">
+                        <div class="flex justify-between text-[9px] text-slate-400">
+                            <span>NEURAL_LOAD_BALANCER</span>
+                            <span id="neural-pct" class="text-cyan-400">92%</span>
+                        </div>
+                        <div class="grid grid-cols-12 gap-0.5 h-2 bg-slate-950 p-0.5 border border-slate-800" id="micro-bars">
+                        </div>
+                    </div>
+
+                    <div class="bg-black/90 border border-slate-800 p-2.5 text-[9px] font-mono h-24 overflow-hidden flex flex-col justify-end space-y-0.5">
+                        <div id="tlog-4" class="text-slate-600">&gt; check grid integrity 90°... OK</div>
+                        <div id="tlog-3" class="text-slate-400">&gt; inject style square brutalism... DONE</div>
+                        <div id="tlog-2" class="text-blue-400">&gt; compile neural assets sequence... SYNC</div>
+                        <div id="tlog-1" class="text-cyan-400 cursor-blink">&gt; overdrive stream active 60fps... LOCKED</div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 px-4 py-2 border-t border-slate-800 flex justify-between items-center text-[9px] font-mono text-slate-500">
+                    <span id="hud-live-clock">TIME: 00:00:00.00</span>
+                    <span class="text-cyan-400 flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-cyan-400 animate-ping"></span>GIGA_SYNC_OK</span>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- BANDE DIAGONALE FLUIDE CONTINUE -->
+    <div class="my-14 relative z-30 w-full overflow-visible py-12 flex justify-center items-center">
+        <div class="relative w-[150vw] -ml-[25vw] py-6 diagonal-glitch-banner font-mono text-sm md:text-base uppercase tracking-[0.25em] text-cyan-300 overflow-hidden">
+            <div class="ticker-wrapper-infinite" style="animation-duration: 18s;">
+                <div class="flex items-center shrink-0 whitespace-nowrap">
+                    <span class="mx-6 text-cyan-300 glitch-text-hover font-bold">[GLITCH_NODE_ERR_09]</span>
+                    <span class="mx-6 text-red-400 glitch-text-hover font-bold">⚠️ OVERRIDE_MATRIX_90°</span>
+                    <span class="mx-6 text-blue-300 glitch-text-hover font-bold">■ SYS_CORRUPTED_STREAM</span>
+                    <span class="mx-6 text-emerald-300 glitch-text-hover font-bold">⚡ OVERDRIVE_V9.9_ACTIVE</span>
+                    <span class="mx-6 text-cyan-300 glitch-text-hover font-bold">[GLITCH_NODE_ERR_09]</span>
+                    <span class="mx-6 text-red-400 glitch-text-hover font-bold">⚠️ OVERRIDE_MATRIX_90°</span>
+                    <span class="mx-6 text-blue-300 glitch-text-hover font-bold">■ SYS_CORRUPTED_STREAM</span>
+                    <span class="mx-6 text-emerald-300 glitch-text-hover font-bold">⚡ OVERDRIVE_V9.9_ACTIVE</span>
+                </div>
+                <div class="flex items-center shrink-0 whitespace-nowrap" aria-hidden="true">
+                    <span class="mx-6 text-cyan-300 glitch-text-hover font-bold">[GLITCH_NODE_ERR_09]</span>
+                    <span class="mx-6 text-red-400 glitch-text-hover font-bold">⚠️ OVERRIDE_MATRIX_90°</span>
+                    <span class="mx-6 text-blue-300 glitch-text-hover font-bold">■ SYS_CORRUPTED_STREAM</span>
+                    <span class="mx-6 text-emerald-300 glitch-text-hover font-bold">⚡ OVERDRIVE_V9.9_ACTIVE</span>
+                    <span class="mx-6 text-cyan-300 glitch-text-hover font-bold">[GLITCH_NODE_ERR_09]</span>
+                    <span class="mx-6 text-red-400 glitch-text-hover font-bold">⚠️ OVERRIDE_MATRIX_90°</span>
+                    <span class="mx-6 text-blue-300 glitch-text-hover font-bold">■ SYS_CORRUPTED_STREAM</span>
+                    <span class="mx-6 text-emerald-300 glitch-text-hover font-bold">⚡ OVERDRIVE_V9.9_ACTIVE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- PROJETS SECTION -->
-    <section id="projets" class="py-28 px-6 max-w-6xl mx-auto">
+    <section id="projets" class="py-28 px-6 max-w-6xl mx-auto relative z-10">
         <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight animate-gradient-text">Réalisations Récentes</h2>
-            <p class="text-slate-400 max-w-lg mx-auto font-light">Une vitrine de mes derniers sites conçus avec assistance IA et design moderne.</p>
+            <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">[INDEX_01 // RÉALISATIONS]</span>
+            <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mt-2 animate-gradient-text">Grille de Déploiement</h2>
+            <p class="text-slate-400 max-w-lg mx-auto font-light text-xs md:text-sm mt-3">Une vitrine de mes derniers sites conçus avec assistance IA et design moderne.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Projet 1 -->
-            <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-900/40 border border-slate-900 hover:border-slate-700/80 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 card-glow backdrop-blur-sm flex flex-col">
-                <div class="h-52 bg-slate-900/80 relative overflow-hidden flex items-center justify-center">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <span class="text-slate-500 text-sm font-mono tracking-wider group-hover:scale-110 transition-transform duration-500">[ Capture d'écran ]</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-900/60 border border-slate-800 hover:border-cyan-400 rounded-none overflow-hidden transition-all duration-300 card-hyper flex flex-col relative">
+                <div class="absolute top-0 right-0 w-10 h-10 pointer-events-none overflow-hidden z-20">
+                    <div class="w-full h-full bg-cyan-500/30 transform rotate-45 translate-x-5 -translate-y-5 group-hover:bg-cyan-400 transition-colors"></div>
+                </div>
+                <div class="h-64 bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
+                    <div class="absolute inset-0 bg-grid opacity-30 group-hover:scale-125 transition-transform duration-700"></div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-cyan-600/30 via-transparent to-blue-600/30 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-full h-1 bg-cyan-400/80 shadow-[0_0_15px_#22d3ee] absolute top-0 animate-[scan_2s_ease-in-out_infinite] pointer-events-none"></div>
+                    <div class="text-center font-mono transform group-hover:scale-110 transition-transform duration-300 relative z-10">
+                        <span class="text-cyan-400 text-[10px] block mb-1 tracking-widest animate-pulse">[EN COURS DE DÉPLOIEMENT...]</span>
+                        <span class="text-white text-lg font-bold tracking-widest uppercase">SMART REPARE</span>
+                    </div>
                 </div>
                 <div class="p-8 flex flex-col flex-grow">
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Réparation Informatique</span>
-                        <span class="text-xs text-slate-500 font-mono">2026</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-none bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 group-hover:bg-cyan-400 group-hover:text-slate-950 transition-colors">Réparation Informatique</span>
+                        <span class="text-xs text-slate-500 font-mono">2026.08 //</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">SMART REPARE</h3>
-                    <p class="text-slate-400 text-sm mb-6 font-light leading-relaxed flex-grow">Design épuré axé sur la conversion rapide des visiteurs en appels téléphoniques.</p>
-                    <a href="https://smart-repare.fr" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-blue-400 group-hover:text-blue-300 transition-colors">
-                        Visiter le site 
-                        <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <h3 class="text-xl font-bold uppercase mb-2 group-hover:text-cyan-400 transition-colors">SMART REPARE</h3>
+                    <p class="text-slate-400 text-xs font-light mb-8 leading-relaxed flex-grow">Site vitrine multipage doté d'une section administrative pour gérer les tarifs des différents services proposés sur le site.</p>
+                    <a href="" target="_blank" class="inline-flex items-center justify-between text-xs font-bold tracking-widest uppercase text-cyan-400 group-hover:text-slate-950 transition-all bg-cyan-500/5 group-hover:bg-cyan-400 px-4 py-3 border border-cyan-500/30">
+                        <span>Accéder au site</span>
+                        <span class="group-hover:translate-x-1.5 transition-transform">→</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Projet 2 -->
-            <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-900/40 border border-slate-900 hover:border-slate-700/80 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 card-glow backdrop-blur-sm flex flex-col">
-                <div class="h-52 bg-slate-900/80 relative overflow-hidden flex items-center justify-center">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-600/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <img src="images_sites/chickenburger.png" alt="Aperçu CHICKEN BURGER" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-900/60 border border-slate-800 hover:border-blue-400 rounded-none overflow-hidden transition-all duration-300 card-hyper flex flex-col relative">
+                <div class="absolute top-0 right-0 w-10 h-10 pointer-events-none overflow-hidden z-20">
+                    <div class="w-full h-full bg-blue-500/30 transform rotate-45 translate-x-5 -translate-y-5 group-hover:bg-blue-400 transition-colors"></div>
+                </div>
+                <div class="h-64 bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-800">
+                    <div class="w-full h-1 bg-blue-400/80 shadow-[0_0_15px_#3b82f6] absolute top-0 animate-[scan_2.5s_ease-in-out_infinite] pointer-events-none"></div>
+                    <div class="text-center font-mono transform group-hover:scale-110 transition-transform duration-300 relative z-10">
+                        <span class="text-cyan-400 text-[10px] block mb-1 tracking-widest animate-pulse">[EN COURS DE DÉPLOIEMENT...]</span>
+                        <span class="text-white text-lg font-bold tracking-widest uppercase">CHICKEN BURGER</span>
+                    </div>
+                    <!-- IMAGE CHICKEN BURGER SITE-->
+                    <div class="absolute inset-0 bg-blue-950/40 group-hover:opacity-0 transition-opacity"></div>
                 </div>
                 <div class="p-8 flex flex-col flex-grow">
                     <div class="flex items-center justify-between mb-4">
-                        <span class="text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">RESTAURATION</span>
-                        <span class="text-xs text-slate-500 font-mono">2026</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-none bg-blue-500/10 text-blue-400 border border-blue-500/30 group-hover:bg-blue-400 group-hover:text-slate-950 transition-colors">RESTAURATION</span>
+                        <span class="text-xs text-slate-500 font-mono">2026.09 //</span>
                     </div>
-                    <h3 class="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">CHICKEN BURGER</h3>
-                    <p class="text-slate-400 text-sm mb-6 font-light leading-relaxed flex-grow">Site vitrine gourmand doté d'un catalogue dynamique et d'un back-office de gestion simplifié.</p>
-                    <a href="https://chicken-burger.fr" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-indigo-400 group-hover:text-indigo-300 transition-colors">
-                        Visiter le site 
-                        <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <h3 class="text-xl font-bold uppercase mb-2 group-hover:text-blue-400 transition-colors">CHICKEN BURGER</h3>
+                    <p class="text-slate-400 text-xs font-light mb-8 leading-relaxed flex-grow">Site vitrine gourmand doté d'un catalogue dynamique et d'un back-office de gestion simplifié.</p>
+                    <a href="https://chicken-burger.fr" target="_blank" class="inline-flex items-center justify-between text-xs font-bold tracking-widest uppercase text-blue-400 group-hover:text-slate-950 transition-all bg-blue-500/5 group-hover:bg-blue-400 px-4 py-3 border border-blue-500/30">
+                        <span>Accéder au site</span>
+                        <span class="group-hover:translate-x-1.5 transition-transform">→</span>
                     </a>
                 </div>
             </div>
@@ -182,314 +433,413 @@
     </section>
 
     <!-- SECTION APPROCHE IA -->
-    <section id="approche" class="py-28 bg-slate-900/20 border-y border-slate-900/80 relative overflow-hidden">
-        <div class="max-w-6xl mx-auto px-6">
+    <section id="approche" class="py-28 bg-slate-900/50 border-y border-slate-800 relative overflow-hidden z-10">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-blue-400 text-xs font-semibold uppercase tracking-widest">Le futur du développement web</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-2 tracking-tight animate-gradient-text">Pourquoi l'IA est l'outil idéal pour vos projets ?</h2>
-                <p class="text-slate-400 text-sm max-w-2xl mx-auto mt-4 font-light leading-relaxed">
+                <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">[INDEX_02 // MÉTHODE HYPER-AI]</span>
+                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mt-2 animate-gradient-text">Pourquoi l'IA est l'outil idéal pour vos projets ?</h2>
+                <p class="text-slate-400 text-xs md:text-sm max-w-2xl mx-auto mt-4 font-light leading-relaxed">
                     Aujourd'hui, l'intelligence artificielle est devenue l'accélérateur ultime de projets. Elle permet de fusionner rapidité d'exécution et excellence technique pour donner vie à n'importe quelle vision web instantanément.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Carte 1 -->
-                <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-900/40 border border-slate-900 hover:border-blue-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/5">
-                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-blue-400 transition-colors">Vitesse d'Exécution</h3>
+                <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-950 border border-slate-800 hover:border-cyan-400 p-8 rounded-none transition-all duration-300 hover:-translate-y-2 relative overflow-hidden card-hyper">
+                    <div class="absolute top-0 left-0 w-1.5 h-0 bg-cyan-400 group-hover:h-full transition-all duration-300"></div>
+                    <div class="w-10 h-10 rounded-none bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 font-mono text-xs font-bold group-hover:bg-cyan-400 group-hover:text-slate-950 transition-colors transform group-hover:rotate-45 duration-300">01</div>
+                    <h3 class="text-base font-bold uppercase mb-2 group-hover:text-cyan-400 transition-colors">Vitesse d'Exécution</h3>
                     <p class="text-slate-400 text-xs font-light leading-relaxed">Génération instantanée de structures complexes et de codes propres pour un déploiement éclair.</p>
                 </div>
 
-                <!-- Carte 2 -->
-                <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-900/40 border border-slate-900 hover:border-indigo-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/5">
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-indigo-400 transition-colors">Sur-Mesure & Créativité</h3>
+                <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-950 border border-slate-800 hover:border-blue-400 p-8 rounded-none transition-all duration-300 hover:-translate-y-2 relative overflow-hidden card-hyper">
+                    <div class="absolute top-0 left-0 w-1.5 h-0 bg-blue-400 group-hover:h-full transition-all duration-300"></div>
+                    <div class="w-10 h-10 rounded-none bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-6 font-mono text-xs font-bold group-hover:bg-blue-400 group-hover:text-slate-950 transition-colors transform group-hover:rotate-45 duration-300">02</div>
+                    <h3 class="text-base font-bold uppercase mb-2 group-hover:text-blue-400 transition-colors">Sur-Mesure & Créativité</h3>
                     <p class="text-slate-400 text-xs font-light leading-relaxed">L'IA sert de levier créatif. Je supervise l'architecture et peaufine chaque détail pour un design unique.</p>
                 </div>
 
-                <!-- Carte 3 -->
-                <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-900/40 border border-slate-900 hover:border-purple-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/5">
-                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition-colors">Rapport Qualité/Prix</h3>
+                <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-950 border border-slate-800 hover:border-purple-400 p-8 rounded-none transition-all duration-300 hover:-translate-y-2 relative overflow-hidden card-hyper">
+                    <div class="absolute top-0 left-0 w-1.5 h-0 bg-purple-400 group-hover:h-full transition-all duration-300"></div>
+                    <div class="w-10 h-10 rounded-none bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6 font-mono text-xs font-bold group-hover:bg-purple-400 group-hover:text-slate-950 transition-colors transform group-hover:rotate-45 duration-300">03</div>
+                    <h3 class="text-base font-bold uppercase mb-2 group-hover:text-purple-400 transition-colors">Rapport Qualité/Prix</h3>
                     <p class="text-slate-400 text-xs font-light leading-relaxed">Un gain de temps massif répercuté directement sur les tarifs pour rendre le web pro accessible.</p>
                 </div>
 
-                <!-- Carte 4 -->
-                <div data-aos="fade-up" data-aos-delay="400" class="group bg-slate-900/40 border border-slate-900 hover:border-pink-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/5">
-                    <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-pink-400 transition-colors">Responsive Natif</h3>
+                <div data-aos="fade-up" data-aos-delay="400" class="group bg-slate-950 border border-slate-800 hover:border-emerald-400 p-8 rounded-none transition-all duration-300 hover:-translate-y-2 relative overflow-hidden card-hyper">
+                    <div class="absolute top-0 left-0 w-1.5 h-0 bg-emerald-400 group-hover:h-full transition-all duration-300"></div>
+                    <div class="w-10 h-10 rounded-none bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 font-mono text-xs font-bold group-hover:bg-emerald-400 group-hover:text-slate-950 transition-colors transform group-hover:rotate-45 duration-300">04</div>
+                    <h3 class="text-base font-bold uppercase mb-2 group-hover:text-emerald-400 transition-colors">Responsive Natif</h3>
                     <p class="text-slate-400 text-xs font-light leading-relaxed">Adaptabilité fluide garantie sur tous les écrans : mobiles, tablettes et ordinateurs de bureau.</p>
                 </div>
 
-                <!-- Carte 5 -->
-                <div data-aos="fade-up" data-aos-delay="500" class="group bg-slate-900/40 border border-slate-900 hover:border-teal-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-500/5">
-                    <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-teal-400 transition-colors">Code Optimisé & Propre</h3>
+                <div data-aos="fade-up" data-aos-delay="500" class="group bg-slate-950 border border-slate-800 hover:border-amber-400 p-8 rounded-none transition-all duration-300 hover:-translate-y-2 relative overflow-hidden card-hyper">
+                    <div class="absolute top-0 left-0 w-1.5 h-0 bg-amber-400 group-hover:h-full transition-all duration-300"></div>
+                    <div class="w-10 h-10 rounded-none bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6 font-mono text-xs font-bold group-hover:bg-amber-400 group-hover:text-slate-950 transition-colors transform group-hover:rotate-45 duration-300">05</div>
+                    <h3 class="text-base font-bold uppercase mb-2 group-hover:text-amber-400 transition-colors">Code Optimisé & Propre</h3>
                     <p class="text-slate-400 text-xs font-light leading-relaxed">Des performances techniques de pointe favorisant le référencement et la vitesse de chargement.</p>
                 </div>
 
-                <!-- Carte 6 -->
-                <div data-aos="fade-up" data-aos-delay="600" class="group bg-slate-900/40 border border-slate-900 hover:border-amber-500/40 p-8 rounded-3xl backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/5">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-amber-400 transition-colors">Évolution Infinie</h3>
+                <div data-aos="fade-up" data-aos-delay="600" class="group bg-slate-950 border border-slate-800 hover:border-cyan-400 p-8 rounded-none transition-all duration-300 hover:-translate-y-2 relative overflow-hidden card-hyper">
+                    <div class="absolute top-0 left-0 w-1.5 h-0 bg-cyan-400 group-hover:h-full transition-all duration-300"></div>
+                    <div class="w-10 h-10 rounded-none bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 font-mono text-xs font-bold group-hover:bg-cyan-400 group-hover:text-slate-950 transition-colors transform group-hover:rotate-45 duration-300">06</div>
+                    <h3 class="text-base font-bold uppercase mb-2 group-hover:text-cyan-400 transition-colors">Évolution Infinie</h3>
                     <p class="text-slate-400 text-xs font-light leading-relaxed">Ajout de fonctionnalités, refontes ou extensions facilitées grâce à une structure modulaire.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION TARIFS & OFFRES -->
-    <section id="services" class="py-28 px-6 max-w-6xl mx-auto">
+    <!-- SECTION TARIFS & OFFRES HUD -->
+    <section id="services" class="py-28 px-6 max-w-6xl mx-auto relative z-10">
         <div class="text-center mb-20" data-aos="fade-up">
-            <span class="text-blue-400 text-xs font-semibold uppercase tracking-widest">Transparence & Efficacité</span>
-            <h2 class="text-3xl md:text-4xl font-bold mt-2 tracking-tight animate-gradient-text">Tarifs & Offres</h2>
-            <p class="text-slate-400 max-w-lg mx-auto font-light mt-4">Des prix justes rendus possibles grâce à l'optimisation par l'intelligence artificielle.</p>
+            <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">[INDEX_03 // TARIFICATION]</span>
+            <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mt-2 animate-gradient-text">Tarifs & Offres</h2>
+            <p class="text-slate-400 max-w-lg mx-auto font-light text-xs md:text-sm mt-3">Des prix justes rendus possibles grâce à l'optimisation par l'intelligence artificielle.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-            <!-- Offre 1 -->
-            <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-900/40 border border-slate-900 hover:border-slate-700 p-8 rounded-3xl flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 card-glow">
+            <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-900/40 border border-slate-800 hover:border-slate-500 p-8 rounded-none flex flex-col justify-between transition-all duration-300 card-hyper">
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">Essentiel</span>
-                    <h3 class="text-2xl font-bold mt-6 mb-2">One-Page</h3>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-none border border-cyan-500/20">MODULE_01</span>
+                    <h3 class="text-2xl font-bold uppercase mt-6 mb-2 group-hover:text-cyan-400 transition-colors">One-Page</h3>
                     <p class="text-slate-400 text-xs font-light leading-relaxed mb-6">Idéal pour démarrer ou présenter une activité locale rapidement.</p>
-                    <div class="text-3xl font-extrabold mb-6">450 € <span class="text-xs font-normal text-slate-500">/ projet</span></div>
+                    <div class="text-3xl font-extrabold mb-6 font-mono text-white">450 € <span class="text-xs font-normal text-slate-500">/ net</span></div>
                     <ul class="space-y-3 text-xs text-slate-300 font-light mb-8">
-                        <li class="flex items-center gap-2">✓ Design responsive natif</li>
-                        <li class="flex items-center gap-2">✓ Sections clés sur-mesure</li>
-                        <li class="flex items-center gap-2">✓ Formulaire de contact</li>
-                        <li class="flex items-center gap-2">✓ Mise en ligne rapide</li>
+                        <li class="flex items-center gap-2">■ Design responsive natif</li>
+                        <li class="flex items-center gap-2">■ Sections clés sur-mesure</li>
+                        <li class="flex items-center gap-2">■ Formulaire de contact</li>
+                        <li class="flex items-center gap-2">■ Mise en ligne rapide</li>
                     </ul>
                 </div>
-                <a href="#contact" class="w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-center text-xs font-semibold transition">Choisir Essentiel</a>
+                <a href="#contact" class="w-full py-3.5 rounded-none bg-slate-800 group-hover:bg-cyan-400 group-hover:text-slate-950 text-center text-xs font-bold uppercase tracking-widest transition duration-300">Sélectionner [►]</a>
             </div>
 
-            <!-- Offre 2 (Populaire) -->
-            <div data-aos="fade-up" data-aos-delay="200" class="group bg-gradient-to-b from-blue-950/45 to-slate-900/40 border border-blue-500/40 hover:border-blue-500 p-8 rounded-3xl flex flex-col justify-between backdrop-blur-sm relative shadow-2xl shadow-blue-500/10 transition-all duration-300 hover:-translate-y-2">
-                <span class="animate-bounce absolute -top-3 right-8 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-lg">Populaire</span>
+            <div data-aos="fade-up" data-aos-delay="200" class="group bg-blue-950/25 border-2 border-cyan-500/70 hover:border-cyan-400 p-8 rounded-none flex flex-col justify-between relative shadow-[0_0_30px_rgba(6,182,212,0.2)] transition-all duration-300 card-hyper">
+                <span class="absolute -top-3 right-6 bg-cyan-400 text-slate-950 text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-none animate-fast-pulse">POPULAIRE</span>
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">Business</span>
-                    <h3 class="text-2xl font-bold mt-6 mb-2">Vitrine Pro</h3>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1 rounded-none border border-blue-500/20">MODULE_02</span>
+                    <h3 class="text-2xl font-bold uppercase mt-6 mb-2 group-hover:text-cyan-400 transition-colors">Vitrine Pro</h3>
                     <p class="text-slate-400 text-xs font-light leading-relaxed mb-6">La solution complète pour asseoir une vraie crédibilité en ligne.</p>
-                    <div class="text-3xl font-extrabold mb-6">850 € <span class="text-xs font-normal text-slate-500">/ projet</span></div>
+                    <div class="text-3xl font-extrabold mb-6 font-mono text-white">850 € <span class="text-xs font-normal text-slate-500">/ net</span></div>
                     <ul class="space-y-3 text-xs text-slate-300 font-light mb-8">
-                        <li class="flex items-center gap-2">✓ Jusqu'à 5 pages dédiées</li>
-                        <li class="flex items-center gap-2">✓ Animations avancées (AOS)</li>
-                        <li class="flex items-center gap-2">✓ Optimisation SEO on-page</li>
-                        <li class="flex items-center gap-2">✓ Accompagnement & retouches</li>
+                        <li class="flex items-center gap-2">■ Jusqu'à 5 pages structurées</li>
+                        <li class="flex items-center gap-2">■ Animations avancées (AOS)</li>
+                        <li class="flex items-center gap-2">■ Optimisation SEO on-page</li>
+                        <li class="flex items-center gap-2">■ Retouches & accompagnement</li>
                     </ul>
                 </div>
-                <a href="#contact" class="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-center text-xs font-semibold transition shadow-lg shadow-blue-600/25">Choisir Pro</a>
+                <a href="#contact" class="w-full py-3.5 rounded-none bg-cyan-400 hover:bg-cyan-300 text-slate-950 text-center text-xs font-bold uppercase tracking-widest transition shadow-lg shadow-cyan-400/30">Sélectionner [►]</a>
             </div>
 
-            <!-- Offre 3 -->
-            <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-900/40 border border-slate-900 hover:border-slate-700 p-8 rounded-3xl flex flex-col justify-between backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 card-glow">
+            <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-900/40 border border-slate-800 hover:border-slate-500 p-8 rounded-none flex flex-col justify-between transition-all duration-300 card-hyper">
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Sur-Mesure</span>
-                    <h3 class="text-2xl font-bold mt-6 mb-2">App / Spécifique</h3>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-purple-400 bg-purple-500/10 px-3 py-1 rounded-none border border-purple-500/20">MODULE_03</span>
+                    <h3 class="text-2xl font-bold uppercase mt-6 mb-2 group-hover:text-purple-400 transition-colors">Sur-Mesure</h3>
                     <p class="text-slate-400 text-xs font-light leading-relaxed mb-6">Fonctionnalités avancées, mini-catalogue, connexion base de données.</p>
-                    <div class="text-3xl font-extrabold mb-6">Dépend de la demande</div>
+                    <div class="text-2xl font-bold mb-6 font-mono text-white">SUR DEVIS</div>
                     <ul class="space-y-3 text-xs text-slate-300 font-light mb-8">
-                        <li class="flex items-center gap-2">✓ Architecture sur-mesure</li>
-                        <li class="flex items-center gap-2">✓ Base de données (Supabase...)</li>
-                        <li class="flex items-center gap-2">✓ Support d'administration dédié</li>
-                        <li class="flex items-center gap-2">✓ Support prioritaire</li>
+                        <li class="flex items-center gap-2">■ Architecture custom</li>
+                        <li class="flex items-center gap-2">■ Connexion DB (Supabase...)</li>
+                        <li class="flex items-center gap-2">■ Interface administration</li>
+                        <li class="flex items-center gap-2">■ Support technique prioritaire</li>
                     </ul>
                 </div>
-                <a href="#contact" class="w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-center text-xs font-semibold transition">Discuter du projet</a>
+                <a href="#contact" class="w-full py-3.5 rounded-none bg-slate-800 group-hover:bg-purple-600 group-hover:text-white text-center text-xs font-bold uppercase tracking-widest transition duration-300">Discuter [►]</a>
             </div>
         </div>
     </section>
 
     <!-- OPTIONS COMPLÉMENTAIRES -->
-    <div class="mt-24 px-6 max-w-5xl mx-auto" data-aos="fade-up">
+    <div class="mt-12 px-6 max-w-6xl mx-auto relative z-10" data-aos="fade-up">
         <div class="text-center mb-12">
-            <span class="text-blue-400 text-xs font-semibold uppercase tracking-widest">Compléments</span>
-            <h2 class="text-3xl md:text-4xl font-bold mt-2 tracking-tight animate-gradient-text">Options Complémentaires</h2>
-            <p class="text-slate-400 max-w-lg mx-auto font-light mt-4">Boostez votre site avec des modules spécifiques selon vos besoins.</p>
+            <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">[INDEX_04 // OPTIONS]</span>
+            <h2 class="text-3xl md:text-5xl font-bold uppercase tracking-tight mt-2 animate-gradient-text">Options Complémentaires</h2>
+            <p class="text-slate-400 text-xs font-mono mt-2">&gt; Boostez votre site avec des modules spécifiques selon vos besoins.</p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-            
-            <!-- Option 1 -->
-            <div class="bg-slate-900/40 border border-slate-900 hover:border-slate-700 p-8 rounded-3xl backdrop-blur-sm flex justify-between items-center transition-all duration-300 hover:-translate-y-1">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div class="bg-slate-900/90 border-2 border-slate-700 hover:border-cyan-400 p-8 rounded-none flex justify-between items-center transition-all card-hyper relative group">
+                <div class="absolute top-0 left-0 w-2 h-0 bg-cyan-400 group-hover:h-full transition-all duration-300"></div>
                 <div>
-                    <h4 class="text-base font-bold text-slate-200">Page supplémentaire</h4>
-                    <p class="text-slate-400 text-xs font-light mt-1.5 leading-relaxed">Création/Ajout d'une page sur votre site.</p>
+                    <span class="text-[10px] font-mono text-cyan-400 uppercase tracking-widest block mb-1">[EXT_01]</span>
+                    <h4 class="text-xl md:text-2xl font-bold uppercase text-white group-hover:text-cyan-400 transition-colors">Page additionnelle</h4>
+                    <p class="text-slate-400 text-xs md:text-sm font-light mt-2">Création/Ajout d'une page sur votre site.</p>
                 </div>
-                <span class="text-sm font-bold text-blue-400 whitespace-nowrap ml-4">90 € <span class="text-xs font-normal text-slate-500">/ page</span></span>
+                <div class="text-right border-l border-slate-800 pl-6">
+                    <span class="text-2xl md:text-3xl font-extrabold text-cyan-400 font-mono whitespace-nowrap block">90 €</span>
+                    <span class="text-[10px] text-slate-500 font-mono">/ PAGE</span>
+                </div>
             </div>
 
-            <!-- Option 2 -->
-            <div class="bg-slate-900/40 border border-slate-900 hover:border-slate-700 p-8 rounded-3xl backdrop-blur-sm flex justify-between items-center transition-all duration-300 hover:-translate-y-1">
+            <div class="bg-blue-950/40 border-2 border-cyan-500/80 hover:border-cyan-400 p-8 rounded-none flex justify-between items-center transition-all card-hyper relative group shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+                <div class="absolute top-0 left-0 w-2 h-0 bg-cyan-400 group-hover:h-full transition-all duration-300"></div>
+                <span class="absolute -top-3 right-6 bg-cyan-400 text-slate-950 text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-none">PRIORITAIRE</span>
                 <div>
-                    <h4 class="text-base font-bold text-slate-200">Module E-commerce léger</h4>
-                    <p class="text-slate-400 text-xs font-light mt-1.5 leading-relaxed">Intégration Stripe/PayPal + création catalogue (inclut 1 page dédiée).</p>
+                    <span class="text-[10px] font-mono text-cyan-400 uppercase tracking-widest block mb-1">[EXT_02 // OVERHAUL]</span>
+                    <h4 class="text-xl md:text-2xl font-bold uppercase text-white group-hover:text-cyan-400 transition-colors">Refonte site web</h4>
+                    <p class="text-slate-400 text-xs md:text-sm font-light mt-2">Refonte complète (animations AOS, modernisation, optimisation responsive et nettoyage).</p>
                 </div>
-                <span class="text-sm font-bold text-blue-400 whitespace-nowrap ml-4">350 €</span>
+                <div class="text-right border-l border-blue-900/60 pl-6">
+                    <span class="text-2xl md:text-3xl font-extrabold text-cyan-400 font-mono whitespace-nowrap block">200 €</span>
+                    <span class="text-[10px] text-slate-400 font-mono"></span>
+                </div>
             </div>
 
-            <!-- Option 3 -->
-            <div class="bg-slate-900/40 border border-slate-900 hover:border-slate-700 p-8 rounded-3xl backdrop-blur-sm flex justify-between items-center transition-all duration-300 hover:-translate-y-1">
+            <div class="bg-slate-900/90 border-2 border-slate-700 hover:border-cyan-400 p-8 rounded-none flex justify-between items-center transition-all card-hyper relative group">
+                <div class="absolute top-0 left-0 w-2 h-0 bg-cyan-400 group-hover:h-full transition-all duration-300"></div>
                 <div>
-                    <h4 class="text-base font-bold text-slate-200">Maintenance & Sérénité</h4>
-                    <p class="text-slate-400 text-xs font-light mt-1.5 leading-relaxed">Mises à jour & petits ajustements visuels/techniques.</p>
+                    <span class="text-[10px] font-mono text-cyan-400 uppercase tracking-widest block mb-1">[EXT_03]</span>
+                    <h4 class="text-xl md:text-2xl font-bold uppercase text-white group-hover:text-cyan-400 transition-colors">E-commerce léger</h4>
+                    <p class="text-slate-400 text-xs md:text-sm font-light mt-2">Intégration Stripe/PayPal + création catalogue (inclut 1 page dédiée).</p>
                 </div>
-                <span class="text-sm font-bold text-blue-400 whitespace-nowrap ml-4">75 € <span class="text-xs font-normal text-slate-500">/ int.</span></span>
-            </div>
-
-            <!-- Option 4 -->
-            <div class="lg:col-span-3 bg-gradient-to-r from-slate-900/60 via-blue-950/20 to-slate-900/60 border border-slate-800 hover:border-blue-500/50 p-8 md:p-10 rounded-3xl backdrop-blur-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6 transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                <div class="max-w-3xl">
-                    <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20 mb-3">Recommandé pour un coup de jeune</span>
-                    <h4 class="text-lg md:text-xl font-bold text-slate-100">Refonte site internet</h4>
-                    <p class="text-slate-400 text-xs md:text-sm font-light mt-2 leading-relaxed">
-                        Si vous possédez déjà un site internet mais que vous souhaitez lui redonner un coup de neuf, nous proposons la refonte complète (ajout d'animations AOS, modernisation des couleurs, optimisation responsive et nettoyage du code).
-                    </p>
-                </div>
-                <div class="w-full md:w-auto flex md:flex-col justify-between items-center md:items-end border-t md:border-t-0 pt-4 md:pt-0 border-slate-800/80">
-                    <span class="text-2xl md:text-3xl font-extrabold text-blue-400 whitespace-nowrap">50 € <span class="text-xs font-normal text-slate-500">/ page</span></span>
-                    <a href="#contact" class="text-xs font-semibold text-slate-300 hover:text-white underline mt-1">Sélectionner →</a>
+                <div class="text-right border-l border-slate-800 pl-6">
+                    <span class="text-2xl md:text-3xl font-extrabold text-cyan-400 font-mono whitespace-nowrap block">350 €</span>
+                    <span class="text-[10px] text-slate-500 font-mono"></span>
                 </div>
             </div>
 
+            <div class="bg-slate-900/90 border-2 border-slate-700 hover:border-cyan-400 p-8 rounded-none flex justify-between items-center transition-all card-hyper relative group">
+                <div class="absolute top-0 left-0 w-2 h-0 bg-cyan-400 group-hover:h-full transition-all duration-300"></div>
+                <div>
+                    <span class="text-[10px] font-mono text-cyan-400 uppercase tracking-widest block mb-1">[EXT_04]</span>
+                    <h4 class="text-xl md:text-2xl font-bold uppercase text-white group-hover:text-cyan-400 transition-colors">Maintenance & Sérénité</h4>
+                    <p class="text-slate-400 text-xs md:text-sm font-light mt-2">Mises à jour & petits ajustements visuels/techniques.</p>
+                </div>
+                <div class="text-right border-l border-slate-800 pl-6">
+                    <span class="text-2xl md:text-3xl font-extrabold text-cyan-400 font-mono whitespace-nowrap block">75 €</span>
+                    <span class="text-[10px] text-slate-500 font-mono">/ INTERVENTION</span>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-32 px-6 max-w-3xl mx-auto">
-        <div data-aos="zoom-in" class="bg-gradient-to-b from-slate-900/90 to-slate-950 border border-slate-800/80 p-8 md:p-14 rounded-[2.5rem] backdrop-blur-xl relative overflow-hidden shadow-2xl transition-all duration-500 hover:border-slate-700">
-            <div class="absolute -top-24 -left-24 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+<!-- CONTACT SECTION -->
+    <section id="contact" class="py-32 px-6 max-w-3xl mx-auto relative z-10">
+        <div data-aos="zoom-in" class="bg-slate-950 border-2 border-slate-800 hover:border-cyan-400 p-8 md:p-14 rounded-none relative overflow-hidden shadow-2xl transition-all group/container">
             
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight animate-gradient-text">Parlons de votre projet</h2>
-                <p class="text-slate-400 text-sm font-light">
-                    Remplissez ce formulaire rapide pour m'envoyer un message. Réponse sous 24h.
+            <div class="absolute -top-10 -right-10 w-24 h-24 bg-cyan-500/20 rounded-full blur-xl group-hover/container:scale-150 transition-transform duration-700 pointer-events-none"></div>
+            <div class="absolute -bottom-10 -left-10 w-24 h-24 bg-blue-500/20 rounded-full blur-xl group-hover/container:scale-150 transition-transform duration-700 pointer-events-none"></div>
+
+            <div class="text-center mb-10 relative z-10">
+                <span class="inline-block text-cyan-400 text-xs font-bold uppercase tracking-widest animate-pulse">[COMMUNICATION_RELAY]</span>
+                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mt-2 animate-gradient-text">Parlons de votre projet</h2>
+                <p class="text-slate-400 text-xs md:text-sm font-light mt-2 flex items-center justify-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-cyan-400 animate-ping"></span>
+                    <span>Réponse sous 24h ouvrées.</span>
                 </p>
             </div>
 
-            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-5">
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-6 relative z-10">
                 <input type="hidden" name="access_key" value="b3358fe1-a9d5-4b16-b6bf-54a1fab31529">
                 <input type="hidden" name="to" value="studio.pixeldesigner@proton.me">
-                <!-- Nom propre de l'expéditeur dans la boîte mail -->
                 <input type="hidden" name="from_name" value="Pixel Designer - Contact">
                 <input type="hidden" name="subject" value="⚡ Nouvelle demande sur Pixel Designer">
-                <input type="hidden" name="redirect" value="https://studiopixeldesigner.github.io/pixeldesigner/merci.html">
+
+                <!-- Prénom NOM et Email ajoutés au-dessus de Profil et Module Offre -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div class="form-field-wrapper relative">
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Prénom NOM</label>
+                        <div class="relative overflow-hidden bg-slate-900 border border-slate-800">
+                            <input type="text" name="name" required class="w-full bg-transparent px-4 py-3.5 text-xs text-slate-200 focus:outline-none form-hyper-input" placeholder="Alex MARTIN">
+                            <div class="field-laser-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-field-wrapper relative">
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Email</label>
+                        <div class="relative overflow-hidden bg-slate-900 border border-slate-800">
+                            <input type="email" name="email" required class="w-full bg-transparent px-4 py-3.5 text-xs text-slate-200 focus:outline-none form-hyper-input" placeholder="alex@domain.com">
+                            <div class="field-laser-bar"></div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Votre Nom</label>
-                        <input type="text" name="name" required class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300" placeholder="Jean Dupont">
+                    <div class="form-field-wrapper relative">
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Profil</label>
+                        <div class="relative overflow-hidden bg-slate-900 border border-slate-800">
+                            <select name="type_projet" class="w-full bg-transparent px-4 py-3.5 text-xs text-slate-200 focus:outline-none form-hyper-input cursor-pointer">
+                                <option value="Pro" class="bg-slate-900">Professionnel (Artisan, Entreprise)</option>
+                                <option value="Particulier" class="bg-slate-900">Particulier (Portfolio, Perso)</option>
+                                <option value="Autre" class="bg-slate-900">Autre demande</option>
+                            </select>
+                            <div class="field-laser-bar"></div>
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Votre E-mail</label>
-                        <input type="email" name="email" required class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300" placeholder="jean@exemple.com">
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Type de projet</label>
-                        <select name="type_projet" class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300 cursor-pointer">
-                            <option value="Pro - Site Vitrine Entreprise/Artisan">Professionnel (Artisan, Entreprise, Commerce)</option>
-                            <option value="Particulier - Portfolio / Blog / Perso">Particulier (Portfolio, Blog, Projet perso)</option>
-                            <option value="Autre demande">Autre demande</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Sélection d'offre</label>
-                        <select name="offre" id="offreSelect" class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300 cursor-pointer">
-                            <option value="Essentiel - One-Page (450€)">Essentiel — One-Page (450 €)</option>
-                            <option value="Business - Vitrine Pro (850€)">Business — Vitrine Pro (850 €)</option>
-                            <option value="Sur-Mesure - App / Spécifique">Sur-Mesure — App / Spécifique</option>
-                            <option value="Offre options complémentaires">Offre options complémentaires</option>
-                            <option value="Indecis">Je ne sais pas encore quelle offre choisir</option>
-                        </select>
+
+                    <div class="form-field-wrapper relative">
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Module Offre</label>
+                        <div class="relative overflow-hidden bg-slate-900 border border-slate-800">
+                            <select name="offre" id="offreSelect" class="w-full bg-transparent px-4 py-3.5 text-xs text-slate-200 focus:outline-none form-hyper-input cursor-pointer">
+                                <optgroup label="Offres Principales" class="bg-slate-950 text-cyan-400">
+                                    <option value="One-Page" class="bg-slate-900 text-slate-200">Essentiel — One-Page (450 €)</option>
+                                    <option value="Vitrine Pro" class="bg-slate-900 text-slate-200">Business — Vitrine Pro (850 €)</option>
+                                    <option value="Sur-Mesure" class="bg-slate-900 text-slate-200">Sur-Mesure — App / Spécifique (Sur devis)</option>
+                                </optgroup>
+                                <optgroup label="Options & Extensions" class="bg-slate-950 text-cyan-400">
+                                    <option value="Ext - Page additionnelle" class="bg-slate-900 text-slate-200">Option — Page additionnelle (90 €)</option>
+                                    <option value="Ext - Refonte site web" class="bg-slate-900 text-slate-200">Option — Refonte site web (200 €)</option>
+                                    <option value="Ext - E-commerce léger" class="bg-slate-900 text-slate-200">Option — E-commerce léger (350 €)</option>
+                                    <option value="Ext - Maintenance" class="bg-slate-900 text-slate-200">Option — Maintenance / Intervention (75 €)</option>
+                                </optgroup>
+                                <option value="Indecis" class="bg-slate-900 text-slate-400">Indécis / Conseil requis</option>
+                            </select>
+                            <div class="field-laser-bar"></div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Options complémentaires -->
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Options complémentaires (si besoin)</label>
-                    <select name="options_complementaires" id="optionsSelect" class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300 cursor-pointer">
-                        <option value="">-- Aucune / Optionnel --</option>
-                        <option value="Page supplémentaire (+90€)">Page supplémentaire (90 €)</option>
-                        <option value="Module E-commerce léger (+350€)">Module E-commerce léger (350 €)</option>
-                        <option value="Maintenance & Sérénité (+75€)">Maintenance & Sérénité (75 €)</option>
-                        <option value="Refonte site internet (+50€)">Refonte site internet (50 €)</option>
-                    </select>
-                    <p id="optionError" class="text-red-400 text-xs mt-1.5 hidden">Veuillez sélectionner une option complémentaire pour cette offre.</p>
+                <div class="form-field-wrapper relative">
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2 flex items-center justify-between">
+                        <span>Spécifications du projet</span>
+                        <span id="char-counter" class="text-[9px] text-cyan-400 font-mono">0 / 1500</span>
+                    </label>
+                    <div class="relative overflow-hidden bg-slate-900 border border-slate-800">
+                        <textarea name="message" id="messageInput" rows="5" required class="w-full bg-transparent px-4 py-3.5 text-xs text-slate-200 focus:outline-none resize-none form-hyper-input" placeholder="Détails techniques, objectifs, contraintes..." maxlength="1500"></textarea>
+                        <div class="field-laser-bar"></div>
+                    </div>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Votre Message</label>
-                    <textarea name="message" rows="4" required class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 input-glow transition-all duration-300 resize-none" placeholder="Décrivez votre projet en quelques lignes..."></textarea>
-                </div>
-
-                <!-- Anti-spam honeypot -->
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                <button type="submit" class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition duration-300 shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 group transform hover:-translate-y-0.5">
-                    <span>Envoyer le message</span>
-                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </button>
+                <div class="relative group/btn overflow-hidden p-[1.5px]">
+                    <div class="absolute inset-0 btn-animated-border animate-border-slide opacity-80 group-hover/btn:opacity-100 transition-opacity"></div>
+                    <button type="submit" class="relative w-full py-4 rounded-none bg-slate-950 hover:bg-cyan-400/10 text-cyan-400 hover:text-white font-bold text-xs uppercase tracking-widest transition duration-300 flex items-center justify-center gap-3">
+                        <span class="w-2 h-2 bg-cyan-400 rounded-none animate-ping"></span>
+                        <span>TRANSMETTRE LA REQUÊTE [►]</span>
+                        <span class="w-2 h-2 bg-cyan-400 rounded-none animate-ping"></span>
+                    </button>
+                </div>
             </form>
+            
+            <div class="mt-4 pt-3 border-t border-slate-900 flex justify-between items-center text-[10px] font-mono text-slate-500">
+                <span id="form-status-msg">&gt; STATUS: AWAITING_INPUT</span>
+                <span class="text-cyan-400 animate-pulse">ENCRYPTION: ACTIVE</span>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-12 border-t border-slate-900 text-center text-xs text-slate-500 font-light">
-        <p>&copy; 2026 Pixel Designer — Conçu avec passion & IA. Hébergé sur GitHub Pages.</p>
+    <footer class="py-12 border-t border-slate-900 text-center text-[11px] font-mono text-slate-500 relative z-10">
+        <p>&copy; 2026 PIXEL DESIGNER // GITHUB PAGES.</p>
     </footer>
 
-    <!-- Script JavaScript -->
+    <!-- AOS & GIGA-ANIMATION JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true,
-            offset: 50,
-            duration: 800,
-        });
+        AOS.init({ once: true, offset: 30, duration: 400 });
 
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            const offreSelect = document.getElementById('offreSelect');
-            const optionsSelect = document.getElementById('optionsSelect');
-            const optionError = document.getElementById('optionError');
+        let lastFpsTime = performance.now();
+        let frameCount = 0;
+        const heroFpsEl = document.getElementById('hero-fps-counter');
 
-            if (offreSelect.value === 'Offre options complémentaires' && optionsSelect.value === '') {
-                e.preventDefault(); // Bloque l'envoi
-                optionsSelect.classList.add('border-red-500');
-                optionError.classList.remove('hidden');
-                return;
-            } else {
-                optionsSelect.classList.remove('border-red-500');
-                optionError.classList.add('hidden');
+        function loopRealFps(now) {
+            frameCount++;
+            const delta = now - lastFpsTime;
+            if (delta >= 500) {
+                const actualFps = Math.min(60, Math.round((frameCount * 1000) / delta));
+                if (heroFpsEl) heroFpsEl.textContent = actualFps;
+                frameCount = 0;
+                lastFpsTime = now;
+            }
+            requestAnimationFrame(loopRealFps);
+        }
+        requestAnimationFrame(loopRealFps);
+
+        const microBarsContainer = document.getElementById('micro-bars');
+        if (microBarsContainer) {
+            for (let i = 0; i < 24; i++) {
+                const b = document.createElement('div');
+                b.className = 'h-full bg-cyan-500/40 transition-all duration-200';
+                microBarsContainer.appendChild(b);
+            }
+        }
+
+        const tlogs = [
+            "> check grid 90° orthogonality... OK",
+            "> sync neural buffer 128_nodes... LOCKED",
+            "> inject brutalism style mask... DONE",
+            "> latency check pipeline... 0.11ms",
+            "> framerate render booster... active",
+            "> AI matrix core temperature... NOMINAL"
+        ];
+        let tIndex = 0;
+
+        setInterval(() => {
+            const cpuVal = (91 + Math.random() * 8).toFixed(1);
+            const cpuEl = document.getElementById('live-cpu');
+            const barCpu = document.getElementById('bar-cpu');
+            const tickerCpu = document.getElementById('ticker-cpu');
+            const tickerCpu2 = document.getElementById('ticker-cpu-2');
+            if (cpuEl) cpuEl.textContent = cpuVal + '%';
+            if (barCpu) barCpu.style.width = cpuVal + '%';
+            if (tickerCpu) tickerCpu.textContent = cpuVal + '%';
+            if (tickerCpu2) tickerCpu2.textContent = cpuVal + '%';
+
+            const pingVal = (0.12 + Math.random() * 0.1).toFixed(2);
+            const pingEl = document.getElementById('live-ping');
+            const barPing = document.getElementById('bar-ping');
+            if (pingEl) pingEl.textContent = pingVal + 'ms';
+            if (barPing) barPing.style.width = Math.min(100, pingVal * 150) + '%';
+
+            const memVal = (3.9 + Math.random() * 0.8).toFixed(1);
+            const memEl = document.getElementById('live-mem');
+            const barMem = document.getElementById('bar-mem');
+            if (memEl) memEl.textContent = memVal + ' GB';
+            if (barMem) barMem.style.width = (memVal / 6 * 100) + '%';
+
+            const nodes = Math.floor(120 + Math.random() * 15);
+            const nodeEl = document.getElementById('live-node-count');
+            if (nodeEl) nodeEl.textContent = nodes + '_CH';
+
+            const centerNum = document.getElementById('center-ticker-num');
+            if (centerNum) centerNum.textContent = Math.floor(95 + Math.random() * 5);
+
+            if (microBarsContainer) {
+                Array.from(microBarsContainer.children).forEach(bar => {
+                    const opacityVal = Math.random() > 0.3 ? 'bg-cyan-400 shadow-[0_0_8px_#22d3ee]' : 'bg-slate-800';
+                    bar.className = `h-full transition-all duration-150 ${opacityVal}`;
+                });
             }
 
-            // Nettoyage : si aucune option n'est sélectionnée, on désactive le champ pour qu'il n'apparaisse pas vide dans le mail
-            if (optionsSelect.value === '') {
-                optionsSelect.disabled = true;
+            const coordEl = document.getElementById('vector-coords');
+            if (coordEl) {
+                const rx = Math.floor(1000 + Math.random() * 50);
+                const ry = Math.floor(700 + Math.random() * 50);
+                coordEl.textContent = `X: ${rx} / Y: ${ry} / Z: 90`;
             }
-        });
 
-        document.getElementById('optionsSelect').addEventListener('change', function() {
-            if (this.value !== '') {
-                this.classList.remove('border-red-500');
-                document.getElementById('optionError').classList.add('hidden');
+            const now = new Date();
+            const timeStr = now.toTimeString().split(' ')[0] + '.' + String(now.getMilliseconds()).padStart(3, '0').slice(0, 2);
+            const clockEl = document.getElementById('hud-live-clock');
+            if (clockEl) clockEl.textContent = 'TIME: ' + timeStr;
+
+            const l1 = document.getElementById('tlog-1');
+            const l2 = document.getElementById('tlog-2');
+            const l3 = document.getElementById('tlog-3');
+            const l4 = document.getElementById('tlog-4');
+            if (l1 && l2 && l3 && l4) {
+                l4.textContent = l3.textContent;
+                l3.textContent = l2.textContent.replace('text-blue-400', '');
+                l2.textContent = l1.textContent.replace('cursor-blink', '');
+                l1.textContent = tlogs[tIndex % tlogs.length];
+                tIndex++;
             }
-        });
+        }, 600);
+
+        const msgInput = document.getElementById('messageInput');
+        const charCounter = document.getElementById('char-counter');
+        const formStatusMsg = document.getElementById('form-status-msg');
+        if (msgInput && charCounter) {
+            msgInput.addEventListener('input', () => {
+                const len = msgInput.value.length;
+                charCounter.textContent = `${len} / 1500`;
+                if (formStatusMsg) {
+                    formStatusMsg.textContent = len > 0 ? `> STATUS: TYPING_PACKET_${len}_BYTES...` : '> STATUS: AWAITING_INPUT';
+                    formStatusMsg.className = len > 0 ? 'text-cyan-400 animate-pulse font-mono text-[10px]' : 'text-slate-500 font-mono text-[10px]';
+                }
+            });
+        }
     </script>
 </body>
 </html>
