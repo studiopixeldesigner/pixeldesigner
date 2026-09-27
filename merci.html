@@ -1,148 +1,49 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth dark">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merci - Pixel Designer</title>
-    
-    <!-- Google Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Merci | Pixel Designer</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#09090b">
+    <meta name="color-scheme" content="dark">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Chakra Petch"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                    },
-                    borderRadius: {'none': '0px'},
-                    animation: {
-                        'matrix-glow': 'matrixGlow 1s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        matrixGlow: {
-                            '0%': { opacity: '0.3', textShadow: '0 0 4px rgba(59, 130, 246, 0.5)' },
-                            '100%': { opacity: '1', textShadow: '0 0 20px rgba(59, 130, 246, 1), 0 0 30px rgba(6, 182, 212, 0.8)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .bg-grid {
-            background-size: 20px 20px;
-            background-image: 
-                linear-gradient(to right, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .animate-gradient-text {
-            background: linear-gradient(270deg, #60a5fa, #38bdf8, #818cf8, #06b6d4, #60a5fa);
-            background-size: 300% 300%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientMove 12s ease infinite;
-        }
-
-        .card-hyper:hover {
-            box-shadow: 0 0 45px -5px rgba(59, 130, 246, 0.6), inset 0 0 15px rgba(59, 130, 246, 0.2);
-            border-color: rgba(6, 182, 212, 1);
-        }
-
-        @keyframes laserX {
-            0% { transform: translateX(-100%); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateX(200%); opacity: 0; }
-        }
-        @keyframes laserY {
-            0% { transform: translateY(-100%); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(200%); opacity: 0; }
-        }
-        .laser-line-x { animation: laserX 3s ease-in-out infinite; }
-        .laser-line-y { animation: laserY 3.5s ease-in-out infinite; }
-
-        @keyframes checkDraw {
-            0% { stroke-dashoffset: 40; }
-            100% { stroke-dashoffset: 0; }
-        }
-        .animate-check {
-            stroke-dasharray: 40;
-            stroke-dashoffset: 40;
-            animation: checkDraw 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="assets/js/scene.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased bg-grid selection:bg-cyan-500 selection:text-slate-950 min-h-screen flex flex-col justify-between overflow-x-hidden relative">
+<body>
+    <canvas id="bg" data-stage="4" aria-hidden="true"></canvas>
 
-    <!-- ORBES / LUMIÈRES HUD -->
-    <div class="fixed top-0 left-10 w-96 h-96 bg-blue-600/25 rounded-none blur-[120px] pointer-events-none animate-pulse"></div>
-    <div class="fixed top-1/2 right-10 w-[500px] h-[500px] bg-cyan-600/25 rounded-none blur-[140px] pointer-events-none animate-pulse" style="animation-delay: 1s;"></div>
+    <header class="nav">
+        <div class="container nav-inner">
+            <a href="./" class="brand" aria-label="Pixel Designer, accueil">
+                <img class="brand-logo" src="assets/img/logo-64.png" srcset="assets/img/logo-64.png 1x, assets/img/logo-128.png 2x" width="32" height="32" alt="">
+                <span class="brand-name">Pixel Designer</span>
+            </a>
+        </div>
+    </header>
 
-    <!-- PLUIE DE LASERS GÉOMÉTRIQUES EN BACKGROUND -->
-    <div class="fixed inset-0 pointer-events-none overflow-hidden opacity-30 z-0">
-        <div class="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400 to-transparent laser-line-x"></div>
-        <div class="absolute top-2/3 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent laser-line-x" style="animation-delay: 1.5s;"></div>
-        <div class="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-indigo-400 to-transparent laser-line-y"></div>
-        <div class="absolute top-0 left-3/4 w-[1px] h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent laser-line-y" style="animation-delay: 2s;"></div>
-    </div>
-
-    <!-- CONTENU PRINCIPAL HUD -->
-    <main class="flex-grow flex items-center justify-center px-6 pt-32 pb-20 relative z-10 w-full">
-        <div class="max-w-xl w-full bg-slate-950/95 border-2 border-cyan-500/50 hover:border-cyan-400 rounded-none p-10 md:p-14 relative shadow-[0_0_50px_rgba(6,182,212,0.2)] transition-all duration-300 card-hyper">
-            
-            <!-- Coins HUD -->
-            <div class="absolute top-1 left-1 w-3 h-3 border-t-2 border-l-2 border-cyan-400 pointer-events-none"></div>
-            <div class="absolute top-1 right-1 w-3 h-3 border-t-2 border-r-2 border-cyan-400 pointer-events-none"></div>
-            <div class="absolute bottom-1 left-1 w-3 h-3 border-b-2 border-l-2 border-cyan-400 pointer-events-none"></div>
-            <div class="absolute bottom-1 right-1 w-3 h-3 border-b-2 border-r-2 border-cyan-400 pointer-events-none"></div>
-
-            <div class="text-center">
-                <!-- ICÔNE / STATUS HUD -->
-                <div class="relative w-16 h-16 rounded-none bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mx-auto mb-6 shadow-lg shadow-cyan-500/20">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path class="animate-check" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
-                    </svg>
+    <main class="simple">
+        <div class="container">
+            <div class="simple-inner">
+                <p class="eyebrow" data-reveal>
+                    <span class="pix" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    Message envoyé</p>
+                <h1 class="h2" data-split>Message bien <span class="grad">reçu.</span></h1>
+                <p class="lead" data-reveal style="--d:.2s">Merci pour votre confiance. J'analyse votre demande avec attention et je vous réponds sous 24h ouvrées.</p>
+                <div data-reveal style="--d:.3s">
+                    <a href="./" class="btn btn-primary">Retour à l'accueil <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
                 </div>
-                
-            <span class="text-cyan-400 text-[10px] font-bold uppercase tracking-widest font-mono">[MESSAGE_ENVOYE]</span>
-                <h1 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mt-2 mb-4 animate-gradient-text">Message bien reçu !</h1>
-                
-                <p class="text-slate-400 text-xs md:text-sm font-light leading-relaxed mb-10">
-                    Merci pour votre confiance. J'ai bien reçu votre demande et je l'analyse avec attention. Je vous répondrai sous <span class="text-cyan-400 font-mono font-bold">24h ouvrées</span>.
-                </p>
-
-                <a href="index.html" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-none bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-lg shadow-cyan-500/40">
-                    <span>Retour à l'accueil [►]</span>
-                </a>
-            </div>
-            
-            <div class="mt-8 pt-4 border-t border-slate-900 flex justify-between items-center text-[10px] font-mono text-slate-500">
-                <span>&gt; STATUS: SYNC_COMPLETE</span>
-                <span class="text-cyan-400">ENCRYPTION: ACTIVE</span>
             </div>
         </div>
     </main>
-
-    <!-- FOOTER IDENTIQUE -->
-    <footer class="py-8 border-t border-slate-900 text-center text-[11px] font-mono text-slate-500 relative z-10">
-        <p>&copy; 2026 PIXEL DESIGNER // GITHUB PAGES.</p>
-    </footer>
-
 </body>
 </html>
