@@ -2031,6 +2031,24 @@ html.js [data-reveal].is-in {
     overflow-wrap: anywhere;
 }
 
+.legal > p {
+    margin-top: 1.1rem;
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 0.97rem;
+}
+
+.legal > p + p {
+    margin-top: 0.75rem;
+}
+
+.legal > p a {
+    color: var(--text);
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 0.1rem;
+    overflow-wrap: anywhere;
+}
+
 .legal-back {
     margin-top: 2.5rem;
 }
