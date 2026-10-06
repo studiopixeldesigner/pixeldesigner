@@ -1477,22 +1477,11 @@ html.js .statement .w.on {
     .opt--feature {
         grid-row: span 2;
     }
-
-    .opt--wide {
-        grid-column: 1 / -1;
-    }
 }
 
 @media (min-width: 1024px) {
     .options {
         grid-template-columns: 1.25fr 1fr 1fr;
-    }
-
-    .opt--wide {
-        grid-column: 2 / span 2;
-        flex-direction: row;
-        align-items: flex-end;
-        min-height: 0;
     }
 }
 
