@@ -1549,9 +1549,29 @@ html.js .statement .w.on {
     color: var(--muted);
 }
 
+.term .chips {
+    margin: 1rem 0 0;
+}
+
+.term--wide p:not(.term-figure),
+.term--full p {
+    max-width: 46ch;
+}
+
+.term--full p {
+    margin-top: 0.5rem;
+}
+
 .terms-note {
     margin-top: 1.5rem;
     text-shadow: var(--halo);
+}
+
+.footer-legal a {
+    color: var(--text);
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 0.1rem;
+    transition: border-color 0.3s var(--ease);
 }
 
 @media (hover: hover) {
@@ -1563,8 +1583,13 @@ html.js .statement .w.on {
         transform: rotate(-8deg) scale(1.1);
     }
 
-    .opt:hover .chips li {
+    .opt:hover .chips li,
+    .term:hover .chips li {
         border-color: rgba(165, 180, 252, 0.35);
+    }
+
+    .footer-legal a:hover {
+        border-color: var(--accent);
     }
 }
 
@@ -1572,11 +1597,36 @@ html.js .statement .w.on {
     .terms {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .term--wide,
+    .term--full {
+        grid-column: 1 / -1;
+    }
+
+    /* Carte pleine largeur : icône à gauche, texte à droite */
+    .term--full {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .term--full .feature-icon {
+        flex: none;
+        margin-bottom: 0;
+    }
+
+    .term--full p {
+        max-width: none;
+    }
 }
 
 @media (min-width: 1024px) {
     .terms {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .term--wide {
+        grid-column: span 2;
     }
 }
 
@@ -1933,6 +1983,64 @@ html.js [data-reveal].is-in {
 
 .simple .lead {
     margin-bottom: 2.5rem;
+}
+
+/* Mentions légales ------------------------------------------------------ */
+
+.legal-page .simple-inner {
+    max-width: 46rem;
+}
+
+.legal {
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.legal + .legal {
+    margin-top: 1rem;
+}
+
+.legal-list {
+    margin: 1.1rem 0 0;
+}
+
+.legal-list > div {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.legal-list > div:last-child {
+    padding-bottom: 0;
+}
+
+.legal-list dt {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+}
+
+.legal-list dd {
+    margin: 0;
+}
+
+.legal-list a {
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 0.1rem;
+    overflow-wrap: anywhere;
+}
+
+.legal-back {
+    margin-top: 2.5rem;
+}
+
+@media (min-width: 640px) {
+    .legal-list > div {
+        grid-template-columns: 13rem minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: baseline;
+    }
 }
 
 /* Tablette et mobile ---------------------------------------------------- */
