@@ -1197,6 +1197,24 @@ html.js .statement .w.on {
     max-width: 32ch;
 }
 
+/* Délai et retouches de chaque offre */
+.plan-intro .plan-meta {
+    max-width: none;
+    margin-top: 0.4rem;
+    color: #d4d4d8;
+}
+
+.plan-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.plan-meta i {
+    font-size: 1rem;
+    color: var(--accent);
+}
+
 .plan-features {
     display: grid;
     gap: 0.65rem;
@@ -1381,6 +1399,15 @@ html.js .statement .w.on {
     margin-bottom: 1.25rem;
 }
 
+.opt .chips {
+    margin: 1.1rem 0 0;
+}
+
+.opt .opt-note {
+    margin-top: 0.9rem;
+    font-size: 0.875rem;
+}
+
 .opt .opt-price {
     display: flex;
     align-items: baseline;
@@ -1466,6 +1493,90 @@ html.js .statement .w.on {
         flex-direction: row;
         align-items: flex-end;
         min-height: 0;
+    }
+}
+
+/* Paiement et modalités ------------------------------------------------- */
+
+.terms {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.term {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+/* Chiffre et icône de même hauteur pour aligner les titres d'une carte à l'autre */
+.term-figure,
+.term .feature-icon {
+    margin-bottom: 1.5rem;
+}
+
+.term-figure {
+    display: flex;
+    align-items: center;
+    height: 46px;
+    font-size: clamp(2.1rem, 3.2vw, 2.7rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.term h4 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+}
+
+.term p:not(.term-figure) {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 34ch;
+}
+
+.terms-note,
+.footer-legal {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+}
+
+.terms-note {
+    margin-top: 1.5rem;
+    text-shadow: var(--halo);
+}
+
+@media (hover: hover) {
+    .term:hover {
+        transform: translateY(-4px);
+    }
+
+    .term:hover .feature-icon {
+        transform: rotate(-8deg) scale(1.1);
+    }
+
+    .opt:hover .chips li {
+        border-color: rgba(165, 180, 252, 0.35);
+    }
+}
+
+@media (min-width: 640px) {
+    .terms {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .terms {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 
