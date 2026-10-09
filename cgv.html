@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Conditions générales de vente | Pixel Designer</title>
+    <meta name="description" content="Conditions générales de vente de Pixel Designer : devis, tarifs, délais et retouches, déroulement du projet, paiement, maintenance, propriété intellectuelle et droit de rétractation.">
+    <meta name="theme-color" content="#09090b">
+    <meta name="color-scheme" content="dark">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="Conditions générales de vente | Pixel Designer">
+    <meta property="og:description" content="Les règles qui encadrent chaque projet : devis, déroulement, paiement, maintenance et droits.">
+    <meta property="og:url" content="https://studiopixeldesigner.github.io/pixeldesigner/cgv.html">
+    <meta property="og:image" content="https://studiopixeldesigner.github.io/pixeldesigner/assets/img/og-image.jpg">
+
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="assets/js/scene.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <canvas id="bg" data-stage="3" aria-hidden="true"></canvas>
+
+    <!-- Navigation -->
+    <header class="nav" data-nav>
+        <div class="container nav-inner">
+            <a href="./" class="brand" aria-label="Pixel Designer, accueil">
+                <img class="brand-logo" src="assets/img/logo-64.png" srcset="assets/img/logo-64.png 1x, assets/img/logo-128.png 2x" width="32" height="32" alt="">
+                <span class="brand-name">Pixel Designer</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Navigation principale">
+                <a href="./#projets">Réalisations</a>
+                <a href="./#approche">Approche</a>
+                <a href="./#services">Tarifs</a>
+            </nav>
+
+            <a href="./#contact" class="btn btn-primary btn-sm nav-cta">Démarrer un projet</a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu" data-menu-toggle>
+                <span></span><span></span>
+            </button>
+        </div>
+        <span class="nav-progress" aria-hidden="true" data-progress></span>
+    </header>
+
+    <!-- Menu mobile -->
+    <div class="menu" id="menu" data-menu hidden>
+        <nav class="menu-links" aria-label="Menu mobile">
+            <a href="./#projets">Réalisations</a>
+            <a href="./#approche">Approche</a>
+            <a href="./#services">Tarifs</a>
+            <a href="./#contact">Contact</a>
+        </nav>
+        <a href="./#contact" class="btn btn-primary menu-cta">Démarrer un projet <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+    </div>
+
+    <main class="doc" id="contenu">
+        <div class="container">
+
+            <!-- En-tête du document -->
+            <header class="doc-head" id="top">
+                <p class="eyebrow" data-reveal>
+                    <span class="pix" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                    Document contractuel
+                </p>
+                <h1 class="h2" data-split>Conditions <span class="grad">générales de vente</span></h1>
+                <p class="meta doc-version" data-reveal style="--d:.15s">Version du 9&nbsp;octobre&nbsp;2026</p>
+                <p class="lead" data-reveal style="--d:.2s">Les règles qui encadrent chaque projet&nbsp;: devis, déroulement, paiement, maintenance et droits. Elles s'appliquent à toute commande passée auprès de Pixel Designer.</p>
+                <ul class="chips" role="list" data-reveal style="--d:.25s">
+                    <li>Création de sites</li>
+                    <li>Refonte</li>
+                    <li>Options &amp; maintenance</li>
+                </ul>
+                <div class="doc-actions" data-reveal style="--d:.3s">
+                    <a href="assets/docs/CGV-Pixel-Designer.pdf" class="btn btn-primary" download>Télécharger en PDF <i class="ph ph-download-simple" aria-hidden="true"></i></a>
+                </div>
+            </header>
+
+            <div class="doc-grid">
+
+                <!-- Sommaire : collant sur ordinateur, repliable sur mobile -->
+                <aside class="doc-aside" data-reveal style="--d:.35s">
+                    <details class="toc card" data-toc>
+                        <summary>Sommaire <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                        <nav aria-label="Sommaire des conditions générales de vente">
+                            <ol role="list">
+                                <li><a href="#article-1"><span>01</span>Prestataire et champ d'application</a></li>
+                                <li><a href="#article-2"><span>02</span>Devis et commande</a></li>
+                                <li><a href="#article-3"><span>03</span>Déroulement du projet et validation</a></li>
+                                <li><a href="#article-4"><span>04</span>Prix et paiement</a></li>
+                                <li><a href="#article-5"><span>05</span>Maintenance</a></li>
+                                <li><a href="#article-6"><span>06</span>Propriété intellectuelle</a></li>
+                                <li><a href="#article-7"><span>07</span>Obligations et responsabilité</a></li>
+                                <li><a href="#article-8"><span>08</span>Droit de rétractation</a></li>
+                                <li><a href="#article-9"><span>09</span>Données personnelles</a></li>
+                                <li><a href="#article-10"><span>10</span>Médiation et litiges</a></li>
+                            </ol>
+                        </nav>
+                    </details>
+                </aside>
+
+                <div class="doc-body">
+
+                    <!-- Coordonnées du prestataire -->
+                    <dl class="id-grid card" data-reveal>
+                        <div><dt>Prestataire</dt><dd>Pixel Designer — Rayan</dd></div>
+                        <div><dt>Statut</dt><dd>Entrepreneur individuel (micro-entreprise)</dd></div>
+                        <div><dt>SIRET</dt><dd>935&nbsp;191&nbsp;619&nbsp;00037</dd></div>
+                        <div><dt>Adresse</dt><dd>5 Route de la Saline, 70200 Lure</dd></div>
+                        <div><dt>Contact</dt><dd><a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a><br><a href="tel:+33769322672">07&nbsp;69&nbsp;32&nbsp;26&nbsp;72</a></dd></div>
+                        <div><dt>Site</dt><dd><a href="https://studiopixeldesigner.github.io/pixeldesigner/">studiopixeldesigner.github.io/pixeldesigner</a></dd></div>
+                    </dl>
+
+                    <!-- Article 01 -->
+                    <section class="article" id="article-1" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 01</span>
+                            <h2 class="h3">Prestataire et champ d'application</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <p>Les présentes conditions générales de vente (CGV) s'appliquent à toutes les prestations proposées par Pixel Designer, dont les coordonnées figurent ci-dessus.</p>
+                            <p>Les prestations couvertes sont la création de sites internet (formules One-Page, Vitrine Pro et Sur-mesure), la refonte de sites existants, et les options complémentaires&nbsp;: page additionnelle, e-commerce léger, création de fiche Google Business et maintenance.</p>
+                            <p>Toute commande implique l'acceptation sans réserve des présentes CGV, qui prévalent sur tout autre document du client, sauf accord écrit contraire. Les CGV applicables sont celles en vigueur à la date de signature du devis.</p>
+                        </div>
+                    </section>
+
+                    <!-- Article 02 -->
+                    <section class="article" id="article-2" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 02</span>
+                            <h2 class="h3">Devis et commande</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <p>Chaque prestation fait l'objet d'un devis gratuit, valable <strong>30&nbsp;jours</strong> à compter de sa date d'émission. Le devis précise le contenu de la prestation, le nombre de pages, le nombre de retouches incluses, le prix et le délai prévisionnel.</p>
+                            <p>Le devis est transmis et accepté en ligne. La commande est ferme dès que le client a accepté le devis par signature électronique et versé l'acompte. L'acceptation du devis vaut acceptation des présentes CGV. Le travail ne commence qu'à réception de l'acompte.</p>
+                            <p><strong>Acompte&nbsp;: 50&nbsp;% du montant total</strong> à la signature. Le solde est dû à la mise en ligne du site.</p>
+                        </div>
+
+                        <div class="article-body">
+                            <h3 data-reveal>Prestations, tarifs, délais et retouches</h3>
+                            <p data-reveal>Tarifs en vigueur à la date des présentes CGV. Le prix, le délai et le nombre de retouches qui s'appliquent sont ceux indiqués sur le devis accepté.</p>
+                        </div>
+
+                        <div class="rates">
+                            <article class="rate card" data-spot data-reveal>
+                                <div>
+                                    <h4 class="rate-name">One-Page</h4>
+                                    <p class="rate-desc">Idéal pour démarrer ou présenter une activité locale.</p>
+                                    <p class="meta rate-meta"><span><i class="ph ph-clock" aria-hidden="true"></i>2 à 3 jours</span><span><i class="ph ph-arrows-clockwise" aria-hidden="true"></i>3 retouches</span></p>
+                                </div>
+                                <p class="rate-price">450&nbsp;€<small>net</small></p>
+                            </article>
+
+                            <article class="rate plan--featured card" data-spot data-reveal style="--d:.06s">
+                                <div>
+                                    <h4 class="rate-name">Vitrine Pro <span class="badge">Populaire</span></h4>
+                                    <p class="rate-desc">Jusqu'à 5 pages structurées.</p>
+                                    <p class="meta rate-meta"><span><i class="ph ph-clock" aria-hidden="true"></i>1 à 2 semaines</span><span><i class="ph ph-arrows-clockwise" aria-hidden="true"></i>4 retouches</span></p>
+                                </div>
+                                <p class="rate-price"><span class="grad">850</span>&nbsp;€<small>net</small></p>
+                            </article>
+
+                            <article class="rate card" data-spot data-reveal>
+                                <div>
+                                    <h4 class="rate-name">Sur-mesure</h4>
+                                    <p class="rate-desc">Fonctionnalités avancées, base de données.</p>
+                                    <p class="meta rate-meta"><span><i class="ph ph-clock" aria-hidden="true"></i>2 à 4 semaines</span><span><i class="ph ph-arrows-clockwise" aria-hidden="true"></i>4 retouches</span></p>
+                                </div>
+                                <p class="rate-price rate-price--quote">Sur devis</p>
+                            </article>
+
+                            <article class="rate card" data-spot data-reveal style="--d:.06s">
+                                <div>
+                                    <h4 class="rate-name">Refonte de site</h4>
+                                    <p class="rate-desc">Jusqu'à 3 pages, accueil inclus. +40&nbsp;€ par page supplémentaire.</p>
+                                    <p class="meta rate-meta"><span><i class="ph ph-clock" aria-hidden="true"></i>2 à 5 j, +1 j / 2 pages</span><span><i class="ph ph-arrows-clockwise" aria-hidden="true"></i>3 retouches</span></p>
+                                </div>
+                                <p class="rate-price">200&nbsp;€</p>
+                            </article>
+
+                            <article class="rate card" data-spot data-reveal>
+                                <div>
+                                    <h4 class="rate-name">Page additionnelle</h4>
+                                    <p class="rate-desc">Création et ajout d'une page.</p>
+                                    <p class="meta rate-meta"><span><i class="ph ph-clock" aria-hidden="true"></i>Précisé au devis</span></p>
+                                </div>
+                                <p class="rate-price">90&nbsp;€<small>/ page</small></p>
+                            </article>
+
+                            <article class="rate card" data-spot data-reveal style="--d:.06s">
+                                <div>
+                                    <h4 class="rate-name">E-commerce léger</h4>
+                                    <p class="rate-desc">Paiement Stripe ou PayPal, catalogue, 1 page dédiée.</p>
+                                    <p class="meta rate-meta"><span><i class="ph ph-clock" aria-hidden="true"></i>Précisé au devis</span></p>
+                                </div>
+                                <p class="rate-price">350&nbsp;€</p>
+                            </article>
+
+                            <article class="rate card" data-spot data-reveal>
+                                <div>
+                                    <h4 class="rate-name">Fiche Google Business</h4>
+                                    <p class="rate-desc">Création de la fiche&nbsp;: photos, horaires, site, réseaux.</p>
+                                    <p class="meta rate-meta"><span><i class="ph ph-clock" aria-hidden="true"></i>Précisé au devis</span></p>
+                                </div>
+                                <p class="rate-price">90&nbsp;€</p>
+                            </article>
+
+                            <article class="rate card" data-spot data-reveal style="--d:.06s">
+                                <div>
+                                    <h4 class="rate-name">Maintenance</h4>
+                                    <p class="rate-desc">Mise à jour ou petit ajustement visuel ou technique.</p>
+                                    <p class="meta rate-meta"><span><i class="ph ph-clock" aria-hidden="true"></i>Précisé à la demande</span></p>
+                                </div>
+                                <p class="rate-price">75&nbsp;€<small>/ intervention</small></p>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- Article 03 -->
+                    <section class="article" id="article-3" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 03</span>
+                            <h2 class="h3">Déroulement du projet et validation</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <ol class="steps" role="list">
+                                <li><span class="step-n" aria-hidden="true">01</span><p><strong>Brief</strong>&nbsp;: le client décrit son activité, ses objectifs et ses goûts.</p></li>
+                                <li><span class="step-n" aria-hidden="true">02</span><p><strong>Contenus</strong>&nbsp;: le client fournit ses textes, photos et logo dans un délai de 15&nbsp;jours après l'acceptation du devis.</p></li>
+                                <li><span class="step-n" aria-hidden="true">03</span><p><strong>Proposition</strong>&nbsp;: Pixel Designer présente une première version du site.</p></li>
+                                <li><span class="step-n" aria-hidden="true">04</span><p><strong>Retouches</strong>&nbsp;: le nombre de retouches inclus dépend de la prestation (voir l'<a href="#article-2">article&nbsp;2</a>). Une retouche correspond à une série de demandes de modifications envoyées en une seule fois. Les retouches supplémentaires, ou les demandes qui changent le périmètre du projet, font l'objet d'un devis complémentaire.</p></li>
+                                <li><span class="step-n" aria-hidden="true">05</span><p><strong>Validation et mise en ligne</strong>&nbsp;: le client valide le site par écrit (un e-mail suffit). Sans réponse 15&nbsp;jours après la présentation de la version finale, le site est réputé validé.</p></li>
+                            </ol>
+                            <p>Les délais sont donnés à titre indicatif. Ils sont suspendus tant que le client n'a pas fourni les contenus ou les validations demandés.</p>
+                            <p>Si le client ne donne plus de nouvelles pendant plus de <strong>2&nbsp;mois</strong>, Pixel Designer peut clôturer le projet. Le travail réalisé est alors facturé au prorata et l'acompte reste acquis.</p>
+                        </div>
+                    </section>
+
+                    <!-- Article 04 -->
+                    <section class="article" id="article-4" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 04</span>
+                            <h2 class="h3">Prix et paiement</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <p>Les prix sont indiqués en euros, nets de taxe&nbsp;: <strong>TVA non applicable, art. 293&nbsp;B du CGI.</strong> Les prix applicables sont ceux du devis signé.</p>
+                            <p>Les factures sont payables <strong>à réception</strong>, par virement bancaire sur le compte professionnel de Pixel Designer, ou par tout autre moyen indiqué sur la facture. Aucun escompte n'est accordé pour paiement anticipé.</p>
+                            <div class="note card">
+                                <ul class="bullets" role="list">
+                                    <li><p><strong>Retard de paiement d'un client professionnel</strong>&nbsp;: tout retard entraîne de plein droit, sans mise en demeure préalable, des pénalités de retard calculées au taux directeur de la Banque centrale européenne majoré de 10&nbsp;points, ainsi qu'une indemnité forfaitaire pour frais de recouvrement de <strong>40&nbsp;€</strong> par facture (articles L441-10 et D441-5 du Code de commerce).</p></li>
+                                    <li><p><strong>Retard de paiement d'un client particulier</strong>&nbsp;: après une mise en demeure restée sans effet pendant 8&nbsp;jours, les sommes dues portent intérêt au taux légal.</p></li>
+                                </ul>
+                            </div>
+                            <p>En cas de non-paiement, Pixel Designer peut suspendre la mise en ligne, les modifications ou la maintenance jusqu'au règlement complet, après en avoir informé le client par écrit.</p>
+                        </div>
+                    </section>
+
+                    <!-- Article 05 -->
+                    <section class="article" id="article-5" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 05</span>
+                            <h2 class="h3">Maintenance</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <ul class="bullets" role="list">
+                                <li><p><strong>Maintenance à l'intervention.</strong> L'option «&nbsp;Maintenance et sérénité&nbsp;» couvre les mises à jour et les petits ajustements visuels ou techniques d'un site existant, au tarif de <strong>75&nbsp;€ par intervention</strong>. Une intervention correspond à une demande ponctuelle traitée en une seule fois. Une demande plus importante (nouvelle page, nouvelle fonctionnalité, refonte) fait l'objet d'un devis séparé, selon les tarifs de l'<a href="#article-2">article&nbsp;2</a>.</p></li>
+                                <li><p><strong>Délai.</strong> Pixel Designer confirme la prise en charge de la demande et indique un délai de réalisation avant d'intervenir.</p></li>
+                                <li><p><strong>Paiement.</strong> Chaque intervention est facturée une fois réalisée, payable à réception de la facture.</p></li>
+                                <li><p><strong>Abonnement.</strong> Si un abonnement de maintenance est proposé dans un devis, sa durée, son contenu, son prix et ses conditions de résiliation sont ceux indiqués dans ce devis.</p></li>
+                                <li><p><strong>Limites.</strong> La maintenance ne couvre pas les dommages causés par une intervention du client ou d'un tiers sur le site, ni les pannes des services extérieurs (hébergeur, registre du nom de domaine, prestataires de paiement, base de données externe).</p></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Article 06 -->
+                    <section class="article" id="article-6" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 06</span>
+                            <h2 class="h3">Propriété intellectuelle</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <p><strong>Après paiement intégral</strong> du prix, Pixel Designer cède au client les droits d'utilisation, de reproduction et de modification du site réalisé pour lui, pour le monde entier et pour toute la durée des droits, dans le cadre de son activité. Tant que le paiement n'est pas complet, Pixel Designer reste titulaire de ces droits.</p>
+                            <p>Les outils, modèles, bouts de code génériques et savoir-faire réutilisables de Pixel Designer restent sa propriété.</p>
+                            <p>Le client garantit qu'il détient les droits sur les textes, photos, logos et autres contenus qu'il fournit, et garantit Pixel Designer contre toute réclamation à ce sujet.</p>
+                            <p><strong>Référence.</strong> Sauf refus écrit du client, Pixel Designer peut présenter le site réalisé dans son portfolio et sur ses supports de communication, et placer une mention discrète «&nbsp;Site réalisé par Pixel Designer&nbsp;» en pied de page.</p>
+                        </div>
+                    </section>
+
+                    <!-- Article 07 -->
+                    <section class="article" id="article-7" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 07</span>
+                            <h2 class="h3">Obligations et responsabilité</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <p>Pixel Designer s'engage à réaliser les prestations avec soin, selon les règles de l'art. Il s'agit d'une <strong>obligation de moyens</strong>.</p>
+                            <p>Le client s'engage à fournir des contenus exacts et licites, à répondre dans des délais raisonnables et à régler les sommes dues. Il reste seul responsable du contenu publié sur son site et des mentions légales qui le concernent.</p>
+                            <p>Pixel Designer n'est pas responsable du positionnement du site dans les moteurs de recherche, ni des résultats commerciaux du client, ni des interruptions dues à l'hébergeur ou à un tiers.</p>
+                            <ul class="bullets" role="list">
+                                <li><p><strong>Services tiers.</strong> Certaines prestations reposent sur des services extérieurs&nbsp;: Stripe ou PayPal pour l'e-commerce léger, Supabase ou une solution équivalente pour les bases de données de la formule Sur-mesure, Google pour la fiche Google Business, ainsi que l'hébergeur et le registre du nom de domaine. Le client accepte les conditions de ces services&nbsp;; leurs éventuels abonnements et frais (commissions sur les paiements, par exemple) restent à sa charge, sauf mention contraire au devis. Pixel Designer n'est pas responsable de leurs pannes, de leurs changements de conditions, ni des délais de validation ou des suspensions décidés par Google.</p></li>
+                                <li><p><strong>Fin de la collaboration.</strong> À la fin de la relation, Pixel Designer remet au client, à sa demande et sous 15&nbsp;jours, les fichiers de son site et les accès dont il dispose (nom de domaine, comptes créés pour lui), sous réserve du paiement de toutes les sommes dues.</p></li>
+                            </ul>
+                            <p>Pour un client professionnel, la responsabilité de Pixel Designer est limitée au montant payé par le client pour la prestation concernée.</p>
+                        </div>
+                    </section>
+
+                    <!-- Article 08 -->
+                    <section class="article" id="article-8" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 08</span>
+                            <h2 class="h3">Droit de rétractation</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <ul class="bullets" role="list">
+                                <li><p><strong>Qui est concerné.</strong> Le client particulier qui signe à distance (par e-mail, en ligne) ou hors des locaux de Pixel Designer (chez lui, sur un salon) dispose d'un délai de <strong>14&nbsp;jours</strong> à compter de la signature pour se rétracter, sans motif (article L221-18 du Code de la consommation). Ce droit s'applique aussi au client professionnel qui emploie <strong>5&nbsp;salariés ou moins</strong>, lorsque le contrat est signé hors établissement et que la création d'un site n'entre pas dans le champ de son activité principale (article L221-3).</p></li>
+                                <li><p><strong>Comment se rétracter.</strong> Le client informe Pixel Designer par e-mail ou par courrier, avant la fin du délai, par une déclaration claire ou au moyen du formulaire ci-dessous. Les sommes versées sont remboursées sous 14&nbsp;jours.</p></li>
+                                <li><p><strong>Démarrage anticipé.</strong> Si le client souhaite que le travail commence avant la fin du délai, il doit le demander expressément par écrit. S'il se rétracte ensuite, il paie le travail déjà réalisé, au prorata. Il perd son droit de rétractation si la prestation est entièrement réalisée avant la fin du délai, à sa demande expresse.</p></li>
+                                <li><p><strong>Acompte hors établissement.</strong> Pour un contrat signé hors établissement avec un client particulier, aucun paiement n'est encaissé avant l'expiration d'un délai de 7&nbsp;jours après la signature.</p></li>
+                            </ul>
+                        </div>
+
+                        <div class="withdrawal card" data-reveal>
+                            <span class="badge">Formulaire de rétractation</span>
+                            <p><em>À compléter et renvoyer uniquement si vous souhaitez vous rétracter.</em></p>
+                            <p>À l'attention de Pixel Designer, 5 Route de la Saline, 70200 Lure — <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a></p>
+                            <p>Je vous notifie par la présente ma rétractation du contrat portant sur la prestation ci-dessous&nbsp;:</p>
+                            <ul class="withdrawal-fields" role="list">
+                                <li>Prestation&nbsp;:</li>
+                                <li>Devis signé le&nbsp;:</li>
+                                <li>Nom du client&nbsp;:</li>
+                                <li>Adresse du client&nbsp;:</li>
+                                <li>Date et signature&nbsp;:</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Article 09 -->
+                    <section class="article" id="article-9" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 09</span>
+                            <h2 class="h3">Données personnelles</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <p>Pixel Designer collecte uniquement les données nécessaires à la gestion des devis, des factures et des projets (nom, coordonnées, informations de facturation). Elles ne sont ni vendues ni cédées, et sont conservées le temps de la relation commerciale puis pendant les durées légales de conservation comptable.</p>
+                            <p>Conformément au RGPD, le client peut accéder à ses données, les faire rectifier ou supprimer en écrivant à <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a>.</p>
+                            <p>Lorsque le site du client collecte lui-même des données (formulaire de contact, réservation), le client en reste responsable&nbsp;; Pixel Designer l'aide sur demande à mettre en place les mentions nécessaires.</p>
+                        </div>
+                    </section>
+
+                    <!-- Article 10 -->
+                    <section class="article" id="article-10" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 10</span>
+                            <h2 class="h3">Médiation et litiges</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <p>En cas de difficulté, le client et Pixel Designer recherchent d'abord une solution amiable.</p>
+                            <p>À défaut d'accord amiable, tout litige avec un client professionnel est soumis aux tribunaux compétents du ressort de Vesoul. Pour un client particulier, le tribunal compétent est celui désigné par les règles de droit commun.</p>
+                            <p>Les présentes CGV sont soumises au droit français.</p>
+                        </div>
+                    </section>
+
+                    <p class="meta doc-end" data-reveal><span>Pixel Designer · SIRET 935&nbsp;191&nbsp;619&nbsp;00037</span><span>TVA non applicable, art. 293&nbsp;B du CGI</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="./" class="brand" aria-label="Pixel Designer, accueil">
+                        <img class="brand-logo" src="assets/img/logo-128.png" width="40" height="40" alt="">
+                        <span class="brand-name">Pixel Designer</span>
+                    </a>
+                    <p class="muted">Sites vitrines conçus avec l'IA, finis à la main.</p>
+                </div>
+                <nav class="footer-links" aria-label="Pied de page">
+                    <a href="./#projets">Réalisations</a>
+                    <a href="./#approche">Approche</a>
+                    <a href="./#services">Tarifs</a>
+                    <a href="./#contact">Contact</a>
+                </nav>
+            </div>
+            <p class="footer-word grad" aria-hidden="true">Pixel Designer</p>
+            <div class="footer-bottom">
+                <p>© <span data-year>2026</span> Pixel Designer</p>
+                <p class="footer-legal">SIREN 935&nbsp;191&nbsp;619 · TVA non applicable, art. 293&nbsp;B du CGI · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html" aria-current="page">CGV</a></p>
+                <a href="#top" class="link">Haut de page <i class="ph ph-arrow-up" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

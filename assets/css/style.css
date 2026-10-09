@@ -1275,6 +1275,29 @@ html.js .statement .w.on {
     min-width: 8.5rem;
 }
 
+/* Mention CGV sous le bouton de chaque offre */
+.plan-buy {
+    flex-wrap: wrap;
+    row-gap: 0.9rem;
+}
+
+.plan-terms {
+    flex: 1 1 100%;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--muted);
+}
+
+.plan-terms a,
+.article-body a,
+.id-grid a,
+.withdrawal a {
+    color: var(--text);
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 0.05rem;
+    transition: border-color 0.3s var(--ease);
+}
+
 /* Offre mise en avant : bordure en dégradé qui tourne en continu */
 .plan--featured {
     border-color: transparent;
@@ -1318,9 +1341,17 @@ html.js .statement .w.on {
         grid-column: 2;
         grid-row: 1;
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: flex-end;
         justify-content: flex-start;
         gap: 1.1rem;
+    }
+
+    .plan-terms {
+        flex: none;
+        max-width: 12rem;
+        margin-top: -0.35rem;
+        text-align: right;
     }
 
     .plan-features {
@@ -2047,6 +2078,418 @@ html.js [data-reveal].is-in {
         grid-template-columns: 13rem minmax(0, 1fr);
         gap: 1.5rem;
         align-items: baseline;
+    }
+}
+
+/* Page document (conditions générales de vente) ------------------------- */
+
+.doc {
+    padding-block: calc(var(--nav-h) + clamp(3rem, 8vw, 6rem)) var(--section-y);
+}
+
+.doc-head {
+    max-width: 46rem;
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.doc-version {
+    margin-top: 1.25rem;
+    text-shadow: var(--halo);
+}
+
+.doc-head .chips {
+    margin: 1.5rem 0 0;
+}
+
+.doc-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.doc-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.doc-body {
+    min-width: 0;
+}
+
+/* Sommaire */
+.toc summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    list-style: none;
+}
+
+.toc summary::-webkit-details-marker {
+    display: none;
+}
+
+.toc summary i {
+    font-size: 1rem;
+    transition: transform 0.4s var(--ease);
+}
+
+.toc[open] summary i {
+    transform: rotate(180deg);
+}
+
+.toc ol {
+    display: grid;
+    gap: 0.15rem;
+    margin: 0;
+    padding: 0 0.6rem 0.75rem;
+    list-style: none;
+}
+
+.toc a {
+    display: grid;
+    grid-template-columns: 1.9rem minmax(0, 1fr);
+    align-items: baseline;
+    padding: 0.5rem 0.65rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    color: var(--muted);
+    transition: color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+
+.toc a span {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--placeholder);
+    transition: color 0.3s var(--ease);
+}
+
+.toc a[aria-current="true"] {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.toc a[aria-current="true"] span {
+    color: var(--accent);
+}
+
+/* Coordonnées du prestataire : cellules séparées par un filet */
+.id-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    margin: 0;
+    overflow: hidden;
+    background: var(--line);
+}
+
+.id-grid > div {
+    padding: 1.1rem 1.35rem;
+    background: var(--bg-elev);
+}
+
+.id-grid dt {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--placeholder);
+}
+
+.id-grid dd {
+    margin: 0.4rem 0 0;
+    font-size: 0.95rem;
+    overflow-wrap: anywhere;
+}
+
+/* Articles */
+.article {
+    margin-top: clamp(3.5rem, 7vw, 5rem);
+}
+
+.article-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+    text-shadow: var(--halo);
+}
+
+.article-body {
+    display: grid;
+    gap: 1rem;
+}
+
+.article-body + .article-body {
+    margin-top: 2.5rem;
+}
+
+.article-body p {
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 68ch;
+    text-shadow: var(--halo);
+}
+
+.article-body strong {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.article-body h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    text-shadow: var(--halo);
+}
+
+/* Listes à puces « pixel », comme dans les offres */
+.bullets {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.bullets li {
+    display: grid;
+    grid-template-columns: 8px minmax(0, 1fr);
+    gap: 0.85rem;
+}
+
+.bullets li::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    margin-top: 0.62em;
+    border-radius: 2px;
+    background: var(--g-brand);
+}
+
+/* Étapes numérotées */
+.steps {
+    display: grid;
+    gap: 0.9rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.steps li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.9rem;
+    align-items: start;
+}
+
+.step-n {
+    display: grid;
+    place-items: center;
+    min-width: 2.1rem;
+    height: 1.65rem;
+    margin-top: 0.1rem;
+    border-radius: 8px;
+    background: linear-gradient(120deg, rgba(34, 184, 255, 0.16), rgba(139, 92, 246, 0.2));
+    border: 1px solid rgba(165, 180, 252, 0.28);
+    color: #c7d2fe;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+/* Encadré */
+.note,
+.withdrawal {
+    padding: clamp(1.25rem, 2.6vw, 1.75rem);
+}
+
+.note p,
+.withdrawal p {
+    text-shadow: none;
+}
+
+/* Tarifs en cartes */
+.rates {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.rate {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: clamp(1.25rem, 2.4vw, 1.6rem);
+}
+
+.rate-name {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+}
+
+.rate-desc {
+    margin-top: 0.35rem;
+    max-width: 30ch;
+    font-size: 0.92rem;
+    color: var(--muted);
+}
+
+.rate-meta {
+    margin-top: 0.85rem;
+    gap: 0.35rem 1.1rem;
+    color: #d4d4d8;
+}
+
+.rate-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.rate-meta i {
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.rate-price {
+    flex: none;
+    text-align: right;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.rate-price small {
+    display: block;
+    margin-top: 0.45rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--muted);
+}
+
+.rate-price--quote {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    letter-spacing: -0.03em;
+}
+
+/* Formulaire de rétractation : carte à bordure en pointillés */
+.withdrawal {
+    display: grid;
+    gap: 0.9rem;
+    justify-items: start;
+    margin-top: 1.5rem;
+    border-style: dashed;
+    border-color: var(--line-strong);
+}
+
+.withdrawal p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    overflow-wrap: anywhere;
+}
+
+.withdrawal-fields {
+    display: grid;
+    gap: 1.15rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.withdrawal-fields li {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.75rem;
+    white-space: nowrap;
+}
+
+.withdrawal-fields li::after {
+    content: "";
+    flex: 1;
+    min-width: 2rem;
+    border-bottom: 1px solid var(--line-strong);
+    transform: translateY(-0.2em);
+}
+
+.doc-end {
+    justify-content: space-between;
+    margin-top: clamp(3rem, 6vw, 4rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+}
+
+@media (hover: hover) {
+    .toc a:hover {
+        color: var(--text);
+    }
+
+    .rate:hover {
+        transform: translateY(-4px);
+    }
+
+    .plan-terms a:hover,
+    .article-body a:hover,
+    .id-grid a:hover,
+    .withdrawal a:hover {
+        border-color: var(--accent);
+    }
+}
+
+@media (min-width: 640px) {
+    .id-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rates {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .doc-grid {
+        grid-template-columns: 17rem minmax(0, 1fr);
+        gap: clamp(3rem, 6vw, 5rem);
+        align-items: start;
+    }
+
+    .doc-aside {
+        position: sticky;
+        top: calc(var(--nav-h) + 1.5rem);
+    }
+
+    /* Sur ordinateur le sommaire reste ouvert : le titre n'est plus un bouton */
+    html.js .toc summary {
+        padding-bottom: 0.6rem;
+        pointer-events: none;
+    }
+
+    html.js .toc summary i {
+        display: none;
+    }
+
+    .article:first-of-type {
+        margin-top: clamp(3rem, 5vw, 4rem);
     }
 }
 

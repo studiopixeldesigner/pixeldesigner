@@ -291,6 +291,31 @@
     };
     requestAnimationFrame(tick);
 
+    /* Sommaire (page CGV) : ouvert et collant sur ordinateur, repliable sur mobile */
+    const toc = $('[data-toc]');
+    if (toc) {
+        const wide = window.matchMedia('(min-width: 1024px)');
+        const sync = () => { toc.open = wide.matches; };
+        sync();
+        wide.addEventListener('change', sync);
+        toc.addEventListener('click', (e) => {
+            if (e.target.closest('a') && !wide.matches) toc.open = false;
+        });
+
+        // Article en cours de lecture
+        const tocLinks = $$('a', toc);
+        const byId = new Map(tocLinks.map((a) => [a.getAttribute('href').slice(1), a]));
+        const articleObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                tocLinks.forEach((a) => a.removeAttribute('aria-current'));
+                const link = byId.get(entry.target.id);
+                if (link) link.setAttribute('aria-current', 'true');
+            });
+        }, { rootMargin: '-25% 0px -65% 0px' });
+        $$('[data-article]').forEach((article) => articleObserver.observe(article));
+    }
+
     /* Formulaire de contact --------------------------------------------- */
     const form = $('[data-form]');
     if (!form) return;
