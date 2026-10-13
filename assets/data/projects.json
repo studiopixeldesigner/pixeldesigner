@@ -1,6 +1,25 @@
 {
-    "updatedAt": "2026-10-13T19:12:17.321Z",
+    "updatedAt": "2026-10-13T19:12:41.377Z",
     "projects": [
+        {
+            "id": "pixel-designer",
+            "title": "Pixel Designer",
+            "category": "Site de Pixel Designer",
+            "city": "Lure",
+            "date": "2026-09",
+            "description": "Site officiel de Pixel Designer",
+            "tags": [
+                "Back-office",
+                "Github",
+                "UI/UX",
+                "HMTL"
+            ],
+            "url": "https://studiopixeldesigner.github.io/pixeldesigner/",
+            "image": "pixel-designer-259gh",
+            "imageWidth": 1600,
+            "imageHeight": 838,
+            "alt": "Page d'accueil du site Pixel Designer"
+        },
         {
             "id": "smart-repare",
             "title": "Smart Repare",
@@ -36,25 +55,6 @@
             "imageWidth": 1600,
             "imageHeight": 844,
             "alt": "Page d'accueil du site Chicken Burger, restaurant à Lure"
-        },
-        {
-            "id": "pixel-designer",
-            "title": "Pixel Designer",
-            "category": "Site de Pixel Designer",
-            "city": "Lure",
-            "date": "2026-09",
-            "description": "Site officiel de Pixel Designer",
-            "tags": [
-                "Back-office",
-                "Github",
-                "UI/UX",
-                "HMTL"
-            ],
-            "url": "https://studiopixeldesigner.github.io/pixeldesigner/",
-            "image": "pixel-designer-259gh",
-            "imageWidth": 1600,
-            "imageHeight": 838,
-            "alt": "Page d'accueil du site Pixel Designer"
         }
     ]
 }
