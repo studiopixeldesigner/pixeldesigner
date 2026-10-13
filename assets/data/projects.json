@@ -1,0 +1,41 @@
+{
+    "updatedAt": "2026-10-13T00:00:00.000Z",
+    "projects": [
+        {
+            "id": "smart-repare",
+            "title": "Smart Repare",
+            "category": "Réparation informatique",
+            "city": "Vesoul",
+            "date": "2026-08",
+            "description": "Site vitrine multipage avec un espace d'administration pour gérer les tarifs de chaque service.",
+            "tags": [
+                "Multipage",
+                "Espace d'administration",
+                "Gestion des tarifs"
+            ],
+            "url": "https://studiopixeldesigner.github.io/demo.smartrepare/",
+            "image": "smartrepare",
+            "imageWidth": 1600,
+            "imageHeight": 844,
+            "alt": "Page d'accueil du site Smart Repare, atelier de réparation à Vesoul"
+        },
+        {
+            "id": "chicken-burger",
+            "title": "Chicken Burger",
+            "category": "Restauration",
+            "city": "Lure",
+            "date": "2026-09",
+            "description": "Site vitrine gourmand avec catalogue dynamique et back-office de gestion simplifié.",
+            "tags": [
+                "Catalogue dynamique",
+                "Back-office",
+                "Gestion simplifiée"
+            ],
+            "url": "https://studiopixeldesigner.github.io/demo.chickenburger/",
+            "image": "chickenburger",
+            "imageWidth": 1600,
+            "imageHeight": 844,
+            "alt": "Page d'accueil du site Chicken Burger, restaurant à Lure"
+        }
+    ]
+}

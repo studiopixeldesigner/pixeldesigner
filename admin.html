@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Administration | Pixel Designer</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- La page ne peut parler qu'à ce site et à l'API GitHub, et n'exécute que ses propres scripts -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' blob: data:; connect-src 'self' https://api.github.com; form-action 'none'; base-uri 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#09090b">
+    <meta name="color-scheme" content="dark">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <script type="module" src="assets/js/admin.js"></script>
+</head>
+<body class="admin">
+    <header class="admin-bar">
+        <div class="container admin-bar-inner">
+            <a href="./" class="brand" aria-label="Pixel Designer, retour au site">
+                <img class="brand-logo" src="assets/img/logo-64.png" srcset="assets/img/logo-64.png 1x, assets/img/logo-128.png 2x" width="32" height="32" alt="">
+                <span class="brand-name">Pixel Designer</span>
+            </a>
+            <span class="badge">Administration</span>
+            <div class="admin-bar-actions">
+                <a href="./#projets" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Voir le site <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                <button type="button" class="btn btn-ghost btn-sm" data-logout hidden>Se déconnecter</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+
+            <noscript><p class="notice notice--error">Cette page a besoin de JavaScript pour fonctionner.</p></noscript>
+
+            <!-- Connexion -->
+            <section class="login" data-view="login" hidden>
+                <p class="eyebrow"><span class="pix" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Espace privé</p>
+                <h1 class="h2">Connexion <span class="grad">à l'administration</span></h1>
+                <p class="lead">Collez votre clé d'accès GitHub pour gérer les réalisations affichées sur le site.</p>
+
+                <form class="login-panel card form" data-login-form novalidate>
+                    <div class="field" data-field="token">
+                        <label for="token">Clé d'accès GitHub</label>
+                        <input class="input" id="token" name="token" type="password" autocomplete="off" spellcheck="false" required aria-describedby="token-err">
+                        <p class="field-error" id="token-err" role="alert"></p>
+                    </div>
+                    <label class="check">
+                        <input type="checkbox" name="remember">
+                        <span>Rester connecté sur cet appareil</span>
+                    </label>
+                    <p class="hint">Sans cette case, la clé est oubliée à la fermeture de l'onglet. Ne la cochez que sur votre propre ordinateur.</p>
+                    <div class="form-foot">
+                        <button type="submit" class="btn btn-primary" data-login-submit>Se connecter <i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </form>
+
+                <details class="help card">
+                    <summary>Comment créer ma clé d'accès ? <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                    <ol class="help-steps">
+                        <li>Connectez-vous à GitHub, puis ouvrez <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">la page de création d'une clé</a> (Settings, Developer settings, Personal access tokens, Fine-grained tokens).</li>
+                        <li><strong>Token name</strong> : un nom au choix, par exemple «&nbsp;Admin Pixel Designer&nbsp;».</li>
+                        <li><strong>Expiration</strong> : choisissez la durée. À l'expiration, il suffira de créer une nouvelle clé.</li>
+                        <li><strong>Repository access</strong> : «&nbsp;Only select repositories&nbsp;», puis le dépôt <code>pixeldesigner</code>.</li>
+                        <li><strong>Permissions</strong>, «&nbsp;Repository permissions&nbsp;» : passez <strong>Contents</strong> sur «&nbsp;Read and write&nbsp;». Ne changez rien d'autre.</li>
+                        <li>Cliquez sur «&nbsp;Generate token&nbsp;», copiez la clé (elle commence par <code>github_pat_</code>) et collez-la ci-dessus.</li>
+                    </ol>
+                    <p class="hint">Cette clé ne donne accès qu'aux fichiers de ce site. Si vous pensez qu'elle a fuité, supprimez-la sur GitHub : elle cesse aussitôt de fonctionner.</p>
+                </details>
+            </section>
+
+            <!-- Tableau de bord -->
+            <section class="dash" data-view="dash" hidden>
+                <div class="dash-head">
+                    <div>
+                        <p class="eyebrow"><span class="pix" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Section « Mes réalisations »</p>
+                        <h1 class="h2">Mes <span class="grad">réalisations</span></h1>
+                        <p class="lead">Ajoutez, modifiez ou réordonnez vos projets. Rien n'est en ligne tant que vous n'avez pas cliqué sur « Publier ».</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" data-add>Ajouter un projet <i class="ph ph-plus" aria-hidden="true"></i></button>
+                </div>
+
+                <p class="notice" data-notice role="status" aria-live="polite" hidden></p>
+
+                <ol class="projects" data-list role="list"></ol>
+            </section>
+
+            <p class="loading" data-view="loading"><span class="spinner" aria-hidden="true"></span>Chargement…</p>
+        </div>
+    </main>
+
+    <!-- Barre des modifications en attente -->
+    <div class="publish-bar" data-publish-bar hidden>
+        <div class="container publish-bar-inner">
+            <p data-pending-text></p>
+            <div class="publish-bar-actions">
+                <button type="button" class="btn btn-ghost btn-sm" data-discard>Annuler les modifications</button>
+                <button type="button" class="btn btn-primary btn-sm" data-publish>Publier <i class="ph ph-cloud-arrow-up" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fiche d'un projet -->
+    <dialog class="editor" data-editor aria-labelledby="editor-title">
+        <form class="editor-form" data-editor-form novalidate>
+            <header class="editor-head">
+                <h2 class="h3" id="editor-title" data-editor-title>Nouveau projet</h2>
+                <button type="button" class="icon-btn" data-editor-close aria-label="Fermer sans enregistrer"><i class="ph ph-x" aria-hidden="true"></i></button>
+            </header>
+
+            <div class="editor-body">
+                <div class="editor-fields form">
+                    <div class="field" data-field="title">
+                        <label for="p-title">Nom du projet</label>
+                        <input class="input" id="p-title" name="title" type="text" maxlength="60" required aria-describedby="p-title-err">
+                        <p class="field-error" id="p-title-err">Indiquez le nom du projet.</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="field" data-field="category">
+                            <label for="p-category">Catégorie</label>
+                            <input class="input" id="p-category" name="category" type="text" maxlength="40" required placeholder="Restauration" aria-describedby="p-category-err">
+                            <p class="field-error" id="p-category-err">Indiquez une catégorie.</p>
+                        </div>
+                        <div class="field" data-field="city">
+                            <label for="p-city">Ville <span class="optional">(facultatif)</span></label>
+                            <input class="input" id="p-city" name="city" type="text" maxlength="40" placeholder="Lure">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="field" data-field="date">
+                            <label for="p-date">Mois de réalisation</label>
+                            <input class="input" id="p-date" name="date" type="month" required aria-describedby="p-date-err">
+                            <p class="field-error" id="p-date-err">Choisissez le mois et l'année.</p>
+                        </div>
+                        <div class="field" data-field="url">
+                            <label for="p-url">Adresse du site</label>
+                            <input class="input" id="p-url" name="url" type="url" inputmode="url" required placeholder="https://…" aria-describedby="p-url-err">
+                            <p class="field-error" id="p-url-err">Indiquez une adresse complète, qui commence par https://</p>
+                        </div>
+                    </div>
+
+                    <div class="field" data-field="description">
+                        <div class="field-top">
+                            <label for="p-description">Description</label>
+                            <span class="counter" data-count-for="description" aria-hidden="true">0 / 160</span>
+                        </div>
+                        <textarea class="input" id="p-description" name="description" rows="3" maxlength="160" required aria-describedby="p-description-err"></textarea>
+                        <p class="field-error" id="p-description-err">Décrivez le projet en une ou deux phrases.</p>
+                    </div>
+
+                    <div class="field" data-field="tags">
+                        <label for="p-tags">Étiquettes <span class="optional">(4 au maximum, séparées par des virgules)</span></label>
+                        <input class="input" id="p-tags" name="tags" type="text" placeholder="Multipage, Back-office, Catalogue" aria-describedby="p-tags-err">
+                        <p class="field-error" id="p-tags-err">4 étiquettes au maximum, de 30 caractères chacune.</p>
+                    </div>
+
+                    <div class="field" data-field="image">
+                        <label for="p-image">Capture d'écran du site</label>
+                        <div class="drop" data-drop>
+                            <img data-thumb alt="" hidden>
+                            <div class="drop-text">
+                                <p><strong data-image-state>Aucune image</strong></p>
+                                <p class="hint">PNG, JPEG ou WebP, 1600 pixels de large ou plus. Elle sera recadrée et allégée automatiquement.</p>
+                                <label class="btn btn-ghost btn-sm" for="p-image">Choisir une image</label>
+                            </div>
+                            <input class="visually-hidden" id="p-image" name="image" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="p-image-err">
+                        </div>
+                        <p class="field-error" id="p-image-err" data-image-error>Ajoutez une capture d'écran du site.</p>
+                    </div>
+
+                    <div class="field" data-field="alt">
+                        <label for="p-alt">Description de l'image <span class="optional">(lue aux personnes malvoyantes et par Google)</span></label>
+                        <input class="input" id="p-alt" name="alt" type="text" maxlength="140" required placeholder="Page d'accueil du site…" aria-describedby="p-alt-err">
+                        <p class="field-error" id="p-alt-err">Décrivez l'image en quelques mots.</p>
+                    </div>
+                </div>
+
+                <aside class="editor-preview" aria-label="Aperçu de la carte">
+                    <p class="meta">Aperçu sur le site</p>
+                    <div class="preview" data-preview inert></div>
+                </aside>
+            </div>
+
+            <footer class="editor-foot">
+                <p class="hint">Enregistrer ne met rien en ligne : il faudra ensuite cliquer sur « Publier ».</p>
+                <div class="editor-foot-actions">
+                    <button type="button" class="btn btn-ghost" data-editor-close>Annuler</button>
+                    <button type="submit" class="btn btn-primary" data-editor-save>Enregistrer</button>
+                </div>
+            </footer>
+        </form>
+    </dialog>
+
+    <!-- Confirmation -->
+    <dialog class="confirm" data-confirm aria-labelledby="confirm-title">
+        <form method="dialog" class="confirm-inner">
+            <h2 class="h3" id="confirm-title" data-confirm-title></h2>
+            <p class="muted" data-confirm-text></p>
+            <div class="confirm-actions">
+                <button type="submit" class="btn btn-ghost" value="cancel">Annuler</button>
+                <button type="submit" class="btn btn-danger" value="ok" data-confirm-ok>Supprimer</button>
+            </div>
+        </form>
+    </dialog>
+</body>
+</html>
