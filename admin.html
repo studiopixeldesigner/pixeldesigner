@@ -83,7 +83,7 @@
                     <div>
                         <p class="eyebrow"><span class="pix" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Section « Mes réalisations »</p>
                         <h1 class="h2">Mes <span class="grad">réalisations</span></h1>
-                        <p class="lead">Ajoutez, modifiez ou réordonnez vos projets. Rien n'est en ligne tant que vous n'avez pas cliqué sur « Publier ».</p>
+                        <p class="lead">Ajoutez, modifiez ou réordonnez vos projets, puis cliquez sur « Publier » pour mettre le site à jour.</p>
                     </div>
                     <button type="button" class="btn btn-primary" data-add>Ajouter un projet <i class="ph ph-plus" aria-hidden="true"></i></button>
                 </div>
@@ -100,7 +100,7 @@
     <!-- Barre des modifications en attente -->
     <div class="publish-bar" data-publish-bar hidden>
         <div class="container publish-bar-inner">
-            <p data-pending-text></p>
+            <p><i class="ph ph-warning-circle" aria-hidden="true"></i><span><strong data-pending-text></strong> Ces modifications ne sont pas encore visibles sur le site.</span></p>
             <div class="publish-bar-actions">
                 <button type="button" class="btn btn-ghost btn-sm" data-discard>Annuler les modifications</button>
                 <button type="button" class="btn btn-primary btn-sm" data-publish>Publier <i class="ph ph-cloud-arrow-up" aria-hidden="true"></i></button>
@@ -192,10 +192,11 @@
             </div>
 
             <footer class="editor-foot">
-                <p class="hint">Enregistrer ne met rien en ligne : il faudra ensuite cliquer sur « Publier ».</p>
+                <p class="hint">« Publier » met le site à jour tout de suite. « Enregistrer sans publier » garde le projet dans la liste, hors ligne, pour faire d'autres modifications avant.</p>
                 <div class="editor-foot-actions">
                     <button type="button" class="btn btn-ghost" data-editor-close>Annuler</button>
-                    <button type="submit" class="btn btn-primary" data-editor-save>Enregistrer</button>
+                    <button type="submit" class="btn btn-ghost" data-editor-save>Enregistrer sans publier</button>
+                    <button type="submit" class="btn btn-primary" data-editor-publish>Publier <i class="ph ph-cloud-arrow-up" aria-hidden="true"></i></button>
                 </div>
             </footer>
         </form>

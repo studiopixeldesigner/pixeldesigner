@@ -96,6 +96,12 @@ const notice = (text, kind = '') => {
     el.textContent = text;
     el.className = `notice${kind ? ` notice--${kind}` : ''}`;
     el.hidden = !text;
+    // Rejoue l'animation d'apparition à chaque nouveau message
+    if (text) {
+        el.classList.remove('is-shown');
+        void el.offsetWidth;
+        el.classList.add('is-shown');
+    }
 };
 
 const confirmDialog = (title, text, okLabel) => new Promise((resolve) => {
@@ -494,7 +500,7 @@ const saveEditor = () => {
         const target = firstInvalid === 'image' ? $('#p-image') : editor.form[firstInvalid];
         target.focus();
         $(`[data-field="${firstInvalid}"]`, editor.dialog).scrollIntoView({ block: 'center' });
-        return;
+        return false;
     }
     if (!draft.id) {
         const taken = new Set([...state.projects, ...state.base.data.projects].map((p) => p.id));
@@ -518,6 +524,7 @@ const saveEditor = () => {
     editor.dialog.close();
     notice('');
     render();
+    return true;
 };
 
 const initEditor = () => {
@@ -532,7 +539,13 @@ const initEditor = () => {
         if (editor.image) URL.revokeObjectURL(editor.image.previewUrl);
         editor.image = null;
     });
-    f.addEventListener('submit', (e) => { e.preventDefault(); saveEditor(); });
+    f.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const wantsPublish = e.submitter?.hasAttribute('data-editor-publish');
+        if (!saveEditor() || !wantsPublish) return;
+        if (isDirty()) publish();
+        else notice('Aucune modification à publier : le site est déjà à jour.');
+    });
     f.addEventListener('input', (e) => {
         if (e.target.name === 'alt') editor.altTouched = true;
         if (e.target.name === 'title' && !editor.altTouched) f.alt.value = f.title.value.trim() ? `Page d'accueil du site ${f.title.value.trim()}` : '';
@@ -563,7 +576,7 @@ const setBusy = (busy, label = 'Publier') => {
 
 // Interroge le site public jusqu'à ce que la nouvelle version soit servie
 const waitOnline = async (updatedAt) => {
-    for (let attempt = 0; attempt < 48; attempt++) {
+    for (let attempt = 0; attempt < 84; attempt++) {
         await new Promise((resolve) => setTimeout(resolve, 5000));
         if (state.base?.data.updatedAt !== updatedAt) return; // une autre publication a suivi
         try {
@@ -633,7 +646,7 @@ const publish = async () => {
         state.uploads.clear();
         setBusy(false);
         render();
-        notice('Publié. La mise en ligne prend environ une minute…', 'ok');
+        notice('Publié. La mise en ligne prend une à trois minutes : cette page vous préviendra quand ce sera fait.', 'ok');
         waitOnline(data.updatedAt);
     } catch (err) {
         setBusy(false);
