@@ -20,10 +20,9 @@
     <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/phosphor.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <script>document.documentElement.classList.add('js');</script>
@@ -79,7 +78,7 @@
                     Document contractuel
                 </p>
                 <h1 class="h2" data-split>Conditions <span class="grad">générales de vente</span></h1>
-                <p class="meta doc-version" data-reveal style="--d:.15s">Version du 9&nbsp;octobre&nbsp;2026</p>
+                <p class="meta doc-version" data-reveal style="--d:.15s">Version du 15&nbsp;octobre&nbsp;2026</p>
                 <p class="lead" data-reveal style="--d:.2s">Les règles qui encadrent chaque projet&nbsp;: devis, déroulement, paiement, maintenance et droits. Elles s'appliquent à toute commande passée auprès de Pixel Designer.</p>
                 <ul class="chips" role="list" data-reveal style="--d:.25s">
                     <li>Création de sites</li>
@@ -106,9 +105,10 @@
                                 <li><a href="#article-5"><span>05</span>Maintenance</a></li>
                                 <li><a href="#article-6"><span>06</span>Propriété intellectuelle</a></li>
                                 <li><a href="#article-7"><span>07</span>Obligations et responsabilité</a></li>
-                                <li><a href="#article-8"><span>08</span>Droit de rétractation</a></li>
-                                <li><a href="#article-9"><span>09</span>Données personnelles</a></li>
-                                <li><a href="#article-10"><span>10</span>Médiation et litiges</a></li>
+                                <li><a href="#article-8"><span>08</span>Garanties légales</a></li>
+                                <li><a href="#article-9"><span>09</span>Droit de rétractation</a></li>
+                                <li><a href="#article-10"><span>10</span>Données personnelles</a></li>
+                                <li><a href="#article-11"><span>11</span>Médiation et litiges</a></li>
                             </ol>
                         </nav>
                     </details>
@@ -118,10 +118,11 @@
 
                     <!-- Coordonnées du prestataire -->
                     <dl class="id-grid card" data-reveal>
-                        <div><dt>Prestataire</dt><dd>Pixel Designer — Rayan</dd></div>
+                        <div><dt>Prestataire</dt><dd>Rayan Robert EI — nom commercial Pixel Designer</dd></div>
                         <div><dt>Statut</dt><dd>Entrepreneur individuel (micro-entreprise)</dd></div>
+                        <div><dt>Immatriculation</dt><dd>935&nbsp;191&nbsp;619 R.C.S. Vesoul</dd></div>
                         <div><dt>SIRET</dt><dd>935&nbsp;191&nbsp;619&nbsp;00037</dd></div>
-                        <div><dt>Adresse</dt><dd>5 Route de la Saline, 70200 Lure</dd></div>
+                        <div><dt>Adresse</dt><dd>5 Route de la Saline, 70200 Lure, France</dd></div>
                         <div><dt>Contact</dt><dd><a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a><br><a href="tel:+33769322672">07&nbsp;69&nbsp;32&nbsp;26&nbsp;72</a></dd></div>
                         <div><dt>Site</dt><dd><a href="https://studiopixeldesigner.github.io/pixeldesigner/">studiopixeldesigner.github.io/pixeldesigner</a></dd></div>
                     </dl>
@@ -147,8 +148,9 @@
                         </header>
                         <div class="article-body" data-reveal>
                             <p>Chaque prestation fait l'objet d'un devis gratuit, valable <strong>30&nbsp;jours</strong> à compter de sa date d'émission. Le devis précise le contenu de la prestation, le nombre de pages, le nombre de retouches incluses, le prix et le délai prévisionnel.</p>
-                            <p>Le devis est transmis et accepté en ligne. La commande est ferme dès que le client a accepté le devis par signature électronique et versé l'acompte. L'acceptation du devis vaut acceptation des présentes CGV. Le travail ne commence qu'à réception de l'acompte.</p>
+                            <p>Le devis est émis et accepté en ligne via Qonto, l'outil de facturation de Pixel Designer. Les présentes CGV sont jointes au devis et acceptées au même moment&nbsp;: l'acceptation du devis vaut acceptation des CGV. La commande est ferme dès que le client a accepté le devis par signature électronique et versé l'acompte. Le travail ne commence qu'à réception de l'acompte.</p>
                             <p><strong>Acompte&nbsp;: 50&nbsp;% du montant total</strong> à la signature. Le solde est dû à la mise en ligne du site.</p>
+                            <p><strong>Archivage.</strong> Le devis signé et les présentes CGV sont archivés par Pixel Designer pendant 10&nbsp;ans&nbsp;; le client peut en obtenir copie sur simple demande à <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a> (article L213-1 du Code de la consommation).</p>
                         </div>
 
                         <div class="article-body">
@@ -246,7 +248,11 @@
                                 <li><span class="step-n" aria-hidden="true">05</span><p><strong>Validation et mise en ligne</strong>&nbsp;: le client valide le site par écrit (un e-mail suffit). Sans réponse 15&nbsp;jours après la présentation de la version finale, le site est réputé validé.</p></li>
                             </ol>
                             <p>Les délais sont donnés à titre indicatif. Ils sont suspendus tant que le client n'a pas fourni les contenus ou les validations demandés.</p>
-                            <p>Si le client ne donne plus de nouvelles pendant plus de <strong>2&nbsp;mois</strong>, Pixel Designer peut clôturer le projet. Le travail réalisé est alors facturé au prorata et l'acompte reste acquis.</p>
+                            <p>Si le client ne donne plus de nouvelles pendant plus de <strong>2&nbsp;mois</strong>, Pixel Designer peut clôturer le projet, après en avoir informé le client par écrit. Le travail réalisé est alors facturé au prorata&nbsp;:</p>
+                            <ul class="bullets" role="list">
+                                <li><p><strong>Client particulier</strong>&nbsp;: si l'acompte versé dépasse le montant du travail réalisé, la différence lui est remboursée.</p></li>
+                                <li><p><strong>Client professionnel</strong>&nbsp;: l'acompte reste acquis à Pixel Designer.</p></li>
+                            </ul>
                         </div>
                     </section>
 
@@ -258,7 +264,12 @@
                         </header>
                         <div class="article-body" data-reveal>
                             <p>Les prix sont indiqués en euros, nets de taxe&nbsp;: <strong>TVA non applicable, art. 293&nbsp;B du CGI.</strong> Les prix applicables sont ceux du devis signé.</p>
-                            <p>Les factures sont payables <strong>à réception</strong>, par virement bancaire sur le compte professionnel de Pixel Designer, ou par tout autre moyen indiqué sur la facture. Aucun escompte n'est accordé pour paiement anticipé.</p>
+                            <p>Les devis et les factures sont émis via Qonto. Les factures sont payables <strong>à réception</strong>, au choix du client&nbsp;:</p>
+                            <ul class="bullets" role="list">
+                                <li><p><strong>Par le lien de paiement Qonto</strong> joint au devis ou à la facture&nbsp;: carte bancaire (Visa, Mastercard, American Express, Carte Bancaire), Apple Pay, PayPal, ou iDEAL pour les clients néerlandais.</p></li>
+                                <li><p><strong>Par virement bancaire</strong> sur le compte professionnel Qonto de Pixel Designer, dont l'IBAN figure sur la facture.</p></li>
+                            </ul>
+                            <p>Aucun escompte n'est accordé pour paiement anticipé.</p>
                             <div class="note card">
                                 <ul class="bullets" role="list">
                                     <li><p><strong>Retard de paiement d'un client professionnel</strong>&nbsp;: tout retard entraîne de plein droit, sans mise en demeure préalable, des pénalités de retard calculées au taux directeur de la Banque centrale européenne majoré de 10&nbsp;points, ainsi qu'une indemnité forfaitaire pour frais de recouvrement de <strong>40&nbsp;€</strong> par facture (articles L441-10 et D441-5 du Code de commerce).</p></li>
@@ -322,29 +333,37 @@
                     <section class="article" id="article-8" data-article>
                         <header class="article-head" data-reveal>
                             <span class="badge">Article 08</span>
-                            <h2 class="h3">Droit de rétractation</h2>
+                            <h2 class="h3">Garanties légales</h2>
                         </header>
                         <div class="article-body" data-reveal>
+                            <p>Le client particulier (consommateur) bénéficie, pour le site et les contenus numériques livrés, de la <strong>garantie légale de conformité des contenus et services numériques</strong> (articles L224-25-1 à L224-25-31 du Code de la consommation) et de la <strong>garantie légale des vices cachés</strong> (articles 1641 à 1649 du Code civil).</p>
                             <ul class="bullets" role="list">
-                                <li><p><strong>Qui est concerné.</strong> Le client particulier qui signe à distance (par e-mail, en ligne) ou hors des locaux de Pixel Designer (chez lui, sur un salon) dispose d'un délai de <strong>14&nbsp;jours</strong> à compter de la signature pour se rétracter, sans motif (article L221-18 du Code de la consommation). Ce droit s'applique aussi au client professionnel qui emploie <strong>5&nbsp;salariés ou moins</strong>, lorsque le contrat est signé hors établissement et que la création d'un site n'entre pas dans le champ de son activité principale (article L221-3).</p></li>
-                                <li><p><strong>Comment se rétracter.</strong> Le client informe Pixel Designer par e-mail ou par courrier, avant la fin du délai, par une déclaration claire ou au moyen du formulaire ci-dessous. Les sommes versées sont remboursées sous 14&nbsp;jours.</p></li>
-                                <li><p><strong>Démarrage anticipé.</strong> Si le client souhaite que le travail commence avant la fin du délai, il doit le demander expressément par écrit. S'il se rétracte ensuite, il paie le travail déjà réalisé, au prorata. Il perd son droit de rétractation si la prestation est entièrement réalisée avant la fin du délai, à sa demande expresse.</p></li>
-                                <li><p><strong>Acompte hors établissement.</strong> Pour un contrat signé hors établissement avec un client particulier, aucun paiement n'est encaissé avant l'expiration d'un délai de 7&nbsp;jours après la signature.</p></li>
+                                <li><p><strong>Qui répond des garanties.</strong> Rayan Robert EI (Pixel Designer), 5 Route de la Saline, 70200 Lure, France — <a href="tel:+33769322672">07&nbsp;69&nbsp;32&nbsp;26&nbsp;72</a> — <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a>.</p></li>
+                                <li><p><strong>Comment la mettre en œuvre.</strong> Le client signale le défaut par e-mail ou par courrier, en le décrivant le plus précisément possible. Pixel Designer met le site en conformité sans retard injustifié.</p></li>
+                                <li><p><strong>Gratuité.</strong> La mise en conformité au titre de la garantie est gratuite pour le client&nbsp;: elle n'est jamais facturée comme une intervention de maintenance (<a href="#article-5">article&nbsp;5</a>).</p></li>
                             </ul>
                         </div>
 
-                        <div class="withdrawal card" data-reveal>
-                            <span class="badge">Formulaire de rétractation</span>
-                            <p><em>À compléter et renvoyer uniquement si vous souhaitez vous rétracter.</em></p>
-                            <p>À l'attention de Pixel Designer, 5 Route de la Saline, 70200 Lure — <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a></p>
-                            <p>Je vous notifie par la présente ma rétractation du contrat portant sur la prestation ci-dessous&nbsp;:</p>
-                            <ul class="withdrawal-fields" role="list">
-                                <li>Prestation&nbsp;:</li>
-                                <li>Devis signé le&nbsp;:</li>
-                                <li>Nom du client&nbsp;:</li>
-                                <li>Adresse du client&nbsp;:</li>
-                                <li>Date et signature&nbsp;:</li>
-                            </ul>
+                        <div class="article-body">
+                            <h3 data-reveal>Information sur les garanties légales</h3>
+                        </div>
+
+                        <div class="note card" data-reveal>
+                            <p>Le consommateur dispose d'un délai de deux ans à compter de la fourniture du contenu numérique ou du service numérique pour obtenir la mise en œuvre de la garantie légale de conformité en cas d'apparition d'un défaut de conformité. Durant un délai d'un an à compter de la date de fourniture, le consommateur n'est tenu d'établir que l'existence du défaut de conformité et non la date d'apparition de celui-ci.</p>
+                            <p>La garantie légale de conformité emporte obligation de fournir toutes les mises à jour nécessaires au maintien de la conformité du contenu numérique ou du service numérique.</p>
+                            <p>La garantie légale de conformité donne au consommateur droit à la mise en conformité du contenu numérique ou du service numérique sans retard injustifié suivant sa demande, sans frais et sans inconvénient majeur pour lui.</p>
+                            <p>Le consommateur peut obtenir une réduction du prix en conservant le contenu numérique ou le service numérique ou il peut mettre fin au contrat en se faisant rembourser intégralement contre renoncement au contenu numérique ou au service numérique, si&nbsp;:</p>
+                            <p>1° Le professionnel refuse de mettre le contenu numérique ou le service numérique en conformité&nbsp;;</p>
+                            <p>2° La mise en conformité du contenu numérique ou du service numérique est retardée de manière injustifiée&nbsp;;</p>
+                            <p>3° La mise en conformité du contenu numérique ou du service numérique ne peut intervenir sans frais imposés au consommateur&nbsp;;</p>
+                            <p>4° La mise en conformité du contenu numérique ou du service numérique occasionne un inconvénient majeur pour le consommateur&nbsp;;</p>
+                            <p>5° La non-conformité du contenu numérique ou du service numérique persiste en dépit de la tentative de mise en conformité du professionnel restée infructueuse.</p>
+                            <p>Le consommateur a également droit à une réduction du prix ou à la résolution du contrat lorsque le défaut de conformité est si grave qu'il justifie que la réduction du prix ou la résolution du contrat soit immédiate. Le consommateur n'est alors pas tenu de demander la mise en conformité du contenu numérique ou du service numérique au préalable.</p>
+                            <p>Dans les cas où le défaut de conformité est mineur, le consommateur n'a droit à l'annulation du contrat que si le contrat ne prévoit pas le paiement d'un prix.</p>
+                            <p>Toute période d'indisponibilité du contenu numérique ou du service numérique en vue de sa remise en conformité suspend la garantie qui restait à courir jusqu'à la fourniture du contenu numérique ou du service numérique de nouveau conforme.</p>
+                            <p>Les droits mentionnés ci-dessus résultent de l'application des articles L.&nbsp;224-25-1 à L.&nbsp;224-25-31 du code de la consommation.</p>
+                            <p>Le professionnel qui fait obstacle de mauvaise foi à la mise en œuvre de la garantie légale de conformité encourt une amende civile d'un montant maximal de 300&nbsp;000&nbsp;euros, qui peut être porté jusqu'à 10&nbsp;% du chiffre d'affaires moyen annuel (article L.&nbsp;242-18-1 du code de la consommation).</p>
+                            <p>Le consommateur bénéficie, en outre, de la garantie légale des vices cachés en application des articles 1641 à 1649 du code civil, pendant une durée de deux ans à compter de la découverte du défaut. Cette garantie donne droit à une réduction de prix si le contenu numérique ou le service numérique est conservé ou à un remboursement intégral contre renonciation au contenu numérique ou au service numérique.</p>
                         </div>
                     </section>
 
@@ -352,12 +371,31 @@
                     <section class="article" id="article-9" data-article>
                         <header class="article-head" data-reveal>
                             <span class="badge">Article 09</span>
-                            <h2 class="h3">Données personnelles</h2>
+                            <h2 class="h3">Droit de rétractation</h2>
                         </header>
                         <div class="article-body" data-reveal>
-                            <p>Pixel Designer collecte uniquement les données nécessaires à la gestion des devis, des factures et des projets (nom, coordonnées, informations de facturation). Elles ne sont ni vendues ni cédées, et sont conservées le temps de la relation commerciale puis pendant les durées légales de conservation comptable.</p>
-                            <p>Conformément au RGPD, le client peut accéder à ses données, les faire rectifier ou supprimer en écrivant à <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a>.</p>
-                            <p>Lorsque le site du client collecte lui-même des données (formulaire de contact, réservation), le client en reste responsable&nbsp;; Pixel Designer l'aide sur demande à mettre en place les mentions nécessaires.</p>
+                            <ul class="bullets" role="list">
+                                <li><p><strong>Qui est concerné.</strong> Le client particulier qui signe à distance (par e-mail, en ligne) ou hors des locaux de Pixel Designer (chez lui, sur un salon) dispose d'un délai de <strong>14&nbsp;jours</strong> à compter de la signature pour se rétracter, sans motif (article L221-18 du Code de la consommation). Ce droit s'applique aussi au client professionnel qui emploie <strong>5&nbsp;salariés ou moins</strong>, lorsque le contrat est signé hors établissement et que la création d'un site n'entre pas dans le champ de son activité principale (article L221-3).</p></li>
+                                <li><p><strong>Comment se rétracter.</strong> Le client informe Pixel Designer par e-mail ou par courrier, avant la fin du délai, par une déclaration claire ou au moyen du formulaire ci-dessous. Les sommes versées sont remboursées au plus tard 14&nbsp;jours après que Pixel Designer a été informé de la rétractation, avec le même moyen de paiement, sauf accord du client pour un autre moyen, sans frais pour lui.</p></li>
+                                <li><p><strong>Démarrage anticipé.</strong> Si le client souhaite que le travail commence avant la fin du délai de 14&nbsp;jours, Pixel Designer recueille sa <strong>demande expresse sur un support durable</strong> (par exemple un e-mail), ainsi que sa <strong>reconnaissance expresse</strong> qu'il perdra son droit de rétractation une fois la prestation pleinement exécutée (articles L221-25 et L221-28&nbsp;1° du Code de la consommation).</p></li>
+                                <li><p><strong>Rétractation après démarrage.</strong> Si le client se rétracte alors que le travail a commencé à sa demande expresse, il paie uniquement le travail réalisé jusqu'à sa rétractation, au prorata du prix convenu. Il ne peut plus se rétracter si la prestation a été pleinement exécutée avant la fin du délai, après sa demande expresse et sa reconnaissance de la perte de ce droit. Sans demande expresse recueillie dans ces conditions, aucune somme n'est due en cas de rétractation.</p></li>
+                                <li><p><strong>Acompte hors établissement.</strong> Pour un contrat signé hors établissement avec un client particulier, aucun paiement n'est encaissé avant l'expiration d'un délai de 7&nbsp;jours après la signature.</p></li>
+                            </ul>
+                        </div>
+
+                        <div class="withdrawal card" data-reveal>
+                            <span class="badge">Modèle de formulaire de rétractation</span>
+                            <p><em>(Veuillez compléter et renvoyer le présent formulaire uniquement si vous souhaitez vous rétracter du contrat.)</em></p>
+                            <p>A l'attention de Rayan Robert EI (Pixel Designer), 5 Route de la Saline, 70200 Lure, France, <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a>&nbsp;:</p>
+                            <p>Je/nous (*) vous notifie/notifions (*) par la présente ma/notre (*) rétractation du contrat portant sur la vente du bien (*)/pour la prestation de services (*) ci-dessous&nbsp;:</p>
+                            <ul class="withdrawal-fields" role="list">
+                                <li>Commandé le (*)/reçu le (*)&nbsp;:</li>
+                                <li>Nom du (des) consommateur(s)&nbsp;:</li>
+                                <li>Adresse du (des) consommateur(s)&nbsp;:</li>
+                                <li>Signature du (des) consommateur(s) (uniquement en cas de notification du présent formulaire sur papier)&nbsp;:</li>
+                                <li>Date&nbsp;:</li>
+                            </ul>
+                            <p>(*) Rayez la mention inutile.</p>
                         </div>
                     </section>
 
@@ -365,6 +403,23 @@
                     <section class="article" id="article-10" data-article>
                         <header class="article-head" data-reveal>
                             <span class="badge">Article 10</span>
+                            <h2 class="h3">Données personnelles</h2>
+                        </header>
+                        <div class="article-body" data-reveal>
+                            <p>Pixel Designer collecte uniquement les données nécessaires à la gestion des devis, des factures et des projets (nom, coordonnées, informations de facturation). Elles ne sont ni vendues ni cédées.</p>
+                            <ul class="bullets" role="list">
+                                <li><p><strong>Données du projet</strong> (échanges, contenus fournis, coordonnées)&nbsp;: supprimées dès la mise en ligne du projet, ou plus tôt à la demande du client.</p></li>
+                                <li><p><strong>Pièces comptables et contractuelles</strong> (devis signés, factures)&nbsp;: conservées 10&nbsp;ans, comme la loi l'impose (article L123-22 du Code de commerce et article L213-1 du Code de la consommation).</p></li>
+                            </ul>
+                            <p>Conformément au RGPD, le client peut accéder à ses données, les faire rectifier ou supprimer en écrivant à <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a>. Le détail des traitements, des destinataires et des droits figure dans la <a href="https://studiopixeldesigner.github.io/pixeldesigner/confidentialite.html">politique de confidentialité</a>.</p>
+                            <p>Lorsque le site du client collecte lui-même des données (formulaire de contact, réservation), le client en reste responsable&nbsp;; Pixel Designer l'aide sur demande à mettre en place les mentions nécessaires.</p>
+                        </div>
+                    </section>
+
+                    <!-- Article 11 -->
+                    <section class="article" id="article-11" data-article>
+                        <header class="article-head" data-reveal>
+                            <span class="badge">Article 11</span>
                             <h2 class="h3">Médiation et litiges</h2>
                         </header>
                         <div class="article-body" data-reveal>
@@ -400,7 +455,7 @@
             <p class="footer-word grad" aria-hidden="true">Pixel Designer</p>
             <div class="footer-bottom">
                 <p>© <span data-year>2026</span> Pixel Designer</p>
-                <p class="footer-legal">SIREN 935&nbsp;191&nbsp;619 · TVA non applicable, art. 293&nbsp;B du CGI · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html" aria-current="page">CGV</a></p>
+                <p class="footer-legal">SIREN 935&nbsp;191&nbsp;619 · TVA non applicable, art. 293&nbsp;B du CGI · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html" aria-current="page">CGV</a> · <a href="confidentialite.html">Confidentialité</a></p>
                 <a href="#top" class="link">Haut de page <i class="ph ph-arrow-up" aria-hidden="true"></i></a>
             </div>
         </div>

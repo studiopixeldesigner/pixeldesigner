@@ -21,10 +21,9 @@
     <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/phosphor.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <script type="application/ld+json">
@@ -279,7 +278,7 @@
                                     <li>Back-office</li>
                                     <li>Github</li>
                                     <li>UI/UX</li>
-                                    <li>HMTL</li>
+                                    <li>HTML</li>
                                 </ul>
                                 <a class="btn btn-ghost" href="https://studiopixeldesigner.github.io/pixeldesigner/" target="_blank" rel="noopener">Voir le site <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                             </div>
@@ -513,7 +512,7 @@
 
                 <div class="options-block">
                     <h3 class="h3" data-reveal>Paiement <span class="grad">&amp; modalités</span></h3>
-                    <p class="muted" data-reveal style="--d:.08s">Un paiement en deux temps&nbsp;: le solde n'est réglé qu'une fois que vous êtes satisfait du résultat.</p>
+                    <p class="muted" data-reveal style="--d:.08s">Un paiement en deux temps&nbsp;: un acompte à la signature du devis, le solde à la mise en ligne, une fois le site validé.</p>
 
                     <ul class="terms" role="list">
                         <li class="term card" data-spot data-reveal>
@@ -529,7 +528,7 @@
                         <li class="term term--wide card" data-spot data-reveal style="--d:.12s">
                             <span class="feature-icon"><i class="ph ph-credit-card" aria-hidden="true"></i></span>
                             <h4>Moyens de paiement</h4>
-                            <p>Le règlement se fait par lien de paiement Qonto ou par virement bancaire.</p>
+                            <p>Le règlement se fait par lien de paiement Qonto (cartes, Apple Pay, PayPal, iDEAL pour les clients néerlandais) ou par virement bancaire sur l'IBAN Qonto.</p>
                             <ul class="chips" role="list">
                                 <li>Visa</li>
                                 <li>Mastercard</li>
@@ -537,7 +536,7 @@
                                 <li>Carte Bancaire</li>
                                 <li>Apple Pay</li>
                                 <li>PayPal</li>
-                                <li>iDEAL (Pays-Bas)</li>
+                                <li>iDEAL (clients néerlandais)</li>
                                 <li>Virement bancaire</li>
                             </ul>
                         </li>
@@ -571,14 +570,16 @@
                         <input type="hidden" name="redirect" value="https://studiopixeldesigner.github.io/pixeldesigner/merci.html">
                         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
+                        <p class="form-legend"><span aria-hidden="true">*</span> champ obligatoire</p>
+
                         <div class="form-row">
                             <div class="field">
-                                <label for="f-name">Prénom et nom</label>
+                                <label for="f-name">Prénom et nom <span aria-hidden="true">*</span></label>
                                 <input class="input" id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
                                 <p class="field-error" id="f-name-err">Indiquez votre nom.</p>
                             </div>
                             <div class="field">
-                                <label for="f-email">Email</label>
+                                <label for="f-email">Email <span aria-hidden="true">*</span></label>
                                 <input class="input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err">
                                 <p class="field-error" id="f-email-err">Indiquez une adresse email valide.</p>
                             </div>
@@ -617,7 +618,7 @@
 
                         <div class="field">
                             <div class="field-top">
-                                <label for="messageInput">Votre projet</label>
+                                <label for="messageInput">Votre projet <span aria-hidden="true">*</span></label>
                                 <span class="counter" data-counter aria-hidden="true">0 / 1500</span>
                             </div>
                             <textarea class="input" id="messageInput" name="message" rows="6" maxlength="1500" required placeholder="Votre activité, vos objectifs, vos délais…" aria-describedby="f-msg-err"></textarea>
@@ -625,12 +626,14 @@
                         </div>
 
                         <div class="form-foot">
-                            <button type="submit" class="btn btn-primary" data-submit>
+                            <button type="submit" class="btn btn-primary" data-submit aria-describedby="form-privacy">
                                 <span data-submit-label>Envoyer la demande</span>
                                 <i class="ph ph-arrow-right" aria-hidden="true"></i>
                             </button>
                             <p class="form-status" role="status" aria-live="polite" data-status></p>
                         </div>
+
+                        <p class="form-privacy" id="form-privacy">Vos nom, e-mail et message (profil et offre facultatifs) servent uniquement à répondre à votre demande. Ils transitent par le service Web3Forms (société indienne, serveurs aux États-Unis), qui en garde une copie technique jusqu'à 3 ans. Pixel Designer les conserve jusqu'à la mise en ligne de votre projet, ou 12 mois au plus si la demande reste sans suite. Pour y accéder, les corriger ou les supprimer&nbsp;: <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a>. <a href="confidentialite.html">Politique de confidentialité</a></p>
                     </form>
 
                     <div class="form-success" data-success hidden tabindex="-1">
@@ -664,7 +667,7 @@
             <p class="footer-word grad" aria-hidden="true">Pixel Designer</p>
             <div class="footer-bottom">
                 <p>© <span data-year>2026</span> Pixel Designer</p>
-                <p class="footer-legal">SIREN 935&nbsp;191&nbsp;619 · TVA non applicable, art. 293&nbsp;B du CGI · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a></p>
+                <p class="footer-legal">SIREN 935&nbsp;191&nbsp;619 · TVA non applicable, art. 293&nbsp;B du CGI · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a> · <a href="confidentialite.html">Confidentialité</a></p>
                 <a href="#top" class="link">Haut de page <i class="ph ph-arrow-up" aria-hidden="true"></i></a>
             </div>
         </div>

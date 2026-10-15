@@ -1840,6 +1840,19 @@ textarea.input {
     margin-top: 0.5rem;
 }
 
+.form-legend,
+.form-privacy {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+.form-privacy a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
 .form-status {
     font-size: 0.9rem;
     color: var(--muted);
@@ -2427,7 +2440,6 @@ html.js [data-reveal].is-in {
     display: flex;
     align-items: flex-end;
     gap: 0.75rem;
-    white-space: nowrap;
 }
 
 .withdrawal-fields li::after {
@@ -2635,5 +2647,668 @@ html.js [data-reveal].is-in {
 
     .hero-actions .btn {
         --h: 46px;
+    }
+}
+
+/* Impression (sert aussi à produire le PDF des CGV) --------------------
+   Page blanche et lisible, au style du studio : bandeau sombre, filets en
+   dégradé de marque, encadrés clairs. Tout reste ici : l'écran ne change pas. */
+@media print {
+    :root {
+        /* Palette d'impression */
+        --p-dark: #09090b;
+        --p-ink: #18181b;
+        --p-soft: #3f3f46;
+        --p-faint: #71717a;
+        --p-line: #e4e4e7;
+        --p-tint: #f7f8fc;
+        --p-brand: #2f55d4;
+        /* Dégradé de marque en teintes assez foncées pour du petit texte sur blanc */
+        --p-g-text: linear-gradient(110deg, #0b86c9, #2f55d4 50%, #7a3fe0);
+        --p-fs: 10.5pt;
+
+        /* Les variables du site passent en clair : les règles existantes suivent */
+        --bg: #fff;
+        --bg-elev: var(--p-tint);
+        --card: var(--p-tint);
+        --card-glass: var(--p-tint);
+        --line: var(--p-line);
+        --line-strong: #a1a1aa;
+        --text: var(--p-ink);
+        --muted: var(--p-soft);
+        --placeholder: var(--p-faint);
+        --accent: var(--p-brand);
+        --g-text: var(--p-g-text);
+        --halo: none;
+    }
+
+    /* Garde les fonds et les dégradés dans le PDF */
+    *,
+    *::before,
+    *::after {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    html {
+        font-size: var(--p-fs);
+        scroll-behavior: auto;
+        overflow: visible;
+        /* La page web déclare un thème sombre : sans cela, les marges du PDF sortent noires */
+        color-scheme: light;
+        background: #fff;
+    }
+
+    body {
+        overflow: visible;
+        background: #fff;
+        color: var(--p-ink);
+        font-size: var(--p-fs);
+        line-height: 1.55;
+    }
+
+    /* Éléments d'écran : navigation, fond animé, boutons, pied de page du site */
+    #bg,
+    .skip-link,
+    .nav,
+    .menu,
+    .doc-actions,
+    .footer,
+    .legal-back {
+        display: none;
+    }
+
+    /* Décors : halos du body et lueurs des cartes */
+    body::before,
+    body::after,
+    .card::before,
+    .card::after,
+    .plan--featured::before {
+        display: none;
+    }
+
+    /* Apparitions et animations : tout est visible tel quel, même sans défilement */
+    html.js [data-reveal],
+    html.js .card[data-reveal],
+    html.js [data-reveal].is-in,
+    html.js [data-split] .word > span {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .pix i {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .grad {
+        background: none;
+        animation: none;
+        color: var(--p-brand);
+        -webkit-text-fill-color: currentColor;
+    }
+
+    a {
+        color: var(--p-brand);
+        text-decoration: none;
+    }
+
+    .container {
+        max-width: none;
+        padding-inline: 0;
+    }
+
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Titres et étiquettes communs -------------------------------------- */
+    .eyebrow {
+        margin-bottom: 3mm;
+        color: var(--p-soft);
+        font-size: 7.5pt;
+    }
+
+    .h2 {
+        font-size: 24pt;
+        line-height: 1.12;
+        letter-spacing: -0.03em;
+        color: var(--p-ink);
+    }
+
+    .lead {
+        margin-top: 3mm;
+        max-width: 125mm;
+        font-size: 11pt;
+        color: var(--p-soft);
+    }
+
+    .meta {
+        font-size: 8pt;
+        color: var(--p-faint);
+    }
+
+    .badge {
+        height: auto;
+        padding: 0.6mm 2.4mm;
+        border: 0.25mm solid rgba(59, 108, 255, 0.4);
+        background: rgba(59, 108, 255, 0.08);
+        color: var(--p-brand);
+        font-size: 7pt;
+    }
+
+    /* Cartes : encadrés clairs, jamais coupés ---------------------------- */
+    .card {
+        border: 0.3mm solid var(--p-line);
+        border-radius: 3.5mm;
+        background: var(--p-tint);
+        break-inside: avoid;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
+    /* Bandeau d'en-tête (première page) ---------------------------------- */
+    .doc {
+        page: cgv;
+        padding: 0;
+    }
+
+    .doc-head {
+        position: relative;
+        max-width: none;
+        margin: 0;
+        padding: 8mm 9mm 9.5mm 31mm;
+        overflow: hidden;
+        border-radius: 4mm;
+        background: var(--p-dark) url("../img/logo-128.png") no-repeat 9mm 8mm / 16mm 16mm;
+        color: #fff;
+        break-inside: avoid;
+    }
+
+    .doc-head::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 1.4mm;
+        background: var(--g-brand);
+    }
+
+    .doc-head .eyebrow {
+        color: #a1a1aa;
+        margin-bottom: 2.5mm;
+    }
+
+    .doc-head .h2,
+    .doc-head .h2 .grad {
+        color: #fff;
+        -webkit-text-fill-color: #fff;
+    }
+
+    .doc-head .h2 {
+        font-size: 25pt;
+    }
+
+    .doc-version {
+        margin-top: 3.5mm;
+        color: #a1a1aa;
+        font-size: 8.5pt;
+        letter-spacing: 0.08em;
+    }
+
+    .doc-head .lead {
+        max-width: 118mm;
+        margin-top: 3mm;
+        font-size: 10pt;
+        color: #d4d4d8;
+    }
+
+    .doc-head .chips {
+        gap: 2mm;
+        margin: 4mm 0 0;
+    }
+
+    .doc-head .chips li {
+        padding: 0.8mm 3mm;
+        border: 0.25mm solid #52525b;
+        background: transparent;
+        color: #d4d4d8;
+        font-size: 8pt;
+    }
+
+    /* Ordre : identité du prestataire, puis sommaire, puis les articles */
+    .doc-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .doc-body {
+        display: contents;
+    }
+
+    .id-grid {
+        order: -2;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin: 6mm 0 0;
+        background: var(--p-line);
+    }
+
+    .id-grid > div {
+        padding: 2.4mm 4mm;
+        background: var(--p-tint);
+    }
+
+    .id-grid > div:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .id-grid dt {
+        font-size: 7pt;
+        color: var(--p-faint);
+    }
+
+    .id-grid dd {
+        margin-top: 0.8mm;
+        font-size: 10pt;
+        line-height: 1.45;
+    }
+
+    .id-grid a,
+    .article-body a,
+    .withdrawal a {
+        color: var(--p-brand);
+        border-bottom: 0;
+        padding-bottom: 0;
+        text-decoration: underline;
+        text-decoration-thickness: 0.2mm;
+        text-underline-offset: 0.18em;
+    }
+
+    /* Sommaire compact sur 2 colonnes (le <details> est ouvert de force) */
+    .doc-aside {
+        order: -1;
+        position: static;
+        margin-top: 4mm;
+    }
+
+    .toc::details-content {
+        content-visibility: visible;
+        display: block;
+    }
+
+    .toc summary {
+        display: block;
+        padding: 3.5mm 5mm 1mm;
+        font-size: 7.5pt;
+        color: var(--p-faint);
+    }
+
+    .toc summary i {
+        display: none;
+    }
+
+    .toc ol {
+        display: block;
+        columns: 2;
+        column-gap: 8mm;
+        padding: 0 5mm 3.5mm;
+    }
+
+    .toc li {
+        break-inside: avoid;
+    }
+
+    .toc a {
+        grid-template-columns: 7.5mm minmax(0, 1fr);
+        padding: 0.9mm 0;
+        border-radius: 0;
+        font-size: 9.5pt;
+        line-height: 1.35;
+        color: var(--p-ink);
+    }
+
+    .toc a span {
+        font-size: 7.5pt;
+        color: var(--p-brand);
+    }
+
+    /* Articles ------------------------------------------------------------ */
+    .article {
+        margin-top: 9mm;
+    }
+
+    .article-head {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.4mm;
+        margin-bottom: 4mm;
+        break-inside: avoid;
+        break-after: avoid-page;
+    }
+
+    .article-head + * {
+        break-before: avoid-page;
+    }
+
+    /* Numéro d'article : Geist Mono en dégradé de marque */
+    .article-head .badge {
+        padding: 0;
+        border: 0;
+        background: var(--p-g-text);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        font-size: 8pt;
+        letter-spacing: 0.14em;
+    }
+
+    .article-head .h3 {
+        font-size: 15pt;
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--p-ink);
+    }
+
+    /* Fin filet en dégradé de marque sous le titre */
+    .article-head::after {
+        content: "";
+        align-self: stretch;
+        height: 0.5mm;
+        margin-top: 1.2mm;
+        border-radius: 1mm;
+        background: linear-gradient(90deg, var(--cyan), var(--blue) 35%, var(--violet) 70%, var(--p-line));
+    }
+
+    .article-body {
+        display: block;
+    }
+
+    .article-body > * + * {
+        margin-top: 3mm;
+    }
+
+    .article-body + .article-body {
+        margin-top: 6mm;
+    }
+
+    .article-body p {
+        max-width: none;
+        color: var(--p-ink);
+        line-height: 1.55;
+    }
+
+    .article-body strong {
+        font-weight: 600;
+        color: var(--p-ink);
+    }
+
+    .article-body h3 {
+        font-size: 11.5pt;
+        font-weight: 600;
+        color: var(--p-ink);
+        break-after: avoid;
+    }
+
+    /* Listes aérées */
+    .bullets {
+        display: block;
+    }
+
+    .bullets li {
+        grid-template-columns: 2mm minmax(0, 1fr);
+        gap: 3mm;
+        break-inside: avoid;
+    }
+
+    .bullets li + li {
+        margin-top: 2.6mm;
+    }
+
+    .bullets li::before {
+        width: 2mm;
+        height: 2mm;
+        margin-top: 0.55em;
+        border-radius: 0.4mm;
+    }
+
+    .steps {
+        display: block;
+    }
+
+    .steps li {
+        grid-template-columns: 9mm minmax(0, 1fr);
+        gap: 3mm;
+        break-inside: avoid;
+    }
+
+    .steps li + li {
+        margin-top: 2.6mm;
+    }
+
+    .step-n {
+        min-width: 0;
+        height: 5.2mm;
+        margin-top: 0.5mm;
+        border-radius: 1.6mm;
+        border-color: rgba(59, 108, 255, 0.4);
+        background: rgba(59, 108, 255, 0.08);
+        color: var(--p-brand);
+        font-size: 7.5pt;
+    }
+
+    /* Encadrés et formulaire de rétractation */
+    .note,
+    .withdrawal {
+        padding: 4.5mm 5.5mm;
+        margin-top: 4mm;
+    }
+
+    .note p + p,
+    .withdrawal p + p {
+        margin-top: 2.4mm;
+    }
+
+    .note p,
+    .withdrawal p {
+        color: var(--p-ink);
+        font-size: 10pt;
+        line-height: 1.5;
+    }
+
+    /* L'encadré légal de garantie fait presque une page : il peut passer à la suivante */
+    .article > .note {
+        break-inside: auto;
+    }
+
+    .article-body > .note {
+        margin-top: 4mm;
+    }
+
+    .withdrawal {
+        gap: 0;
+        margin-top: 5mm;
+        border: 0.35mm dashed #a1a1aa;
+    }
+
+    .withdrawal > * + * {
+        margin-top: 2.6mm;
+    }
+
+    .withdrawal-fields {
+        display: block;
+        margin-top: 4mm;
+        font-size: 10pt;
+        color: var(--p-ink);
+    }
+
+    .withdrawal-fields li {
+        flex-wrap: wrap;
+        margin-top: 5mm;
+    }
+
+    .withdrawal-fields li::after {
+        flex: 1 1 40mm;
+        border-bottom-color: #a1a1aa;
+    }
+
+    /* Tarifs : cartes sur 2 colonnes */
+    .rates {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 3mm;
+        margin-top: 4mm;
+    }
+
+    .rate {
+        gap: 3mm;
+        padding: 3.5mm 4mm;
+    }
+
+    .rate > div {
+        min-width: 0;
+    }
+
+    .rate-name {
+        gap: 2mm;
+        font-size: 11pt;
+        font-weight: 600;
+    }
+
+    .rate-desc {
+        max-width: none;
+        margin-top: 1mm;
+        font-size: 9pt;
+        line-height: 1.4;
+        color: var(--p-soft);
+    }
+
+    .rate-meta {
+        margin-top: 2.2mm;
+        gap: 1mm 3mm;
+        font-size: 7.5pt;
+        color: var(--p-soft);
+    }
+
+    .rate-meta i {
+        font-size: 9pt;
+        color: var(--p-brand);
+    }
+
+    .rate-price {
+        font-size: 16pt;
+    }
+
+    .rate-price--quote {
+        font-size: 12pt;
+    }
+
+    .rate-price small {
+        margin-top: 1.2mm;
+        font-size: 7.5pt;
+        color: var(--p-faint);
+    }
+
+    .rate.plan--featured {
+        border-color: rgba(59, 108, 255, 0.55);
+        background: var(--p-tint);
+    }
+
+    .doc-end {
+        margin-top: 10mm;
+        padding-top: 4mm;
+        border-top: 0.3mm solid var(--p-line);
+        font-size: 7.5pt;
+        break-inside: avoid;
+    }
+
+    /* Pages simples (mentions légales, confidentialité) ------------------ */
+    .simple {
+        display: block;
+        min-height: 0;
+        padding: 0;
+    }
+
+    .simple-inner,
+    .legal-page .simple-inner {
+        max-width: none;
+    }
+
+    .simple .lead {
+        margin-bottom: 6mm;
+    }
+
+    .legal {
+        padding: 5mm 6mm;
+    }
+
+    .legal + .legal {
+        margin-top: 4mm;
+    }
+
+    .legal-list > div {
+        padding: 2mm 0;
+    }
+
+    .legal-list dt {
+        font-size: 7.5pt;
+        color: var(--p-faint);
+    }
+
+    .legal > p {
+        max-width: none;
+        font-size: 10pt;
+        color: var(--p-ink);
+    }
+
+    .legal a {
+        color: var(--p-brand);
+        border-bottom: 0;
+        text-decoration: underline;
+    }
+}
+
+/* Marges et pied de page de chaque feuille A4 ---------------------------- */
+@page {
+    size: A4;
+    margin: 17mm 17mm 21mm;
+
+    @bottom-left {
+        content: "Pixel Designer";
+        font: 400 7.5pt/1 "Geist Mono", ui-monospace, monospace;
+        letter-spacing: 0.04em;
+        color: #71717a;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+
+    @bottom-right {
+        content: "Page " counter(page) " / " counter(pages);
+        font: 400 7.5pt/1 "Geist Mono", ui-monospace, monospace;
+        letter-spacing: 0.04em;
+        color: #71717a;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+}
+
+/* CGV : le pied de page rappelle le document et sa version */
+@page cgv {
+    @bottom-left {
+        content: "Pixel Designer · CGV · version du 15 octobre 2026";
+    }
+}
+
+/* 1re page : le bandeau suffit, pas de pied de page */
+@page cgv:first {
+    @bottom-left {
+        content: none;
+    }
+
+    @bottom-right {
+        content: none;
     }
 }

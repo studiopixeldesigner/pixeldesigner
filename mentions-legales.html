@@ -10,10 +10,9 @@
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/phosphor.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script>document.documentElement.classList.add('js');</script>
     <script src="assets/js/scene.js" defer></script>
@@ -59,15 +58,33 @@
                     <dl class="legal-list">
                         <div><dt>Société</dt><dd>GitHub, Inc. (service GitHub Pages)</dd></div>
                         <div><dt>Adresse</dt><dd>88 Colin P. Kelly Jr. St., San Francisco, CA 94107, États-Unis</dd></div>
+                        <div><dt>Téléphone</dt><dd>+1&nbsp;415&nbsp;735&nbsp;4488</dd></div>
                         <div><dt>Site</dt><dd><a href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a></dd></div>
                     </dl>
                 </section>
 
+                <section class="legal card" data-reveal style="--d:.45s">
+                    <h2 class="h3">Traitement des formulaires</h2>
+                    <dl class="legal-list">
+                        <div><dt>Service</dt><dd>Web3Forms, exploité par Web3Creative (Inde)</dd></div>
+                        <div><dt>Contact</dt><dd><a href="mailto:support@web3forms.com">support@web3forms.com</a></dd></div>
+                        <div><dt>Site</dt><dd><a href="https://web3forms.com" target="_blank" rel="noopener">web3forms.com</a></dd></div>
+                    </dl>
+                </section>
+
                 <section class="legal card" data-reveal style="--d:.5s">
+                    <h2 class="h3">Propriété intellectuelle et crédits</h2>
+                    <p>Les contenus de ce site (textes, logo, mise en page), sauf mention contraire, sont la propriété de Pixel Designer, © Pixel Designer. Toute reproduction, totale ou partielle, est interdite sans autorisation écrite préalable.</p>
+                    <dl class="legal-list">
+                        <div><dt>Polices</dt><dd>Geist et Geist Mono, sous licence SIL Open Font License&nbsp;1.1</dd></div>
+                        <div><dt>Icônes</dt><dd>Phosphor Icons, sous licence MIT</dd></div>
+                        <div><dt>Conception du site</dt><dd>Pixel Designer</dd></div>
+                    </dl>
+                </section>
+
+                <section class="legal card" data-reveal style="--d:.55s">
                     <h2 class="h3">Données personnelles</h2>
-                    <p>Le formulaire de contact recueille votre nom, votre adresse e-mail, votre profil, l'offre choisie et votre message. Ces informations servent à répondre à votre demande.</p>
-                    <p>Elles sont transmises à Pixel Designer par e-mail, par l'intermédiaire du service Web3Forms.</p>
-                    <p>Elles sont conservées jusqu'à ce que vous demandiez leur suppression. Pour cela, il suffit d'écrire à <a href="mailto:studio.pixeldesigner@proton.me">studio.pixeldesigner@proton.me</a>.</p>
+                    <p>Les informations envoyées par le formulaire de contact servent uniquement à répondre à votre demande et ne sont ni vendues ni cédées. Ce site n'utilise aucun cookie ni traceur&nbsp;; tout le détail (données, durées de conservation, destinataires, vos droits) figure dans la <a href="confidentialite.html">politique de confidentialité</a>.</p>
                 </section>
 
                 <div class="legal-back" data-reveal style="--d:.6s">
@@ -97,7 +114,7 @@
             <p class="footer-word grad" aria-hidden="true">Pixel Designer</p>
             <div class="footer-bottom">
                 <p>© <span data-year>2026</span> Pixel Designer</p>
-                <p class="footer-legal">SIREN 935&nbsp;191&nbsp;619 · TVA non applicable, art. 293&nbsp;B du CGI · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a></p>
+                <p class="footer-legal">SIREN 935&nbsp;191&nbsp;619 · TVA non applicable, art. 293&nbsp;B du CGI · <a href="mentions-legales.html" aria-current="page">Mentions légales</a> · <a href="cgv.html">CGV</a> · <a href="confidentialite.html">Confidentialité</a></p>
                 <a href="#top" class="link">Haut de page <i class="ph ph-arrow-up" aria-hidden="true"></i></a>
             </div>
         </div>
