@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com; font-src 'self'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw=' https://hcaptcha.com https://*.hcaptcha.com; connect-src 'self' https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com; frame-src https://hcaptcha.com https://*.hcaptcha.com; form-action 'self' https://api.web3forms.com">
     <title>Créateur de sites web à Lure (Haute-Saône) | Pixel Designer</title>
     <meta name="description" content="Pixel Designer, créateur de sites web à Lure (Haute-Saône) : création de sites internet et vitrines sur-mesure dès 450 €. Devis gratuit, réponse sous 24h ouvrées.">
     <link rel="canonical" href="https://studiopixeldesigner.github.io/pixeldesigner/">
@@ -174,6 +175,7 @@
     <script>document.documentElement.classList.add('js');</script>
     <script src="assets/js/scene.js" defer></script>
     <script src="assets/js/main.js" defer></script>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -624,6 +626,8 @@
                             <textarea class="input" id="messageInput" name="message" rows="6" maxlength="1500" required placeholder="Votre activité, vos objectifs, vos délais…" aria-describedby="f-msg-err"></textarea>
                             <p class="field-error" id="f-msg-err">Décrivez votre projet en quelques mots.</p>
                         </div>
+
+                        <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-theme="dark"></div>
 
                         <div class="form-foot">
                             <button type="submit" class="btn btn-primary" data-submit aria-describedby="form-privacy">

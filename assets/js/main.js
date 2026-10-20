@@ -384,6 +384,13 @@
             return;
         }
 
+        const captcha = form.querySelector('[name="h-captcha-response"]');
+        if (captcha && !captcha.value) {
+            status.textContent = 'Merci de valider le captcha anti-robot avant d’envoyer.';
+            status.classList.add('is-error');
+            return;
+        }
+
         setBusy(true);
         try {
             const data = Object.fromEntries(new FormData(form));
@@ -412,6 +419,7 @@
     $('[data-reset]').addEventListener('click', () => {
         success.hidden = true;
         form.hidden = false;
+        window.hcaptcha?.reset();
         $('#f-name').focus();
     });
 })();
