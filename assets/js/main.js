@@ -428,9 +428,8 @@
 
             form.reset();
             updateCounter();
-            form.hidden = true;
-            success.hidden = false;
-            success.focus({ preventScroll: true });
+            // Envoi réussi : on affiche la page de remerciement
+            window.location.assign('merci.html');
         } catch (err) {
             // La raison exacte (refus du service, réseau…) reste visible dans la console pour le diagnostic
             console.error('Formulaire de contact :', err.message);
