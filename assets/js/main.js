@@ -415,6 +415,8 @@
         try {
             const data = Object.fromEntries(new FormData(form));
             delete data.redirect;
+            // Web3Forms refuse l'envoi si un champ g-recaptcha-response est présent : on n'envoie que celui d'hCaptcha
+            delete data['g-recaptcha-response'];
             data['h-captcha-response'] = token;
             const res = await fetch(form.action, {
                 method: 'POST',
