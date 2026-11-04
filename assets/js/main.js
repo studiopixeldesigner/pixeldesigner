@@ -426,11 +426,9 @@
             const json = await res.json().catch(() => ({}));
             if (!res.ok || !json.success) throw new Error(json.message || 'Erreur');
 
-            form.reset();
-            updateCounter();
-            form.hidden = true;
-            success.hidden = false;
-            success.focus({ preventScroll: true });
+            // Page de remerciement dédiée : plus rassurant pour le visiteur, et mesurable comme conversion
+            window.location.href = form.elements.redirect?.value || 'merci.html';
+            return;
         } catch (err) {
             // La raison exacte (refus du service, réseau…) reste visible dans la console pour le diagnostic
             console.error('Formulaire de contact :', err.message);
