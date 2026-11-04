@@ -3298,7 +3298,7 @@ html.js [data-reveal].is-in {
 /* CGV : le pied de page rappelle le document et sa version */
 @page cgv {
     @bottom-left {
-        content: "Pixel Designer · CGV · version du 15 octobre 2026";
+        content: "Pixel Designer · CGV · version du 4 novembre 2026";
     }
 }
 
