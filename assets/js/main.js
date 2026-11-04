@@ -330,8 +330,32 @@
     const captchaBox = $('[data-captcha]');
     let captchaId = null;
 
+    // hCaptcha n'est chargé que lorsque le visiteur commence à remplir le formulaire :
+    // aucune donnée n'est envoyée à hCaptcha pendant la simple visite du site (RGPD)
+    let captchaLoading = null;
+    const loadCaptcha = () => {
+        if (window.hcaptcha) return Promise.resolve();
+        if (!captchaLoading) {
+            captchaLoading = new Promise((resolve, reject) => {
+                window.pdCaptchaReady = resolve;
+                const script = document.createElement('script');
+                script.src = 'https://js.hcaptcha.com/1/api.js?render=explicit&recaptchacompat=off&hl=fr&onload=pdCaptchaReady';
+                script.async = true;
+                script.onerror = () => {
+                    captchaLoading = null;
+                    script.remove();
+                    reject(new Error('hCaptcha indisponible'));
+                };
+                document.head.appendChild(script);
+            });
+        }
+        return captchaLoading;
+    };
+    form.addEventListener('focusin', () => { loadCaptcha().catch(() => {}); }, { once: true });
+
     const runCaptcha = async () => {
-        if (!captchaBox || !window.hcaptcha) return '';
+        if (!captchaBox) return '';
+        await loadCaptcha();
         if (captchaId === null) {
             captchaId = window.hcaptcha.render(captchaBox, {
                 sitekey: captchaBox.dataset.sitekey,
