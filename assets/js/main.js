@@ -327,6 +327,21 @@
     const submitLabel = $('[data-submit-label]');
     const status = $('[data-status]');
     const success = $('[data-success]');
+    const captchaBox = $('[data-captcha]');
+    let captchaId = null;
+
+    const runCaptcha = async () => {
+        if (!captchaBox || !window.hcaptcha) return '';
+        if (captchaId === null) {
+            captchaId = window.hcaptcha.render(captchaBox, {
+                sitekey: captchaBox.dataset.sitekey,
+                size: 'invisible',
+                theme: 'dark',
+            });
+        }
+        const { response } = await window.hcaptcha.execute(captchaId, { async: true });
+        return response;
+    };
 
     // Choisir une offre ou une option pré-remplit le formulaire
     $$('[data-offre]').forEach((trigger) => {
@@ -384,17 +399,23 @@
             return;
         }
 
-        const captcha = form.querySelector('[name="h-captcha-response"]');
-        if (captcha && !captcha.value) {
-            status.textContent = 'Merci de valider le captcha anti-robot avant d’envoyer.';
+        setBusy(true);
+
+        // hCaptcha invisible : la vérification se lance à l'envoi, une image n'apparaît qu'en cas de doute
+        let token = '';
+        try {
+            token = await runCaptcha();
+        } catch {
+            status.textContent = 'La vérification anti-robot n’a pas abouti. Merci de réessayer.';
             status.classList.add('is-error');
+            setBusy(false);
             return;
         }
 
-        setBusy(true);
         try {
             const data = Object.fromEntries(new FormData(form));
             delete data.redirect;
+            data['h-captcha-response'] = token;
             const res = await fetch(form.action, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -408,18 +429,20 @@
             form.hidden = true;
             success.hidden = false;
             success.focus({ preventScroll: true });
-        } catch {
-            status.textContent = "L'envoi a échoué. Vérifiez votre connexion puis réessayez.";
+        } catch (err) {
+            // La raison exacte (refus du service, réseau…) reste visible dans la console pour le diagnostic
+            console.error('Formulaire de contact :', err.message);
+            status.innerHTML = 'L’envoi a échoué. Réessayez, ou contactez-moi directement au <a href="tel:+33769322672">07&nbsp;69&nbsp;32&nbsp;26&nbsp;72</a> ou par <a href="mailto:studio.pixeldesigner@proton.me">e-mail</a>.';
             status.classList.add('is-error');
         } finally {
             setBusy(false);
+            if (captchaId !== null) window.hcaptcha.reset(captchaId);
         }
     });
 
     $('[data-reset]').addEventListener('click', () => {
         success.hidden = true;
         form.hidden = false;
-        window.hcaptcha?.reset();
         $('#f-name').focus();
     });
 })();
