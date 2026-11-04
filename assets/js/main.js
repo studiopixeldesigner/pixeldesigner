@@ -429,8 +429,10 @@
             form.hidden = true;
             success.hidden = false;
             success.focus({ preventScroll: true });
-        } catch {
-            status.textContent = "L'envoi a échoué. Vérifiez votre connexion puis réessayez.";
+        } catch (err) {
+            // La raison exacte (refus du service, réseau…) reste visible dans la console pour le diagnostic
+            console.error('Formulaire de contact :', err.message);
+            status.innerHTML = 'L’envoi a échoué. Réessayez, ou contactez-moi directement au <a href="tel:+33769322672">07&nbsp;69&nbsp;32&nbsp;26&nbsp;72</a> ou par <a href="mailto:studio.pixeldesigner@proton.me">e-mail</a>.';
             status.classList.add('is-error');
         } finally {
             setBusy(false);
