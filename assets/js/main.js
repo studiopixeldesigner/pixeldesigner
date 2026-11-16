@@ -66,9 +66,12 @@
 
     /* Découpage en mots ---------------------------------------------------
        Les mots situés dans un .grad reçoivent chacun le dégradé (le parent le perd),
-       ce qui permet de les animer séparément sans casser la couleur. */
+       ce qui permet de les animer séparément. Pour que le dégradé reste continu sur
+       toute la phrase, alignGrads() cale chaque mot sur la largeur de son groupe. */
+    const gradGroups = [];
     const splitWords = (el, wrap) => {
         let i = 0;
+        let group = null;
         const walk = (node, grad) => {
             [...node.childNodes].forEach((child) => {
                 if (child.nodeType === Node.TEXT_NODE) {
@@ -77,13 +80,17 @@
                     child.textContent.split(/([ \t\n\r]+)/).forEach((part) => {
                         if (!part) return;
                         if (/^[ \t\n\r]+$/.test(part)) { frag.append(' '); return; }
-                        frag.append(wrap(part, i++, grad));
+                        const word = wrap(part, i++, grad);
+                        if (grad && group) group.push(word.classList.contains('grad') ? word : word.querySelector('.grad'));
+                        frag.append(word);
                     });
                     child.replaceWith(frag);
                 } else if (child.nodeType === Node.ELEMENT_NODE) {
                     const isGrad = child.classList.contains('grad');
                     if (isGrad) child.classList.remove('grad');
+                    if (isGrad && !grad) { group = []; gradGroups.push(group); }
                     walk(child, grad || isGrad);
+                    if (isGrad && !grad) group = null;
                 }
             });
         };
@@ -103,6 +110,25 @@
             return outer;
         });
     });
+
+    // Dégradé continu : chaque mot affiche la portion du dégradé qui lui revient
+    const alignGrads = () => {
+        gradGroups.forEach((words) => {
+            const list = words.filter(Boolean);
+            const space = list[0] ? parseFloat(getComputedStyle(list[0]).fontSize) * 0.28 : 0;
+            const total = list.reduce((sum, w) => sum + w.offsetWidth, 0) + space * Math.max(list.length - 1, 0);
+            let x = 0;
+            list.forEach((w) => {
+                w.style.setProperty('--gw', `${total.toFixed(1)}px`);
+                w.style.setProperty('--gx', `${(-x).toFixed(1)}px`);
+                x += w.offsetWidth + space;
+            });
+        });
+    };
+
+    alignGrads();
+    window.addEventListener('resize', alignGrads);
+    if (document.fonts) document.fonts.ready.then(alignGrads);
 
     /* Apparitions au scroll --------------------------------------------- */
     const revealEls = $$('[data-reveal], [data-split]');
@@ -229,6 +255,7 @@
             return w;
         });
         words = $$('.w', statement);
+        alignGrads();
         if (reduceMotion) {
             words.forEach((w) => w.classList.add('on'));
         } else {

@@ -1,6 +1,6 @@
-// Réalisations : carrousel 3D piloté par le scroll (WebGL natif, aucune librairie).
-// Les sites défilent vers l'écran l'un après l'autre. Celui qui passe la caméra
-// se décale en couleurs puis se dissout en pixels.
+// Réalisations : carrousel 3D en spirale piloté par le scroll (WebGL natif, aucune librairie).
+// Les sites tournent sur une hélice : le site actif passe devant, face à l'écran ;
+// celui qui s'en va se décale en couleurs puis se dissout en pixels.
 // Les cartes <article class="work"> restent dans la page (générées par l'admin) :
 // elles servent de source (titre, image, lien) et de panneau d'infos accessible.
 // Sans WebGL, sur petit écran peu haut ou en mouvement réduit : la liste simple reste.
@@ -36,7 +36,6 @@
         link: article.querySelector('.work-media'),
         title: (article.querySelector('.work-title') || {}).textContent || '',
         src: pickSrc(article),
-        side: i % 2 ? -1 : 1,
         tex: null,
         aspect: 16 / 10,
     }));
@@ -233,7 +232,6 @@ void main() {
     /* Géométrie de l'écran ----------------------------------------------- */
     const FOV = (40 * Math.PI) / 180;
     const CAM_Z = 5;
-    const GAP = 3.4;
     let W = 0, H = 0, dpr = 1, wide = false;
     let visW = 1, visH = 1, cardW = 1, focusX = 0, focusY = 0;
     const proj = new Float32Array(16);
@@ -367,39 +365,51 @@ void main() {
         gl.uniform1f(U.uTime, t);
 
         const speed = Math.abs(vel);
-        const order = projects.map((p, i) => i).sort((a, b) => (b - pos) - (a - pos));
-        order.forEach((i) => {
+        const planeA = 1.6;
+        const ch = cardW / planeA;
+        // Spirale : les sites sont posés sur une hélice autour d'un axe vertical.
+        // Le scroll fait tourner l'hélice : le site actif passe devant, face à l'écran,
+        // les suivants attendent en bas à droite, les précédents filent en haut à gauche.
+        // Des copies des projets prolongent la spirale pour qu'elle paraisse pleine.
+        const STEP = 0.72;
+        const R = cardW * 1.15;
+        const RISE = ch * (wide ? 0.62 : 0.2);
+        const base = Math.floor(pos);
+        const slots = [];
+        for (let k = base - 4; k <= base + 5; k++) {
+            const rel = k - pos;
+            const a = rel * STEP;
+            slots.push({ k, rel, a, z: Math.cos(a) });
+        }
+        slots.sort((u, v) => u.z - v.z);
+        slots.forEach(({ k, rel, a }) => {
+            const i = ((k % n) + n) % n;
             const p = projects[i];
-            const rel = i - pos;
-            if (rel < -1.2 || rel > 3.4) return;
-            const ahead = Math.max(rel, 0);
-            const spread = wide ? 1.1 : 0.5;
-            // Le site qui passe la caméra s'écarte du panneau d'infos (à droite, ou vers le haut sur mobile)
-            const behind = Math.max(-rel, 0);
-            // Sur ordinateur, les sites à venir attendent à droite pour ne pas passer sous le panneau d'infos
-            const x = focusX + (wide ? 0.8 : p.side) * spread * Math.min(ahead, 1.6) * visW * 0.22 + (wide ? behind * visW * 0.3 : 0) - camX;
-            const y = focusY + Math.sin(t * 0.7 + i * 1.7) * 0.03 + Math.min(ahead, 2) * (wide ? 0.12 : 0.25) + (wide ? 0 : behind * visH * 0.3) - camY;
-            const z = -rel * GAP;
-            const dis = smooth(-0.08, -0.75, rel);
-            const fade = 1 - smooth(2.2, 3.3, rel);
-            const focus = 1 - smooth(0.15, 1.2, Math.abs(rel));
+            const real = k >= 0 && k < n;
+            const front = Math.cos(a);
+            const x = focusX + Math.sin(a) * R - camX;
+            const y = focusY - rel * RISE + Math.sin(t * 0.7 + k * 1.7) * 0.02 - camY;
+            const z = (front - 1) * R;
+            const dis = smooth(-0.3, -1.1, rel);
+            const fade = smooth(-0.2, 0.45, front) * (1 - smooth(2.4, 3.6, Math.abs(rel))) * (1 - smooth(-0.35, -1.0, rel)) * (real ? 1 : 0.55);
+            if (fade <= 0.001) return;
+            const focus = 1 - smooth(0.15, 1.1, Math.abs(rel));
             const ready = p.tex ? clamp((now - p.readyAt) / 600, 0, 1) : 0;
-            const cw = cardW * (1 + hover * 0.03 * (i === active ? 1 : 0));
-            const planeA = 1.6;
+            const cw = cardW * (1 + hover * 0.03 * (k === active ? 1 : 0));
 
             gl.uniform3f(U.uOffset, x, y, z - CAM_Z);
             gl.uniform2f(U.uSize, cw, cw / planeA);
-            gl.uniform1f(U.uRotY, -p.side * 0.32 * clamp(rel, -0.5, 1.4) + pointer.x * 0.05);
+            gl.uniform1f(U.uRotY, a + pointer.x * 0.05);
             gl.uniform1f(U.uBend, clamp(vel * 0.06, -0.12, 0.12));
             gl.uniform1f(U.uDis, dis);
             gl.uniform1f(U.uAlpha, fade);
             gl.uniform1f(U.uShift, clamp(speed * 0.006, 0, 0.03) + dis * 0.03 + (1 - focus) * 0.004);
             gl.uniform1f(U.uGlitch, clamp(0.35 + speed * 0.5 - hover * 0.35, 0, 1.5));
-            gl.uniform1f(U.uFocus, 0.35 + focus * 0.65);
+            gl.uniform1f(U.uFocus, 0.3 + focus * 0.7);
             gl.uniform1f(U.uReady, ready);
             gl.uniform1f(U.uImgA, p.imgA || planeA);
             gl.uniform1f(U.uPlaneA, planeA);
-            gl.uniform1f(U.uSeed, i * 7.13);
+            gl.uniform1f(U.uSeed, k * 7.13);
             gl.activeTexture(gl.TEXTURE0);
             gl.bindTexture(gl.TEXTURE_2D, p.tex || blank);
             gl.uniform1i(U.uTex, 0);
@@ -407,7 +417,6 @@ void main() {
         });
 
         // Le lien du projet actif recouvre sa carte : clic, survol et focus clavier
-        const ch = cardW / 1.6;
         const tl = toScreen(focusX - camX - cardW / 2, focusY - camY + ch / 2, 0);
         const br = toScreen(focusX - camX + cardW / 2, focusY - camY - ch / 2, 0);
         stage.style.setProperty('--card-l', `${(tl[0] - offX).toFixed(1)}px`);
