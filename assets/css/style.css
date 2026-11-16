@@ -1,7 +1,7 @@
 /* ==========================================================================
    Pixel Designer v4 « Nuit numérique »
    Bleu nuit profond, particules, verre et effets glitch (décalage RGB, pixels).
-   Titres en Chakra Petch (anguleuse, lisible), texte en Geist, libellés en Geist Mono,
+   Titres en Unbounded (large et affirmée), texte en Geist, libellés en Geist Mono,
    police pixel (Silkscreen) réservée aux petits accents.
    Un seul bleu électrique pour les actions ; cyan et rose réservés aux effets.
    Rayons : boutons, puces et badges en pilule, cartes 16px, visuels 12px, champs 10px.
@@ -48,7 +48,7 @@
 
     --font: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
     --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-    --display: "Chakra Petch", "Geist", ui-sans-serif, system-ui, sans-serif;
+    --display: "Unbounded", "Geist", ui-sans-serif, system-ui, sans-serif;
     /* Police pixel : seulement pour de petits accents (numéros, compteur, signature du pied de page) */
     --pixel: "Silkscreen", "Geist Mono", ui-monospace, monospace;
 
@@ -230,10 +230,10 @@ main,
 
 .h2 {
     font-family: var(--display);
-    font-size: clamp(2.1rem, 5vw, 3.8rem);
+    font-size: clamp(1.9rem, 4.4vw, 3.3rem);
     font-weight: 600;
     line-height: 1.04;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
 }
 
 /* Petit repère numéroté au-dessus des titres de section */
@@ -764,7 +764,7 @@ main,
     font-family: var(--display);
     font-size: clamp(1.75rem, 8vw, 2.4rem);
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
     line-height: 1.25;
     opacity: 0;
     transform: translateY(20px);
@@ -816,10 +816,10 @@ body.menu-open .nav-progress {
 .hero-title {
     max-width: 12em;
     font-family: var(--display);
-    font-size: clamp(2.5rem, 6.8vw, 5.4rem);
+    font-size: clamp(2.2rem, 5.6vw, 4.6rem);
     font-weight: 600;
     line-height: 1;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
 }
 
 .hero-title .line {
@@ -924,7 +924,7 @@ html.js [data-split].is-in .word > span {
     font-size: clamp(1.15rem, 2vw, 1.6rem);
     font-weight: 600;
     line-height: 1.6;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
     color: #d3d9f2;
     white-space: nowrap;
 }
@@ -987,10 +987,10 @@ html.js [data-split].is-in .word > span {
 
 .work-title {
     font-family: var(--display);
-    font-size: clamp(2rem, 3.8vw, 3.2rem);
+    font-size: clamp(1.8rem, 3.2vw, 2.7rem);
     font-weight: 600;
     line-height: 1.04;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
 }
 
 .work-info .muted {
@@ -1551,7 +1551,7 @@ html.js .statement .w.on {
     font-family: var(--display);
     font-size: clamp(2rem, 3vw, 2.5rem);
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
     line-height: 1;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
@@ -1688,7 +1688,7 @@ html.js .statement .w.on {
     font-family: var(--display);
     font-weight: 600;
     font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
     text-shadow: var(--halo);
 }
 
@@ -1749,7 +1749,7 @@ html.js .statement .w.on {
     font-family: var(--display);
     font-size: 1.8rem;
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
     line-height: 1;
     font-variant-numeric: tabular-nums;
 }
@@ -1849,7 +1849,7 @@ html.js .statement .w.on {
     font-family: var(--display);
     font-size: clamp(2rem, 3vw, 2.5rem);
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
     line-height: 1;
     font-variant-numeric: tabular-nums;
 }

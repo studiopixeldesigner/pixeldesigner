@@ -376,7 +376,8 @@ void main() {
             const spread = wide ? 1.1 : 0.5;
             // Le site qui passe la caméra s'écarte du panneau d'infos (à droite, ou vers le haut sur mobile)
             const behind = Math.max(-rel, 0);
-            const x = focusX + p.side * spread * Math.min(ahead, 1.6) * visW * 0.22 + (wide ? behind * visW * 0.3 : 0) - camX;
+            // Sur ordinateur, les sites à venir attendent à droite pour ne pas passer sous le panneau d'infos
+            const x = focusX + (wide ? 0.8 : p.side) * spread * Math.min(ahead, 1.6) * visW * 0.22 + (wide ? behind * visW * 0.3 : 0) - camX;
             const y = focusY + Math.sin(t * 0.7 + i * 1.7) * 0.03 + Math.min(ahead, 2) * (wide ? 0.12 : 0.25) + (wide ? 0 : behind * visH * 0.3) - camY;
             const z = -rel * GAP;
             const dis = smooth(-0.08, -0.75, rel);
