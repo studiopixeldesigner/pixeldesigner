@@ -390,7 +390,7 @@ void main() {
             const x = focusX + Math.sin(a) * R - camX;
             const y = focusY - rel * RISE + Math.sin(t * 0.7 + k * 1.7) * 0.02 - camY;
             const z = (front - 1) * R;
-            const dis = smooth(-0.1, -1.0, rel);
+            const dis = smooth(-0.3, -1.1, rel);
             const fade = smooth(-0.2, 0.45, front) * (1 - smooth(2.4, 3.6, Math.abs(rel))) * (1 - smooth(-0.35, -1.0, rel)) * (real ? 1 : 0.55);
             if (fade <= 0.001) return;
             const focus = 1 - smooth(0.15, 1.1, Math.abs(rel));

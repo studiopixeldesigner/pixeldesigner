@@ -10,7 +10,7 @@
 :root {
     --bg: #050714;
     --bg-elev: #0a0f27;
-    --card: rgba(10, 14, 36, 0.86);
+    --card: rgba(8, 11, 30, 0.7);
     --card-glass: rgba(10, 14, 36, 0.55);
     --line: rgba(255, 255, 255, 0.08);
     --line-strong: rgba(255, 255, 255, 0.16);
@@ -53,6 +53,10 @@
 
     --gutter: clamp(1.25rem, 5vw, 3rem);
     --section-y: clamp(6.5rem, 14vw, 11rem);
+
+    /* Filets et coins de l'interface (ambiance écran de contrôle) */
+    --hud: rgba(126, 232, 255, 0.55);
+    --hud-soft: rgba(126, 232, 255, 0.18);
 
     /* Halo sombre derrière le texte posé sur le fond animé */
     --halo: 0 0 28px rgba(5, 7, 20, 0.95), 0 0 10px rgba(5, 7, 20, 0.8);
@@ -527,12 +531,23 @@ main,
 
 /* Cartes : verre sombre, bordure et halo qui suivent la souris --------- */
 
+/* Panneau de verre marqué de 4 coins lumineux (ambiance écran de contrôle) */
 .card {
+    --c: 14px;
     position: relative;
     isolation: isolate;
-    border-radius: var(--radius);
-    border: 1px solid var(--line);
-    background: var(--card);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background:
+        linear-gradient(var(--hud), var(--hud)) top left / var(--c) 1px no-repeat,
+        linear-gradient(var(--hud), var(--hud)) top left / 1px var(--c) no-repeat,
+        linear-gradient(var(--hud), var(--hud)) top right / var(--c) 1px no-repeat,
+        linear-gradient(var(--hud), var(--hud)) top right / 1px var(--c) no-repeat,
+        linear-gradient(var(--hud), var(--hud)) bottom left / var(--c) 1px no-repeat,
+        linear-gradient(var(--hud), var(--hud)) bottom left / 1px var(--c) no-repeat,
+        linear-gradient(var(--hud), var(--hud)) bottom right / var(--c) 1px no-repeat,
+        linear-gradient(var(--hud), var(--hud)) bottom right / 1px var(--c) no-repeat,
+        var(--card);
     transition:
         transform 0.6s var(--ease),
         border-color 0.4s var(--ease),
@@ -541,7 +556,6 @@ main,
 
 @media (hover: hover) and (min-width: 1024px) {
     .card {
-        background: var(--card-glass);
         -webkit-backdrop-filter: blur(18px) saturate(140%);
         backdrop-filter: blur(18px) saturate(140%);
     }
@@ -2806,6 +2820,230 @@ html.js [data-reveal].is-in {
     .article:first-of-type {
         margin-top: clamp(3rem, 5vw, 4rem);
     }
+}
+
+/* Ambiance « écran de contrôle » ----------------------------------------
+   Inspirée des sites immersifs : interface fine et discrète par-dessus la 3D,
+   libellés en capitales espacées, boutons en pilule à filet, panneaux de verre
+   marqués de coins lumineux plutôt que de grosses cartes pleines. */
+
+/* Navigation : liens regroupés dans une pilule à filet */
+@media (min-width: 900px) {
+    .nav-links {
+        gap: 0;
+        padding: 0.3rem;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        background: rgba(5, 7, 20, 0.35);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-links a {
+        padding: 0.45rem 1.1rem;
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        transition: color 0.3s var(--ease), background-color 0.3s var(--ease);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a[aria-current="true"] {
+        background: rgba(126, 232, 255, 0.1);
+        color: var(--accent);
+    }
+
+    .nav-inner {
+        gap: 1rem;
+    }
+}
+
+@media (hover: hover) and (min-width: 900px) {
+    .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* Boutons : capitales espacées */
+.btn {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.btn-sm {
+    font-size: 0.72rem;
+}
+
+.btn-ghost {
+    border-color: var(--hud-soft);
+    background: rgba(5, 7, 20, 0.35);
+}
+
+/* Repère de section : [01] RÉALISATIONS ———— */
+.kicker {
+    gap: 0.9rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+}
+
+.kicker span {
+    min-width: 0;
+    height: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+}
+
+.kicker span::before {
+    content: "[";
+    color: var(--placeholder);
+}
+
+.kicker span::after {
+    content: "]";
+    color: var(--placeholder);
+}
+
+.kicker::after {
+    content: "";
+    width: 3.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--hud), transparent);
+}
+
+.eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+}
+
+/* Premier écran : panneau « Vous cherchez ? » et invitation à défiler */
+.hero {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.hero-inner {
+    margin-block: auto;
+}
+
+.hero-hud {
+    display: none;
+}
+
+@media (min-width: 900px) {
+    /* Invitation à défiler à gauche, accès rapide aux offres en bas à droite */
+    .hero-hud {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        column-gap: 2rem;
+        row-gap: 0.75rem;
+        margin-top: 1.5rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+    }
+
+    .hero-hud-title {
+        grid-column: 2;
+        grid-row: 1;
+        color: var(--placeholder);
+    }
+
+    .hero-hud-list {
+        grid-column: 2;
+        grid-row: 2;
+        display: grid;
+        gap: 0.35rem;
+        padding-left: 1rem;
+        border-left: 1px solid var(--hud-soft);
+    }
+
+    .hero-hud-scroll {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        align-self: end;
+    }
+
+    .hero-hud-list a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        color: var(--muted);
+        transition: color 0.3s var(--ease), transform 0.4s var(--ease);
+    }
+
+    .hero-hud-list a::before {
+        content: "→";
+        color: var(--hud);
+        transition: transform 0.4s var(--ease);
+    }
+
+    .hero-hud-scroll {
+        display: inline-flex;
+        align-items: center;
+        justify-self: start;
+        gap: 0.8rem;
+        color: var(--placeholder);
+    }
+
+    .hero-hud-scroll span {
+        position: relative;
+        width: 1px;
+        height: 2.5rem;
+        overflow: hidden;
+        background: var(--line);
+    }
+
+    .hero-hud-scroll span::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, transparent, var(--accent));
+        animation: scroll-hint 2s var(--ease) infinite;
+    }
+
+    .hero-hud > * {
+        text-shadow: var(--halo);
+    }
+}
+
+.hero-hud {
+    position: relative;
+}
+
+@keyframes scroll-hint {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(100%); }
+}
+
+@media (hover: hover) {
+    .hero-hud-list a:hover {
+        color: var(--text);
+        transform: translateX(4px);
+    }
+}
+
+/* Libellés des projets et repères du carrousel en capitales espacées */
+.meta {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+}
+
+.chips li {
+    border-color: var(--hud-soft);
+    background: rgba(126, 232, 255, 0.04);
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
 }
 
 /* Tablette et mobile ---------------------------------------------------- */
