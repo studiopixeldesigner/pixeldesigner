@@ -235,8 +235,8 @@ main,
     font-family: var(--display);
     font-size: clamp(2rem, 4.6vw, 3.5rem);
     font-weight: 600;
-    line-height: 1.04;
-    letter-spacing: -0.025em;
+    line-height: 1.1;
+    letter-spacing: 0;
 }
 
 /* Petit repère numéroté au-dessus des titres de section */
@@ -1374,12 +1374,13 @@ html.js [data-split].is-in .word > span {
 /* Approche --------------------------------------------------------------- */
 
 .statement {
-    max-width: 19em;
+    max-width: 30em;
     margin-top: clamp(1.75rem, 3vw, 2.5rem);
-    font-size: clamp(1.7rem, 3.8vw, 3.2rem);
-    font-weight: 500;
-    line-height: 1.16;
-    letter-spacing: -0.035em;
+    font-size: clamp(1.2rem, 2.1vw, 1.65rem);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    color: #dfe4ff;
     text-shadow: var(--halo);
 }
 
@@ -1388,7 +1389,7 @@ html.js [data-split].is-in .word > span {
 }
 
 html.js .statement .w {
-    opacity: 0.18;
+    opacity: 0.4;
 }
 
 html.js .statement .w.on {
@@ -1423,9 +1424,8 @@ html.js .statement .w.on {
     font-family: var(--pixel);
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     line-height: 1;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(159, 182, 255, 0.55);
-    transition: color 0.5s var(--ease), -webkit-text-stroke-color 0.5s var(--ease);
+    color: rgba(159, 182, 255, 0.55);
+    transition: color 0.5s var(--ease);
 }
 
 .step-item .feature-icon {
@@ -1440,21 +1440,22 @@ html.js .statement .w.on {
 
 .step-item h3 {
     padding-right: 3.5rem;
-    font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
     font-weight: 500;
-    letter-spacing: -0.015em;
+    letter-spacing: 0.01em;
 }
 
 .step-item p {
-    max-width: 38ch;
-    color: var(--muted);
-    font-size: 0.97rem;
+    max-width: 40ch;
+    color: #c3cae8;
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
 }
 
 @media (hover: hover) {
     .step-item:hover::before {
         color: var(--accent);
-        -webkit-text-stroke-color: transparent;
     }
 
     .step-item:hover .feature-icon {
@@ -2894,6 +2895,7 @@ html.js [data-reveal].is-in {
 }
 
 .kicker span {
+    display: inline-flex;
     min-width: 0;
     height: auto;
     padding: 0;
