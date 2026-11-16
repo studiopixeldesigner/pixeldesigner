@@ -1383,6 +1383,11 @@ html.js [data-split].is-in .word > span {
     margin-bottom: 0;
 }
 
+.statement strong {
+    color: var(--accent);
+    font-weight: 500;
+}
+
 .statement {
     position: relative;
     max-width: 34em;
@@ -1456,14 +1461,28 @@ html.js .statement .w.on {
     }
 }
 
-.step-item h3::before {
+/* Chiffre ou mot-clé en grand : on comprend le point d'un coup d'œil */
+.step-item .step-key {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+    font-weight: 600;
+    line-height: 1.15;
+    background: var(--g-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-right: 3.2rem;
+}
+
+.step-item .step-key::before {
     content: "[" counter(step, decimal-leading-zero) "]";
     display: block;
-    margin-bottom: 0.9rem;
+    margin-bottom: 1rem;
     font-size: 0.74rem;
     font-weight: 500;
     letter-spacing: 0.2em;
-    color: var(--accent);
+    color: var(--placeholder);
+    -webkit-text-fill-color: var(--placeholder);
 }
 
 .step-item .feature-icon {
@@ -1477,8 +1496,7 @@ html.js .statement .w.on {
 }
 
 .step-item h3 {
-    padding-right: 3.5rem;
-    font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+    font-size: 1.05rem;
     font-weight: 500;
     letter-spacing: 0.01em;
 }
