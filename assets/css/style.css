@@ -1,7 +1,8 @@
 /* ==========================================================================
    Pixel Designer v4 « Nuit numérique »
    Bleu nuit profond, particules, verre et effets glitch (décalage RGB, pixels).
-   Titres en police pixel (Silkscreen), texte en Geist, libellés en Geist Mono.
+   Titres en Chakra Petch (anguleuse, lisible), texte en Geist, libellés en Geist Mono,
+   police pixel (Silkscreen) réservée aux petits accents.
    Un seul bleu électrique pour les actions ; cyan et rose réservés aux effets.
    Rayons : boutons, puces et badges en pilule, cartes 16px, visuels 12px, champs 10px.
    Couches (z-index) : fond 3D 0, voile 0, contenu 1, nav 50, menu mobile 60, lien d'évitement 100.
@@ -47,7 +48,9 @@
 
     --font: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
     --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-    --display: "Silkscreen", "Geist Mono", ui-monospace, monospace;
+    --display: "Chakra Petch", "Geist", ui-sans-serif, system-ui, sans-serif;
+    /* Police pixel : seulement pour de petits accents (numéros, compteur, signature du pied de page) */
+    --pixel: "Silkscreen", "Geist Mono", ui-monospace, monospace;
 
     --gutter: clamp(1.25rem, 5vw, 3rem);
     --section-y: clamp(6.5rem, 14vw, 11rem);
@@ -227,10 +230,10 @@ main,
 
 .h2 {
     font-family: var(--display);
-    font-size: clamp(1.9rem, 4.6vw, 3.4rem);
-    font-weight: 400;
-    line-height: 1.08;
-    letter-spacing: 0;
+    font-size: clamp(2.1rem, 5vw, 3.8rem);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
 }
 
 /* Petit repère numéroté au-dessus des titres de section */
@@ -760,8 +763,8 @@ main,
 .menu-links a {
     font-family: var(--display);
     font-size: clamp(1.75rem, 8vw, 2.4rem);
-    font-weight: 400;
-    letter-spacing: 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     line-height: 1.25;
     opacity: 0;
     transform: translateY(20px);
@@ -813,10 +816,10 @@ body.menu-open .nav-progress {
 .hero-title {
     max-width: 12em;
     font-family: var(--display);
-    font-size: clamp(2.1rem, 6.2vw, 4.6rem);
-    font-weight: 400;
-    line-height: 1.04;
-    letter-spacing: 0;
+    font-size: clamp(2.5rem, 6.8vw, 5.4rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.01em;
 }
 
 .hero-title .line {
@@ -919,9 +922,9 @@ html.js [data-split].is-in .word > span {
 .marquee span {
     font-family: var(--display);
     font-size: clamp(1.15rem, 2vw, 1.6rem);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.6;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
     color: #d3d9f2;
     white-space: nowrap;
 }
@@ -984,10 +987,10 @@ html.js [data-split].is-in .word > span {
 
 .work-title {
     font-family: var(--display);
-    font-size: clamp(1.8rem, 3.4vw, 2.8rem);
-    font-weight: 400;
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
+    font-weight: 600;
     line-height: 1.04;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
 }
 
 .work-info .muted {
@@ -1239,7 +1242,7 @@ html.js [data-split].is-in .word > span {
     position: absolute;
     top: calc(var(--nav-h) + 1rem);
     right: var(--gutter);
-    font-family: var(--display);
+    font-family: var(--pixel);
     font-size: 1rem;
     letter-spacing: 0.06em;
 }
@@ -1406,7 +1409,7 @@ html.js .statement .w.on {
     content: counter(step, decimal-leading-zero);
     grid-row: 1 / 3;
     min-width: 3.2rem;
-    font-family: var(--display);
+    font-family: var(--pixel);
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     line-height: 1;
     color: transparent;
@@ -1547,8 +1550,8 @@ html.js .statement .w.on {
     gap: 0.1rem;
     font-family: var(--display);
     font-size: clamp(2rem, 3vw, 2.5rem);
-    font-weight: 400;
-    letter-spacing: 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     line-height: 1;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
@@ -1683,9 +1686,9 @@ html.js .statement .w.on {
 
 .options-block > .h3 {
     font-family: var(--display);
-    font-weight: 400;
+    font-weight: 600;
     font-size: clamp(1.4rem, 2.4vw, 1.9rem);
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
     text-shadow: var(--halo);
 }
 
@@ -1745,8 +1748,8 @@ html.js .statement .w.on {
     color: var(--text);
     font-family: var(--display);
     font-size: 1.8rem;
-    font-weight: 400;
-    letter-spacing: 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     line-height: 1;
     font-variant-numeric: tabular-nums;
 }
@@ -1845,8 +1848,8 @@ html.js .statement .w.on {
     height: 46px;
     font-family: var(--display);
     font-size: clamp(2rem, 3vw, 2.5rem);
-    font-weight: 400;
-    letter-spacing: 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     line-height: 1;
     font-variant-numeric: tabular-nums;
 }
@@ -2248,7 +2251,7 @@ textarea.input {
 
 .footer-word {
     margin-top: clamp(3rem, 7vw, 5rem);
-    font-family: var(--display);
+    font-family: var(--pixel);
     font-size: min(7rem, 7.6vw);
     font-weight: 400;
     line-height: 0.95;
