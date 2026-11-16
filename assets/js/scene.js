@@ -14,7 +14,7 @@
     const FOV = (35 * Math.PI) / 180;
     const TAN = Math.tan(FOV / 2);
     const CAM_Z = 6;
-    const BG = [9 / 255, 9 / 255, 11 / 255];
+    const BG = [5 / 255, 7 / 255, 20 / 255];
 
     // Pages sans sections (merci, 404) : étape fixe, forme centrée
     const fixedStage = canvas.dataset.stage !== undefined ? Number(canvas.dataset.stage) : null;

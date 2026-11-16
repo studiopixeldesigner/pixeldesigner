@@ -1,7 +1,8 @@
 // Gabarit HTML des cartes « Mes réalisations ».
 // La page d'administration s'en sert pour réécrire, dans index.html, le bloc situé entre les
 // repères « projets:debut » et « projets:fin ». Le balisage doit rester celui que stylent les
-// règles .work* de style.css et qu'animent data-stack, data-spot et data-tilt dans main.js.
+// règles .work* de style.css, qu'animent data-spot et data-tilt dans main.js, et que lit works.js
+// (titre, image <source> 1600w, lien .work-media) pour le carrousel 3D.
 
 const MARK_START = '<!-- projets:debut (bloc généré par la page admin, ne pas modifier à la main) -->';
 const MARK_END = '<!-- projets:fin -->';
