@@ -1,8 +1,7 @@
 /* ==========================================================================
    Pixel Designer v4 « Nuit numérique »
    Bleu nuit profond, particules, verre et effets glitch (décalage RGB, pixels).
-   Titres en Tektur (coins coupés façon tech, lisible), texte en Geist, libellés en Geist Mono,
-   police pixel (Silkscreen) réservée aux petits accents.
+   Une seule police, Tektur (coins coupés façon tech), pour les titres, le texte et les libellés.
    Un seul bleu électrique pour les actions ; cyan et rose réservés aux effets.
    Rayons : boutons, puces et badges en pilule, cartes 16px, visuels 12px, champs 10px.
    Couches (z-index) : fond 3D 0, voile 0, contenu 1, nav 50, menu mobile 60, lien d'évitement 100.
@@ -30,8 +29,8 @@
     --danger: #fca5a5;
 
     --g-brand: linear-gradient(120deg, var(--cyan), var(--blue) 50%, var(--pink));
-    /* Teintes claires pour le texte, boucle sans couture */
-    --g-text: linear-gradient(100deg, #7ee8ff, #9fb6ff 20%, #b3c2ff 40%, #f0a6ff 60%, #9fb6ff 80%, #7ee8ff);
+    /* Teintes claires pour le texte : cyan, bleu, rose */
+    --g-text: linear-gradient(90deg, #7ee8ff, #9fb6ff 45%, #f0a6ff);
     /* Boutons : teintes plus profondes pour un texte blanc lisible (contraste AA) */
     --g-btn: linear-gradient(110deg, #2f5bff, #3d6bff 35%, #6a4dff 65%, #2f5bff);
 
@@ -46,11 +45,11 @@
     --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     --nav-h: 68px;
 
-    --font: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-    --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-    --display: "Tektur", "Geist", ui-sans-serif, system-ui, sans-serif;
-    /* Police pixel : seulement pour de petits accents (numéros, compteur, signature du pied de page) */
-    --pixel: "Silkscreen", "Geist Mono", ui-monospace, monospace;
+    /* Une seule police sur tout le site : Tektur (texte 400, libellés 500, titres 600) */
+    --font: "Tektur", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: var(--font);
+    --display: var(--font);
+    --pixel: var(--font);
 
     --gutter: clamp(1.25rem, 5vw, 3rem);
     --section-y: clamp(6.5rem, 14vw, 11rem);
@@ -304,21 +303,19 @@ main,
     color: var(--muted);
 }
 
-/* Texte en dégradé animé (teintes claires du logo) */
+/* Texte en dégradé : un seul dégradé du début à la fin de la phrase.
+   Quand un titre est découpé en mots (animations), main.js donne à chaque mot
+   la largeur totale de la phrase (--gw) et sa position dans celle-ci (--gx). */
 .grad {
     background-image: var(--g-text);
-    background-size: 200% 100%;
+    background-size: var(--gw, 100%) 100%;
+    background-position: var(--gx, 0) 0;
+    background-repeat: no-repeat;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
     text-shadow: none;
-    animation: grad-shift 7s linear infinite;
-    animation-delay: calc(var(--i, 0) * -0.4s);
-}
-
-@keyframes grad-shift {
-    to { background-position: 200% 0; }
 }
 
 /* Motif « pixels » repris du logo */
@@ -2953,7 +2950,9 @@ html.js [data-reveal].is-in {
    dégradé de marque, encadrés clairs. Tout reste ici : l'écran ne change pas. */
 @media print {
     :root {
-        /* Le PDF des CGV garde des titres en Geist, plus lisibles à l'impression */
+        /* Le PDF des CGV reste en Geist, plus lisible à l'impression */
+        --font: "Geist", ui-sans-serif, system-ui, sans-serif;
+        --mono: "Geist Mono", ui-monospace, monospace;
         --display: var(--font);
         /* Palette d'impression */
         --p-dark: #09090b;
