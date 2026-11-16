@@ -236,21 +236,6 @@
         }
     }
 
-    // Projets empilés : la carte recouverte recule et s'assombrit
-    const stackItems = $$('[data-stack]');
-    const stackMedia = window.matchMedia('(min-width: 1024px) and (min-height: 720px)');
-    let stackVisible = false;
-    if (stackItems.length && !reduceMotion) {
-        new IntersectionObserver(([entry]) => { stackVisible = entry.isIntersecting; })
-            .observe(stackItems[0].parentElement);
-        stackMedia.addEventListener('change', () => {
-            stackItems.forEach((item) => {
-                item.firstElementChild.style.removeProperty('--stack-s');
-                item.firstElementChild.style.removeProperty('--stack-o');
-            });
-        });
-    }
-
     let lastY = -1;
     let lastH = -1;
     const tick = () => {
@@ -274,18 +259,6 @@
             if (count !== lit) {
                 words.forEach((w, i) => w.classList.toggle('on', i < count));
                 lit = count;
-            }
-        }
-
-        if (stackVisible && stackMedia.matches) {
-            const top = parseFloat(getComputedStyle(stackItems[0]).top) || 0;
-            for (let i = 0; i < stackItems.length - 1; i++) {
-                const card = stackItems[i].firstElementChild;
-                const h = card.offsetHeight;
-                const nextTop = stackItems[i + 1].getBoundingClientRect().top;
-                const p = clamp((top + h - nextTop) / h, 0, 1);
-                card.style.setProperty('--stack-s', (1 - p * 0.07).toFixed(4));
-                card.style.setProperty('--stack-o', (1 - p * 0.6).toFixed(4));
             }
         }
     };
