@@ -310,16 +310,34 @@ main,
 /* Texte en dégradé : un seul dégradé du début à la fin de la phrase.
    Quand un titre est découpé en mots (animations), main.js donne à chaque mot
    la largeur totale de la phrase (--gw) et sa position dans celle-ci (--gx). */
+/* Dégradé animé d'un seul bloc sur toute la phrase : chaque mot découpé reçoit
+   la largeur totale (--gw) et son décalage (--gx), puis tous glissent ensemble. */
+@property --gp {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: false;
+}
+
 .grad {
-    background-image: var(--g-text);
-    background-size: var(--gw, 100%) 100%;
-    background-position: var(--gx, 0) 0;
-    background-repeat: no-repeat;
+    background-image: linear-gradient(90deg, #7ee8ff, #9fb6ff 25%, #f0a6ff 50%, #9fb6ff 75%, #7ee8ff);
+    background-size: 200% 100%;
+    background-position: calc(var(--gp) * -200%) 0;
+    background-repeat: repeat-x;
+    animation: grad-flow 8s linear infinite;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
     text-shadow: none;
+}
+
+.grad[style*="--gw"] {
+    background-size: calc(var(--gw) * 2) 100%;
+    background-position: calc(var(--gx) + var(--gp) * var(--gw) * 2) 0;
+}
+
+@keyframes grad-flow {
+    to { --gp: 1; }
 }
 
 /* Motif « pixels » repris du logo */
