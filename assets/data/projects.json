@@ -1,25 +1,6 @@
 {
-    "updatedAt": "2026-11-17T14:00:00.000Z",
+    "updatedAt": "2026-11-17T14:21:43.718Z",
     "projects": [
-        {
-            "id": "pixel-designer",
-            "title": "Pixel Designer",
-            "category": "Site de Pixel Designer",
-            "city": "Lure",
-            "date": "2026-09",
-            "description": "Site officiel de Pixel Designer",
-            "tags": [
-                "Back-office",
-                "Github",
-                "UI/UX",
-                "HTML"
-            ],
-            "url": "https://pixeldesigner.fr/",
-            "image": "pixel-designer-259gh",
-            "imageWidth": 1600,
-            "imageHeight": 838,
-            "alt": "Page d'accueil du site Pixel Designer"
-        },
         {
             "id": "demo-fournil-belle-aube",
             "title": "Fournil Belle-Aube",
