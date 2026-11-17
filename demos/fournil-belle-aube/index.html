@@ -49,7 +49,7 @@
                     </div>
                     <p class="hero-open" data-reveal><span class="dot" aria-hidden="true"></span>Ouvert du mardi au dimanche, dès 6&nbsp;h&nbsp;30</p>
                 </div>
-                <div class="hero-art" aria-hidden="true">
+                <div class="hero-art" aria-hidden="true" data-parallax="0.06">
                     <svg viewBox="0 0 420 380">
                         <circle class="sun" cx="250" cy="150" r="120"/>
                         <g class="loaf loaf-1">
@@ -67,10 +67,17 @@
             </div>
         </section>
 
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker-track">
+                <span>Pain au levain</span><span>Baguette de tradition</span><span>Viennoiseries pur beurre</span><span>Tarte aux mirabelles</span><span>Farines de Haute-Saône</span><span>Commande la veille</span>
+                <span>Pain au levain</span><span>Baguette de tradition</span><span>Viennoiseries pur beurre</span><span>Tarte aux mirabelles</span><span>Farines de Haute-Saône</span><span>Commande la veille</span>
+            </div>
+        </div>
+
         <section class="section" id="fournil">
             <div class="wrap fournil">
                 <h2 data-reveal>Ce qui se passe <em>avant 6&nbsp;h</em></h2>
-                <ol class="steps">
+                <ol class="steps" data-stagger="120">
                     <li data-reveal>
                         <span class="num">01</span>
                         <h3>Un levain vivant</h3>
@@ -86,6 +93,19 @@
                         <h3>Tout est fait sur place</h3>
                         <p>Pains, viennoiseries, tartes du dimanche&nbsp;: tout sort de notre four, rue des Moissons.</p>
                     </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section section-day" aria-labelledby="t-journee">
+            <div class="wrap">
+                <h2 id="t-journee" data-reveal>Une journée <em>au fournil</em></h2>
+                <p class="section-sub" data-reveal>Quatre fournées par jour&nbsp;: passez à l'heure qui vous arrange, le pain sera chaud.</p>
+                <ol class="day-line" data-stagger="110">
+                    <li data-reveal><time>3 h 30</time><h3>Le levain se réveille</h3><p>Rafraîchi, pétri, façonné à la main.</p></li>
+                    <li data-reveal><time>6 h 30</time><h3>Première fournée</h3><p>Baguettes, campagnes et croissants à l'ouverture.</p></li>
+                    <li data-reveal><time>11 h 30</time><h3>Spécial déjeuner</h3><p>Sandwichs du jour et baguettes encore tièdes.</p></li>
+                    <li data-reveal><time>16 h 30</time><h3>Fournée du soir</h3><p>Pour rentrer à la maison avec du pain frais.</p></li>
                 </ol>
             </div>
         </section>
@@ -121,6 +141,41 @@
             </div>
         </section>
 
+        <section class="section" id="evenements" aria-labelledby="t-events">
+            <div class="wrap">
+                <div class="events-head" data-reveal>
+                    <h2 id="t-events">Pour vos <em>grandes occasions</em></h2>
+                    <p class="section-sub">Anniversaire, réunion d'équipe, baptême&nbsp;: dites-nous combien vous êtes, on s'occupe du reste.</p>
+                </div>
+                <div class="events" data-stagger="120">
+                    <article class="event event-big" data-reveal>
+                        <div class="event-art art-cake" aria-hidden="true"><span></span></div>
+                        <div>
+                            <p class="event-tag">48 h à l'avance</p>
+                            <h3>Gâteaux et entremets</h3>
+                            <p>Fraisier, tarte aux mirabelles, forêt-noire. De 6 à 20 parts, avec votre message écrit dessus.</p>
+                        </div>
+                    </article>
+                    <article class="event" data-reveal>
+                        <div class="event-art art-tray" aria-hidden="true"><span></span></div>
+                        <div>
+                            <p class="event-tag">Dès 20 pièces</p>
+                            <h3>Plateaux pour vos réunions</h3>
+                            <p>Mini-viennoiseries et petits salés, prêts à poser sur la table.</p>
+                        </div>
+                    </article>
+                    <article class="event" data-reveal>
+                        <div class="event-art art-crate" aria-hidden="true"><span></span></div>
+                        <div>
+                            <p class="event-tag">Professionnels</p>
+                            <h3>Pain pour restaurants</h3>
+                            <p>Livraison chaque matin à Lure et alentours, sur devis.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section class="section" id="commande">
             <div class="wrap commande">
                 <div class="commande-text" data-reveal>
@@ -152,8 +207,23 @@
                     <p class="hp" aria-hidden="true"><label>Ne pas remplir <input name="site" tabindex="-1" autocomplete="off"></label></p>
                     <button class="btn btn-full" type="submit">Envoyer ma commande</button>
                     <p class="form-status" data-form-status role="status"></p>
-                    <p class="rgpd">Vos coordonnées servent uniquement à préparer votre commande. <a href="https://pixeldesigner.fr/confidentialite.html">Confidentialité</a></p>
+                    <p class="rgpd">Vos coordonnées servent uniquement à préparer votre commande. <a href="confidentialite.html">Confidentialité</a></p>
                 </form>
+            </div>
+        </section>
+
+        <section class="section section-faq" aria-labelledby="t-faq">
+            <div class="wrap faq-wrap">
+                <div data-reveal>
+                    <h2 id="t-faq">Vos <em>questions</em></h2>
+                    <p class="section-sub">Une autre question&nbsp;? Posez-la au comptoir ou par téléphone.</p>
+                </div>
+                <div class="faq" data-stagger="80">
+                    <details data-reveal><summary>Puis-je commander pour le jour même&nbsp;?</summary><div><p>Oui, avant 10 h pour un retrait l'après-midi, dans la limite des fournées du jour. Pour être sûr d'avoir votre pain, commandez la veille.</p></div></details>
+                    <details data-reveal><summary>Faites-vous du pain sans gluten&nbsp;?</summary><div><p>Non. Toutes nos farines contiennent du gluten et nous ne pouvons pas garantir l'absence de traces. Nous préférons vous le dire clairement.</p></div></details>
+                    <details data-reveal><summary>Peut-on payer par carte&nbsp;?</summary><div><p>Oui, par carte et sans contact dès 1&nbsp;€, ou en espèces.</p></div></details>
+                    <details data-reveal><summary>Où trouver la liste des allergènes&nbsp;?</summary><div><p>Elle est affichée au comptoir pour chaque produit. Demandez-nous, on vous explique.</p></div></details>
+                </div>
             </div>
         </section>
 
@@ -162,6 +232,7 @@
                 <div data-reveal>
                     <h2>Horaires <em>et accès</em></h2>
                     <p class="adresse">12 rue des Moissons, 70200 Lure<br><small>(adresse fictive)</small></p>
+                    <p class="parking">Stationnement gratuit 15 minutes devant la boutique.</p>
                     <div class="hero-cta">
                         <a class="btn" href="#" data-demo="Démo : sur le vrai site, ce bouton ouvre l'itinéraire dans Google Maps.">Itinéraire</a>
                         <a class="btn btn-line" href="#" data-demo="Démo : sur le vrai site, ce bouton appelle la boulangerie en un clic.">03 84 XX XX XX</a>
@@ -181,12 +252,30 @@
     </main>
 
     <footer class="footer">
-        <div class="wrap footer-inner">
-            <p class="logo"><span>Fournil <em>Belle-Aube</em></span></p>
-            <p>Boulangerie fictive créée pour présenter l'offre One Page.</p>
-            <p><a href="https://pixeldesigner.fr/mentions-legales.html">Mentions légales</a> · <a href="https://pixeldesigner.fr/confidentialite.html">Confidentialité</a></p>
+        <div class="wrap footer-grid">
+            <div>
+                <p class="logo"><span>Fournil <em>Belle-Aube</em></span></p>
+                <p>Boulangerie au levain à Lure. Pains, viennoiseries et pâtisseries faits sur place.</p>
+                <p class="socials"><a href="#" data-demo="Démo : sur le vrai site, ce lien ouvre la page Instagram.">Instagram</a> · <a href="#" data-demo="Démo : sur le vrai site, ce lien ouvre la page Facebook.">Facebook</a></p>
+            </div>
+            <div>
+                <p class="footer-title">Horaires</p>
+                <p>Mar – Ven · 6 h 30 – 19 h<br>Sam · 6 h 30 – 19 h<br>Dim · 7 h – 12 h 30</p>
+            </div>
+            <div>
+                <p class="footer-title">Nous trouver</p>
+                <p>12 rue des Moissons, 70200 Lure<br>03 84 XX XX XX</p>
+            </div>
+        </div>
+        <div class="wrap footer-bottom">
+            <p>© 2026 Fournil Belle-Aube, entreprise fictive · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></p>
             <p class="credit">Powered by <a href="https://pixeldesigner.fr" target="_blank" rel="noopener">Pixel Designer</a></p>
         </div>
     </footer>
+
+    <nav class="call-bar" aria-label="Actions rapides">
+        <a href="#" data-demo="Démo : sur le vrai site, ce bouton appelle la boulangerie en un clic.">Appeler</a>
+        <a href="#commande">Commander</a>
+    </nav>
 </body>
 </html>

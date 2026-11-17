@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tarifs réparation vélo à Luxeuil | Cycles du Breuchin (démo)</title>
+    <meta name="description" content="Prestations et tarifs de Cycles du Breuchin, atelier vélo fictif à Luxeuil-les-Bains (site de démonstration Pixel Designer).">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://pixeldesigner.fr/demos/cycles-du-breuchin/services.html">
+    <meta name="theme-color" content="#121a14">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121a14'/%3E%3Ccircle cx='10' cy='19' r='5' fill='none' stroke='%23c8f04a' stroke-width='2.5'/%3E%3Ccircle cx='22' cy='19' r='5' fill='none' stroke='%23c8f04a' stroke-width='2.5'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../demo-bandeau.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../demo.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="demo-bandeau">
+        <span class="demo-pastille">Démo</span>
+        <span><strong>Entreprise fictive.</strong> Exemple de l'offre <strong>Sur mesure</strong> de Pixel Designer&nbsp;: réservation, suivi en ligne et espace d'administration.</span>
+        <a href="admin.html">Ouvrir l'espace atelier</a>
+    </div>
+
+    <header class="header" data-header>
+        <div class="wrap header-inner">
+            <a class="logo" href="index.html" aria-label="Cycles du Breuchin, accueil">
+                <svg viewBox="0 0 48 28" aria-hidden="true"><circle cx="10" cy="18" r="8"/><circle cx="38" cy="18" r="8"/><path d="M10 18l9-12h12l7 12M19 6l5 12h-14M31 6l-3-4h-4"/></svg>
+                <span>Cycles du <b>Breuchin</b></span>
+            </a>
+            <button class="burger" type="button" data-burger aria-expanded="false" aria-controls="menu"><span class="sr">Menu</span><i></i><i></i></button>
+            <nav class="nav" id="menu" aria-label="Navigation principale">
+                <a href="services.html" aria-current="page">Services et tarifs</a>
+                <a href="suivi.html">Suivi de réparation</a>
+                <a href="atelier.html">L'atelier</a>
+                <a href="contact.html">Contact</a>
+                <a class="btn btn-small" href="reservation.html">Réserver</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-head">
+            <div class="wrap">
+                <p class="label" data-reveal>Services et tarifs</p>
+                <h1 data-reveal>Toutes les <span class="mark">prestations</span> de l'atelier</h1>
+                <p class="lead" data-reveal>Les tarifs ci-dessous viennent directement de l'espace atelier&nbsp;: quand l'atelier change un prix, il change ici.</p>
+            </div>
+        </section>
+        <section class="section section-dark">
+            <div class="wrap">
+                <div class="tarifs" data-tarifs></div>
+                <noscript><p>Activez JavaScript pour afficher les tarifs.</p></noscript>
+                <p class="demo-note demo-note-light">Essayez&nbsp;: modifiez un tarif dans <a href="admin.html">l'espace atelier</a>, puis revenez ici.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap detail">
+                <div data-reveal>
+                    <p class="label">La révision complète</p>
+                    <h2>Ce que nous <span class="mark">vérifions</span></h2>
+                    <p class="lead">Une révision chez nous, c'est une check-list complète, cochée devant vous à la remise du vélo.</p>
+                    <a class="btn" href="reservation.html?service=revision">Réserver une révision</a>
+                </div>
+                <ul class="checklist" role="list" data-stagger="60">
+                    <li data-reveal>Freins&nbsp;: plaquettes, câbles, purge si hydraulique</li>
+                    <li data-reveal>Transmission&nbsp;: chaîne, cassette, dérailleurs</li>
+                    <li data-reveal>Roues&nbsp;: voile, rayons, roulements</li>
+                    <li data-reveal>Pneus&nbsp;: usure, pression, fond de jante</li>
+                    <li data-reveal>Direction et jeu de pédalier</li>
+                    <li data-reveal>Serrages au couple et graissage</li>
+                    <li data-reveal>Éclairage et sécurité</li>
+                    <li data-reveal>Essai sur route avant remise</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section section-lime">
+            <div class="wrap detail detail-rev">
+                <div class="vae-art" data-reveal aria-hidden="true">
+                    <svg viewBox="0 0 200 120"><circle cx="45" cy="80" r="32"/><circle cx="155" cy="80" r="32"/><path d="M45 80l40-50h50l20 50M85 30l25 50H45M135 30l-8-12h-14"/><rect x="90" y="44" width="34" height="14" rx="4" class="batt"/></svg>
+                </div>
+                <div data-reveal>
+                    <p class="label">Vélo électrique</p>
+                    <h2>Un diagnostic, <span>pas une devinette</span></h2>
+                    <p>Nous lisons les codes d'erreur du moteur et testons la batterie. Vous repartez avec un bilan écrit et un devis, avant toute réparation.</p>
+                    <ul class="list-dash">
+                        <li>Lecture des codes moteur et mise à jour</li>
+                        <li>Test de capacité de la batterie</li>
+                        <li>Contrôle des capteurs et du câblage</li>
+                    </ul>
+                    <a class="btn btn-dark" href="reservation.html?service=vae">Réserver un diagnostic</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap faq-wrap">
+                <div data-reveal>
+                    <p class="label">Questions fréquentes</p>
+                    <h2>Sur nos prestations</h2>
+                </div>
+                <div class="faq" data-stagger="80">
+                    <details data-reveal><summary>Les pièces sont-elles comprises&nbsp;?</summary><div><p>Non, le tarif couvre la main-d'œuvre. Les pièces sont annoncées avant d'être posées.</p></div></details>
+                    <details data-reveal><summary>Prenez-vous les vélos enfants&nbsp;?</summary><div><p>Oui, aux mêmes tarifs. La révision d'un vélo enfant est souvent plus rapide.</p></div></details>
+                    <details data-reveal><summary>Proposez-vous un forfait annuel&nbsp;?</summary><div><p>Oui, sur demande au comptoir&nbsp;: deux révisions par an à tarif réduit.</p></div></details>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="wrap cta-inner" data-reveal>
+                <h2>Votre vélo mérite mieux qu'une file d'attente</h2>
+                <p>Choisissez votre créneau en une minute. Vous déposez, on répare, vous êtes prévenu.</p>
+                <div class="hero-cta">
+                    <a class="btn" href="reservation.html">Réserver un créneau</a>
+                    <a class="btn btn-ghost-light" href="suivi.html">Suivre ma réparation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer-grid">
+            <div>
+                <p class="logo"><svg viewBox="0 0 48 28" aria-hidden="true"><circle cx="10" cy="18" r="8"/><circle cx="38" cy="18" r="8"/><path d="M10 18l9-12h12l7 12M19 6l5 12h-14M31 6l-3-4h-4"/></svg><span>Cycles du <b>Breuchin</b></span></p>
+                <p>Atelier de réparation vélo à Luxeuil-les-Bains. Vélos de ville, VTT, gravel et électriques.</p>
+                <p class="socials"><a href="#" data-demo="Démo : sur le vrai site, ce lien ouvre la page Instagram.">Instagram</a> · <a href="#" data-demo="Démo : sur le vrai site, ce lien ouvre la page Strava du club.">Strava</a></p>
+            </div>
+            <div>
+                <p class="footer-title">Le site</p>
+                <ul role="list">
+                    <li><a href="reservation.html">Réserver un créneau</a></li>
+                    <li><a href="services.html">Services et tarifs</a></li>
+                    <li><a href="suivi.html">Suivi de réparation</a></li>
+                    <li><a href="atelier.html">L'atelier</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admin.html">Espace atelier</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-title">L'atelier</p>
+                <ul role="list">
+                    <li>8 rue du Breuchin, 70300 Luxeuil-les-Bains</li>
+                    <li><a href="#" data-demo="Démo : sur le vrai site, ce bouton appelle l'atelier en un clic.">03 84 XX XX XX</a></li>
+                    <li>Mar – Sam, horaires sur <a href="atelier.html#infos">la page atelier</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrap footer-bottom">
+            <p>© 2026 Cycles du Breuchin, entreprise fictive · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></p>
+            <p class="credit">Powered by <a href="https://pixeldesigner.fr" target="_blank" rel="noopener">Pixel Designer</a></p>
+        </div>
+    </footer>
+
+    <nav class="call-bar" aria-label="Actions rapides">
+        <a href="reservation.html">Réserver</a>
+        <a href="#" data-demo="Démo : sur le vrai site, ce bouton appelle l'atelier en un clic.">Appeler</a>
+    </nav>
+</body>
+</html>

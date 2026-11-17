@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Réparation vélo à Luxeuil-les-Bains | Cycles du Breuchin (démo)</title>
-    <meta name="description" content="Site de démonstration Sur mesure réalisé par Pixel Designer : atelier vélo fictif à Luxeuil-les-Bains avec réservation en ligne et espace d'administration.">
+    <meta name="description" content="Site de démonstration Sur mesure réalisé par Pixel Designer : atelier vélo fictif à Luxeuil-les-Bains avec réservation, suivi de réparation et espace d'administration.">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://pixeldesigner.fr/demos/cycles-du-breuchin/">
     <meta name="theme-color" content="#121a14">
@@ -18,43 +18,44 @@
 <body>
     <div class="demo-bandeau">
         <span class="demo-pastille">Démo</span>
-        <span><strong>Entreprise fictive.</strong> Exemple de l'offre <strong>Sur mesure</strong> de Pixel Designer&nbsp;: réservation en ligne et espace d'administration.</span>
-        <a href="admin.html">Ouvrir l'espace admin</a>
+        <span><strong>Entreprise fictive.</strong> Exemple de l'offre <strong>Sur mesure</strong> de Pixel Designer&nbsp;: réservation, suivi en ligne et espace d'administration.</span>
+        <a href="admin.html">Ouvrir l'espace atelier</a>
     </div>
 
     <header class="header" data-header>
         <div class="wrap header-inner">
-            <a class="logo" href="#top" aria-label="Cycles du Breuchin, retour en haut">
+            <a class="logo" href="index.html" aria-label="Cycles du Breuchin, accueil">
                 <svg viewBox="0 0 48 28" aria-hidden="true"><circle cx="10" cy="18" r="8"/><circle cx="38" cy="18" r="8"/><path d="M10 18l9-12h12l7 12M19 6l5 12h-14M31 6l-3-4h-4"/></svg>
                 <span>Cycles du <b>Breuchin</b></span>
             </a>
             <button class="burger" type="button" data-burger aria-expanded="false" aria-controls="menu"><span class="sr">Menu</span><i></i><i></i></button>
             <nav class="nav" id="menu" aria-label="Navigation principale">
-                <a href="#atelier">L'atelier</a>
-                <a href="#tarifs">Tarifs</a>
-                <a href="#infos">Infos pratiques</a>
-                <a class="btn btn-small" href="#reserver">Réserver</a>
+                <a href="services.html">Services et tarifs</a>
+                <a href="suivi.html">Suivi de réparation</a>
+                <a href="atelier.html">L'atelier</a>
+                <a href="contact.html">Contact</a>
+                <a class="btn btn-small" href="reservation.html">Réserver</a>
             </nav>
         </div>
     </header>
 
-    <main id="top">
+    <main>
         <section class="hero">
             <div class="wrap hero-grid">
                 <div>
                     <p class="label" data-reveal>Atelier vélo · Luxeuil-les-Bains</p>
                     <h1 data-reveal>Réparation vélo à Luxeuil, <span class="mark">réservez votre créneau</span> en 1&nbsp;minute.</h1>
-                    <p class="lead" data-reveal>Vélos de ville, VTT, gravel et vélos électriques. Choisissez la prestation, l'heure de dépôt, et c'est réservé. Vous êtes prévenu dès que votre vélo est prêt.</p>
+                    <p class="lead" data-reveal>Vélos de ville, VTT, gravel et vélos électriques. Choisissez la prestation, l'heure de dépôt, et suivez la réparation en ligne jusqu'au SMS «&nbsp;c'est prêt&nbsp;».</p>
                     <div class="hero-cta" data-reveal>
-                        <a class="btn" href="#reserver">Réserver un créneau</a>
-                        <a class="btn btn-ghost" href="#tarifs">Voir les tarifs</a>
+                        <a class="btn" href="reservation.html">Réserver un créneau</a>
+                        <a class="btn btn-ghost" href="services.html">Voir les tarifs</a>
                     </div>
                 </div>
-                <div class="hero-panel" data-reveal aria-hidden="true">
-                    <p class="label">Suivi de réparation</p>
+                <div class="hero-panel" data-reveal data-parallax="0.05" aria-hidden="true">
+                    <p class="label">Suivi de réparation · BR-1002</p>
                     <ol class="track">
+                        <li class="done"><span></span>Réservation confirmée</li>
                         <li class="done"><span></span>Vélo déposé</li>
-                        <li class="done"><span></span>Diagnostic</li>
                         <li class="now"><span></span>Réparation en cours</li>
                         <li><span></span>Prêt à récupérer</li>
                     </ol>
@@ -63,88 +64,117 @@
             </div>
         </section>
 
-        <section class="section" id="atelier">
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker-track">
+                <span>Révision complète</span><span>Crevaison</span><span>Freins et vitesses</span><span>Vélo électrique</span><span>Réservation en ligne</span><span>Suivi par SMS</span>
+                <span>Révision complète</span><span>Crevaison</span><span>Freins et vitesses</span><span>Vélo électrique</span><span>Réservation en ligne</span><span>Suivi par SMS</span>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="wrap">
+                <div class="section-head" data-reveal>
+                    <p class="label">Comment ça marche</p>
+                    <h2>Quatre étapes, <span class="mark">zéro attente</span></h2>
+                </div>
+                <ol class="how" data-stagger="110">
+                    <li data-reveal><span class="how-num">01</span><h3>Réservez</h3><p>Choisissez la prestation et l'heure de dépôt en ligne.</p><a href="reservation.html">Réserver →</a></li>
+                    <li data-reveal><span class="how-num">02</span><h3>Déposez</h3><p>Venez à l'heure prévue, sans faire la queue.</p></li>
+                    <li data-reveal><span class="how-num">03</span><h3>Suivez</h3><p>Votre code de suivi montre où en est la réparation.</p><a href="suivi.html">Tester le suivi →</a></li>
+                    <li data-reveal><span class="how-num">04</span><h3>Récupérez</h3><p>Un SMS vous prévient dès que votre vélo est prêt.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section section-dark">
+            <div class="wrap">
+                <div class="section-head split-head" data-reveal>
+                    <div>
+                        <p class="label">Tarifs atelier</p>
+                        <h2>Des prix <span class="mark">clairs</span>, mis à jour par l'atelier</h2>
+                    </div>
+                    <a class="btn" href="services.html">Toutes les prestations</a>
+                </div>
+                <div class="tarifs" data-tarifs></div>
+                <noscript><p>Activez JavaScript pour afficher les tarifs.</p></noscript>
+            </div>
+        </section>
+
+        <section class="section">
             <div class="wrap atelier">
                 <h2 data-reveal>Un atelier pensé pour <span class="mark">vous rendre la route vite</span></h2>
-                <ul class="atelier-list" role="list">
+                <ul class="atelier-list" role="list" data-stagger="100">
                     <li data-reveal><b>Créneaux en ligne</b><span>Fini les files d'attente le samedi matin&nbsp;: vous déposez votre vélo à l'heure réservée.</span></li>
                     <li data-reveal><b>Prix affichés</b><span>Chaque prestation a son tarif. Si une pièce est à changer, on vous appelle avant.</span></li>
+                    <li data-reveal><b>Suivi en direct</b><span>Un code, une page, et vous savez où en est votre vélo.</span></li>
                     <li data-reveal><b>Spécialiste électrique</b><span>Diagnostic des principaux moteurs et batteries du marché.</span></li>
                 </ul>
             </div>
         </section>
 
-        <section class="section section-dark" id="tarifs">
-            <div class="wrap">
-                <div class="section-head" data-reveal>
-                    <p class="label">Tarifs atelier</p>
-                    <h2>Des prix <span class="mark">clairs</span>, mis à jour par l'atelier</h2>
-                    <p class="lead">Ces tarifs se modifient depuis l'espace d'administration&nbsp;: essayez, le changement apparaît ici.</p>
-                </div>
-                <div class="tarifs" data-tarifs>
-                    <!-- rempli par app.js à partir des données de l'atelier -->
-                </div>
-                <noscript><p>Activez JavaScript pour afficher les tarifs.</p></noscript>
-            </div>
-        </section>
-
-        <section class="section" id="reserver">
-            <div class="wrap booking">
-                <div class="booking-intro" data-reveal>
-                    <p class="label">Réservation</p>
-                    <h2>Réservez votre <span class="mark">créneau de dépôt</span></h2>
-                    <p class="lead">Les créneaux déjà pris disparaissent en temps réel. Votre réservation apparaît aussitôt dans l'espace de l'atelier.</p>
-                    <p class="demo-note">Démo&nbsp;: la réservation reste dans votre navigateur. <a href="admin.html">Voir l'espace admin</a></p>
-                </div>
-                <form class="booking-form" data-booking data-reveal novalidate>
-                    <fieldset class="step">
-                        <legend><span>1</span>Prestation</legend>
-                        <div class="choice-grid" data-services></div>
-                    </fieldset>
-                    <fieldset class="step">
-                        <legend><span>2</span>Jour et heure de dépôt</legend>
-                        <div class="days" data-days></div>
-                        <div class="times" data-times></div>
-                    </fieldset>
-                    <fieldset class="step">
-                        <legend><span>3</span>Vos coordonnées</legend>
-                        <div class="fields">
-                            <div class="field"><label for="b-nom">Prénom et nom</label><input id="b-nom" name="name" autocomplete="name" required></div>
-                            <div class="field"><label for="b-tel">Téléphone</label><input id="b-tel" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
-                        </div>
-                    </fieldset>
-                    <p class="hp" aria-hidden="true"><label>Ne pas remplir <input name="site" tabindex="-1" autocomplete="off"></label></p>
-                    <p class="form-error" data-error role="alert"></p>
-                    <button class="btn btn-full" type="submit">Confirmer la réservation</button>
-                    <div class="confirm" data-confirm role="status" tabindex="-1"></div>
-                    <p class="rgpd">Votre nom et votre téléphone servent uniquement à vous prévenir quand votre vélo est prêt. <a href="https://pixeldesigner.fr/confidentialite.html">Confidentialité</a></p>
-                </form>
-            </div>
-        </section>
-
-        <section class="section section-lime" id="infos">
-            <div class="wrap infos">
+        <section class="section">
+            <div class="wrap faq-wrap">
                 <div data-reveal>
-                    <h2>Infos pratiques</h2>
-                    <p>8 rue du Breuchin, 70300 Luxeuil-les-Bains <small>(adresse fictive)</small></p>
-                    <a class="btn btn-dark" href="#" data-demo="Démo : sur le vrai site, ce bouton appelle l'atelier en un clic.">03 84 XX XX XX</a>
+                    <p class="label">Questions fréquentes</p>
+                    <h2>Avant de venir</h2>
                 </div>
-                <dl class="hours" data-reveal>
-                    <div><dt>Mardi – Vendredi</dt><dd>9 h – 12 h · 14 h – 18 h 30</dd></div>
-                    <div><dt>Samedi</dt><dd>9 h – 17 h</dd></div>
-                    <div><dt>Dimanche, lundi</dt><dd>Fermé</dd></div>
-                </dl>
+                <div class="faq" data-stagger="80">
+                    <details data-reveal><summary>Dois-je réserver pour une crevaison&nbsp;?</summary><div><p>Ce n'est pas obligatoire, mais avec un créneau la réparation est faite pendant que vous attendez.</p></div></details>
+                    <details data-reveal><summary>Combien de temps garde-t-on mon vélo&nbsp;?</summary><div><p>La plupart des réparations sont prêtes le jour même. Pour une révision complète, comptez 24 à 48 h selon les pièces.</p></div></details>
+                    <details data-reveal><summary>Réparez-vous toutes les marques de vélo électrique&nbsp;?</summary><div><p>Nous diagnostiquons les principaux moteurs du marché. Pour une batterie sous garantie, nous faisons le lien avec le fabricant.</p></div></details>
+                    <details data-reveal><summary>Et si une pièce coûte plus cher que prévu&nbsp;?</summary><div><p>Nous vous appelons avant de la changer. Rien n'est facturé sans votre accord.</p></div></details>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="wrap cta-inner" data-reveal>
+                <h2>Votre vélo mérite mieux qu'une file d'attente</h2>
+                <p>Choisissez votre créneau en une minute. Vous déposez, on répare, vous êtes prévenu.</p>
+                <div class="hero-cta">
+                    <a class="btn" href="reservation.html">Réserver un créneau</a>
+                    <a class="btn btn-ghost-light" href="suivi.html">Suivre ma réparation</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="wrap footer-inner">
-            <p class="logo"><span>Cycles du <b>Breuchin</b></span></p>
-            <p>Atelier fictif, créé pour présenter l'offre Sur mesure&nbsp;: site, base de données et espace d'administration.</p>
-            <p><a href="admin.html">Espace atelier</a> · <a href="https://pixeldesigner.fr/mentions-legales.html">Mentions légales</a> · <a href="https://pixeldesigner.fr/confidentialite.html">Confidentialité</a></p>
+        <div class="wrap footer-grid">
+            <div>
+                <p class="logo"><svg viewBox="0 0 48 28" aria-hidden="true"><circle cx="10" cy="18" r="8"/><circle cx="38" cy="18" r="8"/><path d="M10 18l9-12h12l7 12M19 6l5 12h-14M31 6l-3-4h-4"/></svg><span>Cycles du <b>Breuchin</b></span></p>
+                <p>Atelier de réparation vélo à Luxeuil-les-Bains. Vélos de ville, VTT, gravel et électriques.</p>
+                <p class="socials"><a href="#" data-demo="Démo : sur le vrai site, ce lien ouvre la page Instagram.">Instagram</a> · <a href="#" data-demo="Démo : sur le vrai site, ce lien ouvre la page Strava du club.">Strava</a></p>
+            </div>
+            <div>
+                <p class="footer-title">Le site</p>
+                <ul role="list">
+                    <li><a href="reservation.html">Réserver un créneau</a></li>
+                    <li><a href="services.html">Services et tarifs</a></li>
+                    <li><a href="suivi.html">Suivi de réparation</a></li>
+                    <li><a href="atelier.html">L'atelier</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admin.html">Espace atelier</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-title">L'atelier</p>
+                <ul role="list">
+                    <li>8 rue du Breuchin, 70300 Luxeuil-les-Bains</li>
+                    <li><a href="#" data-demo="Démo : sur le vrai site, ce bouton appelle l'atelier en un clic.">03 84 XX XX XX</a></li>
+                    <li>Mar – Sam, horaires sur <a href="atelier.html#infos">la page atelier</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrap footer-bottom">
+            <p>© 2026 Cycles du Breuchin, entreprise fictive · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></p>
             <p class="credit">Powered by <a href="https://pixeldesigner.fr" target="_blank" rel="noopener">Pixel Designer</a></p>
         </div>
     </footer>
+
+    <nav class="call-bar" aria-label="Actions rapides">
+        <a href="reservation.html">Réserver</a>
+        <a href="#" data-demo="Démo : sur le vrai site, ce bouton appelle l'atelier en un clic.">Appeler</a>
+    </nav>
 </body>
 </html>

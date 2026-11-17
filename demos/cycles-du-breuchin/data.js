@@ -2,7 +2,7 @@
 // Simule la base de données d'un vrai projet : ici tout reste dans le navigateur du visiteur
 // (localStorage). Sur un vrai site Sur mesure, ces données vivent dans une base sécurisée.
 window.Atelier = (() => {
-    const KEY = 'demo-cycles-breuchin-v1';
+    const KEY = 'demo-cycles-breuchin-v2';
     const SLOTS = ['09:00', '10:30', '14:00', '15:30', '17:00'];
     const OPEN_DAYS = [2, 3, 4, 5, 6]; // mardi -> samedi
 
@@ -32,10 +32,10 @@ window.Atelier = (() => {
                 { id: 'vae', name: 'Diagnostic vélo électrique', duration: '1 h', price: 39, text: 'Batterie, moteur, capteurs : lecture des codes et bilan écrit.' },
             ],
             bookings: [
-                { id: 'b1', service: 'revision', day: today, time: '09:00', name: 'Camille (exemple)', phone: '06 XX XX XX XX', status: 'pret' },
-                { id: 'b2', service: 'vae', day: today, time: '14:00', name: 'Hugo (exemple)', phone: '06 XX XX XX XX', status: 'en-cours' },
-                { id: 'b3', service: 'crevaison', day: days[0], time: '10:30', name: 'Léa (exemple)', phone: '07 XX XX XX XX', status: 'a-faire' },
-                { id: 'b4', service: 'reglages', day: days[1], time: '15:30', name: 'Marc (exemple)', phone: '06 XX XX XX XX', status: 'a-faire' },
+                { id: 'b1', code: 'BR-1001', service: 'revision', day: today, time: '09:00', name: 'Camille (exemple)', phone: '06 XX XX XX XX', status: 'pret' },
+                { id: 'b2', code: 'BR-1002', service: 'vae', day: today, time: '14:00', name: 'Hugo (exemple)', phone: '06 XX XX XX XX', status: 'en-cours' },
+                { id: 'b3', code: 'BR-1003', service: 'crevaison', day: days[0], time: '10:30', name: 'Léa (exemple)', phone: '07 XX XX XX XX', status: 'a-faire' },
+                { id: 'b4', code: 'BR-1004', service: 'reglages', day: days[1], time: '15:30', name: 'Marc (exemple)', phone: '06 XX XX XX XX', status: 'a-faire' },
             ],
         };
     };
@@ -62,9 +62,11 @@ window.Atelier = (() => {
         get services() { return state.services; },
         get bookings() { return state.bookings; },
         service: (id) => state.services.find((s) => s.id === id),
+        byCode: (code) => state.bookings.find((b) => (b.code || '').toUpperCase() === String(code).trim().toUpperCase()),
         isTaken: (day, time) => state.bookings.some((b) => b.day === day && b.time === time),
         addBooking(booking) {
-            const entry = { id: `b${Date.now()}`, status: 'a-faire', ...booking };
+            const max = state.bookings.reduce((m, b) => Math.max(m, Number(String(b.code || '').slice(3)) || 1000), 1000);
+            const entry = { id: `b${Date.now()}`, code: `BR-${max + 1}`, status: 'a-faire', ...booking };
             state.bookings.push(entry);
             save();
             return entry;
