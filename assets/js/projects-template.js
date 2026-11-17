@@ -28,6 +28,8 @@ export const siteLabel = (url) => {
         const { hostname, pathname } = new URL(url);
         const folder = pathname.split('/').filter(Boolean)[0];
         if (hostname.endsWith('.github.io') && folder) return folder;
+        // Sites de démonstration hébergés sur pixeldesigner.fr/demos/… : on affiche leur dossier
+        if (folder === 'demos') return pathname.split('/').filter(Boolean).slice(0, 2).join('/');
         return hostname.replace(/^www\./, '');
     } catch {
         return '';
