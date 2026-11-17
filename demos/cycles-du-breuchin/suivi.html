@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Suivi de réparation | Cycles du Breuchin (démo)</title>
+    <meta name="description" content="Suivez en ligne la réparation de votre vélo avec votre code (site de démonstration Pixel Designer).">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://pixeldesigner.fr/demos/cycles-du-breuchin/suivi.html">
+    <meta name="theme-color" content="#121a14">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121a14'/%3E%3Ccircle cx='10' cy='19' r='5' fill='none' stroke='%23c8f04a' stroke-width='2.5'/%3E%3Ccircle cx='22' cy='19' r='5' fill='none' stroke='%23c8f04a' stroke-width='2.5'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../demo-bandeau.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../demo.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="demo-bandeau">
+        <span class="demo-pastille">Démo</span>
+        <span><strong>Entreprise fictive.</strong> Exemple de l'offre <strong>Sur mesure</strong> de Pixel Designer&nbsp;: réservation, suivi en ligne et espace d'administration.</span>
+        <a href="admin.html">Ouvrir l'espace atelier</a>
+    </div>
+
+    <header class="header" data-header>
+        <div class="wrap header-inner">
+            <a class="logo" href="index.html" aria-label="Cycles du Breuchin, accueil">
+                <svg viewBox="0 0 48 28" aria-hidden="true"><circle cx="10" cy="18" r="8"/><circle cx="38" cy="18" r="8"/><path d="M10 18l9-12h12l7 12M19 6l5 12h-14M31 6l-3-4h-4"/></svg>
+                <span>Cycles du <b>Breuchin</b></span>
+            </a>
+            <button class="burger" type="button" data-burger aria-expanded="false" aria-controls="menu"><span class="sr">Menu</span><i></i><i></i></button>
+            <nav class="nav" id="menu" aria-label="Navigation principale">
+                <a href="services.html">Services et tarifs</a>
+                <a href="suivi.html" aria-current="page">Suivi de réparation</a>
+                <a href="atelier.html">L'atelier</a>
+                <a href="contact.html">Contact</a>
+                <a class="btn btn-small" href="reservation.html">Réserver</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-head">
+            <div class="wrap">
+                <p class="label" data-reveal>Suivi de réparation</p>
+                <h1 data-reveal>Où en est <span class="mark">mon vélo&nbsp;?</span></h1>
+                <p class="lead" data-reveal>Entrez le code reçu à la réservation. Le statut change dès que l'atelier le met à jour.</p>
+            </div>
+        </section>
+        <section class="section">
+            <div class="wrap suivi">
+                <div data-reveal>
+                    <form class="suivi-form" data-suivi>
+                        <label for="code">Code de suivi</label>
+                        <div class="suivi-row">
+                            <input id="code" name="code" placeholder="BR-1002" autocomplete="off" autocapitalize="characters" required>
+                            <button class="btn" type="submit">Voir</button>
+                        </div>
+                    </form>
+                    <p class="suivi-try">Démo&nbsp;: essayez <button type="button" class="chip" data-try-code="BR-1001">BR-1001</button> <button type="button" class="chip" data-try-code="BR-1002">BR-1002</button> <button type="button" class="chip" data-try-code="BR-1003">BR-1003</button></p>
+                    <p class="demo-note">Changez ensuite le statut dans <a href="admin.html">l'espace atelier</a> et revenez ici.</p>
+                </div>
+                <div class="suivi-result" data-suivi-result aria-live="polite">
+                    <div class="suivi-placeholder">
+                        <p>Le statut de votre réparation s'affichera ici.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer-grid">
+            <div>
+                <p class="logo"><svg viewBox="0 0 48 28" aria-hidden="true"><circle cx="10" cy="18" r="8"/><circle cx="38" cy="18" r="8"/><path d="M10 18l9-12h12l7 12M19 6l5 12h-14M31 6l-3-4h-4"/></svg><span>Cycles du <b>Breuchin</b></span></p>
+                <p>Atelier de réparation vélo à Luxeuil-les-Bains. Vélos de ville, VTT, gravel et électriques.</p>
+                <p class="socials"><a href="#" data-demo="Démo : sur le vrai site, ce lien ouvre la page Instagram.">Instagram</a> · <a href="#" data-demo="Démo : sur le vrai site, ce lien ouvre la page Strava du club.">Strava</a></p>
+            </div>
+            <div>
+                <p class="footer-title">Le site</p>
+                <ul role="list">
+                    <li><a href="reservation.html">Réserver un créneau</a></li>
+                    <li><a href="services.html">Services et tarifs</a></li>
+                    <li><a href="suivi.html">Suivi de réparation</a></li>
+                    <li><a href="atelier.html">L'atelier</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admin.html">Espace atelier</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer-title">L'atelier</p>
+                <ul role="list">
+                    <li>8 rue du Breuchin, 70300 Luxeuil-les-Bains</li>
+                    <li><a href="#" data-demo="Démo : sur le vrai site, ce bouton appelle l'atelier en un clic.">03 84 XX XX XX</a></li>
+                    <li>Mar – Sam, horaires sur <a href="atelier.html#infos">la page atelier</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrap footer-bottom">
+            <p>© 2026 Cycles du Breuchin, entreprise fictive · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></p>
+            <p class="credit">Powered by <a href="https://pixeldesigner.fr" target="_blank" rel="noopener">Pixel Designer</a></p>
+        </div>
+    </footer>
+
+    <nav class="call-bar" aria-label="Actions rapides">
+        <a href="reservation.html">Réserver</a>
+        <a href="#" data-demo="Démo : sur le vrai site, ce bouton appelle l'atelier en un clic.">Appeler</a>
+    </nav>
+</body>
+</html>

@@ -60,3 +60,145 @@
 @media (prefers-reduced-motion: reduce) {
     .demo-toast { transition: none; }
 }
+
+/* Barre de progression de lecture */
+.demo-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 150;
+    height: 3px;
+    background: var(--demo-accent, #3a5bff);
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+}
+
+/* Bouton retour en haut */
+.demo-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 90;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--demo-accent, #3a5bff);
+    color: var(--demo-on-accent, #fff);
+    box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .45);
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease;
+}
+.demo-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.demo-top svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Barre d'appel collée en bas, sur téléphone */
+.call-bar { display: none; }
+@media (max-width: 759px) {
+    .call-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 80;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: .5rem;
+        padding: .6rem .75rem calc(.6rem + env(safe-area-inset-bottom));
+        background: rgba(255, 255, 255, .96);
+        box-shadow: 0 -8px 24px -12px rgba(0, 0, 0, .3);
+        backdrop-filter: blur(8px);
+    }
+    .call-bar a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .4rem;
+        min-height: 48px;
+        border-radius: 10px;
+        font: 700 .95rem/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+        text-decoration: none;
+    }
+    .call-bar a:first-child { background: var(--demo-accent, #3a5bff); color: var(--demo-on-accent, #fff); }
+    .call-bar a:last-child { border: 2px solid currentColor; color: var(--demo-ink, #111); }
+    body:has(.call-bar) { padding-bottom: 4.5rem; }
+    body:has(.call-bar) .demo-top { bottom: 5.5rem; }
+    body:has(.call-bar) .demo-toast { bottom: 5.5rem; }
+}
+
+/* Questions fréquentes en accordéon */
+.faq { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.faq details { border-radius: 14px; background: var(--faq-bg, rgba(0, 0, 0, .04)); }
+.faq summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 56px;
+    padding: 1rem 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+    content: "";
+    flex: none;
+    width: 12px;
+    height: 12px;
+    border-right: 2.5px solid currentColor;
+    border-bottom: 2.5px solid currentColor;
+    transform: rotate(45deg) translateY(-3px);
+    transition: transform .3s ease;
+}
+.faq details[open] summary::after { transform: rotate(225deg) translateY(-3px); }
+.faq details > div { padding: 0 1.25rem 1.15rem; opacity: .85; }
+.faq details[open] > div { animation: faq-in .35s ease-out; }
+@keyframes faq-in { from { opacity: 0; transform: translateY(-6px); } }
+
+/* Défilement continu (bandeau de mots) */
+.ticker { overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-flex; gap: 2.5rem; padding-right: 2.5rem; animation: ticker 32s linear infinite; }
+.ticker-track span { display: inline-flex; align-items: center; gap: 2.5rem; }
+.ticker-track span::after { content: "✦"; opacity: .6; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* Comparateur avant / après */
+.compare { position: relative; overflow: hidden; border-radius: 18px; aspect-ratio: 16 / 10; --pos: 50%; user-select: none; }
+.compare > div { position: absolute; inset: 0; }
+.compare .compare-after { clip-path: inset(0 0 0 var(--pos)); }
+.compare::after { content: ""; position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; box-shadow: 0 0 12px rgba(0, 0, 0, .35); pointer-events: none; }
+.compare input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.compare-tag { position: absolute; top: .75rem; z-index: 1; padding: .25rem .65rem; border-radius: 99px; background: rgba(0, 0, 0, .6); color: #fff; font: 700 .75rem/1.4 system-ui, sans-serif; text-transform: uppercase; letter-spacing: .06em; pointer-events: none; }
+.compare-tag-before { left: .75rem; }
+.compare-tag-after { right: .75rem; }
+.compare-knob { position: absolute; top: 50%; left: var(--pos); z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: #fff; color: #111; font-weight: 800; box-shadow: 0 6px 16px rgba(0, 0, 0, .3); pointer-events: none; }
+.compare:focus-within { outline: 3px solid var(--demo-accent, #3a5bff); outline-offset: 3px; }
+
+/* Pages légales */
+.legal { padding: clamp(2.5rem, 7vw, 5rem) 0; }
+.legal-inner { width: min(100% - 2rem, 46rem); margin-inline: auto; }
+.legal h1 { margin-bottom: .75rem; }
+.legal .legal-lead { font-size: 1.1rem; opacity: .85; }
+.legal-note { margin: 1.5rem 0 2rem; padding: 1rem 1.15rem; border-left: 4px solid var(--demo-accent, #3a5bff); border-radius: 0 12px 12px 0; background: rgba(0, 0, 0, .05); }
+.legal h2 { margin: 2.5rem 0 1rem; font-size: clamp(1.35rem, 3.5vw, 1.75rem); }
+.legal dl { display: grid; gap: 0; margin: 0; border-top: 1px solid rgba(0, 0, 0, .12); }
+.legal dl > div { display: grid; gap: .15rem; padding: .8rem 0; border-bottom: 1px solid rgba(0, 0, 0, .12); }
+.legal dt { font-weight: 700; }
+.legal dd { margin: 0; overflow-wrap: anywhere; }
+@media (min-width: 640px) { .legal dl > div { grid-template-columns: 14rem 1fr; gap: 1rem; } }
+.legal ul { padding-left: 1.2rem; }
+.legal li { margin-bottom: .4rem; }
+.legal-updated { margin-top: 2.5rem; font-size: .9rem; opacity: .7; }
+
+@media (prefers-reduced-motion: reduce) {
+    .demo-top, .faq summary::after { transition: none; }
+    .faq details[open] > div { animation: none; }
+    .ticker-track { animation: none; }
+}
+.legal-kicker { margin-bottom: .5rem; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }

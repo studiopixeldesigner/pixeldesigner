@@ -45,8 +45,34 @@
             </div>
         </section>
         <section class="section">
-            <div class="wrap chantiers">
-                <article class="chantier" data-reveal>
+            <div class="wrap compare-block">
+                <div data-reveal>
+                    <p class="kicker">Avant / après</p>
+                    <h2>Faites glisser pour <span class="hl">voir la différence</span></h2>
+                    <p class="lead">Salle de bain des années 80 à Vesoul&nbsp;: baignoire remplacée par une douche à l'italienne, faïence claire, rangements.</p>
+                </div>
+                <div class="compare" data-compare data-reveal>
+                    <div class="compare-before"><div class="bath-old" aria-hidden="true"><i></i><b></b></div></div>
+                    <div class="compare-after"><div class="bath-new" aria-hidden="true"><i></i><b></b><u></u></div></div>
+                    <span class="compare-tag compare-tag-before">Avant</span>
+                    <span class="compare-tag compare-tag-after">Après</span>
+                    <span class="compare-knob" aria-hidden="true">⇆</span>
+                    <input type="range" min="0" max="100" value="50" aria-label="Comparer avant et après">
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-tint">
+            <div class="wrap filters-bar" data-reveal>
+                <div class="filters" role="group" aria-label="Filtrer les chantiers" data-filter-group="chantiers">
+                    <button type="button" data-filter-value="tout" aria-pressed="true">Tous</button>
+                    <button type="button" data-filter-value="sdb" aria-pressed="false">Salle de bain</button>
+                    <button type="button" data-filter-value="chauffage" aria-pressed="false">Chauffage</button>
+                    <button type="button" data-filter-value="depannage" aria-pressed="false">Dépannage</button>
+                </div>
+            </div>
+            <div class="wrap chantiers" id="chantiers" data-stagger="100">
+                <article class="chantier" data-cat="sdb" data-reveal>
                     <div class="chantier-art art-1" aria-hidden="true"></div>
                     <div class="chantier-body">
                         <p class="chantier-place"><svg class="ico ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Vesoul</p>
@@ -55,7 +81,7 @@
                         <ul class="tags" role="list"><li>Salle de bain</li><li>Accessibilité</li></ul>
                     </div>
                 </article>
-                <article class="chantier" data-reveal>
+                <article class="chantier" data-cat="chauffage" data-reveal>
                     <div class="chantier-art art-2" aria-hidden="true"></div>
                     <div class="chantier-body">
                         <p class="chantier-place"><svg class="ico ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Rioz</p>
@@ -64,7 +90,7 @@
                         <ul class="tags" role="list"><li>Chauffage</li><li>Rénovation</li></ul>
                     </div>
                 </article>
-                <article class="chantier" data-reveal>
+                <article class="chantier" data-cat="depannage" data-reveal>
                     <div class="chantier-art art-3" aria-hidden="true"></div>
                     <div class="chantier-body">
                         <p class="chantier-place"><svg class="ico ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Noidans-lès-Vesoul</p>
@@ -73,7 +99,7 @@
                         <ul class="tags" role="list"><li>Dépannage</li></ul>
                     </div>
                 </article>
-                <article class="chantier" data-reveal>
+                <article class="chantier" data-cat="sdb" data-reveal>
                     <div class="chantier-art art-4" aria-hidden="true"></div>
                     <div class="chantier-body">
                         <p class="chantier-place"><svg class="ico ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Port-sur-Saône</p>
@@ -126,9 +152,14 @@
             </div>
         </div>
         <div class="wrap footer-bottom">
-            <p><a href="https://pixeldesigner.fr/mentions-legales.html">Mentions légales</a> · <a href="https://pixeldesigner.fr/confidentialite.html">Confidentialité</a></p>
+            <p>© 2026 Hydra Confort, entreprise fictive · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></p>
             <p class="credit">Powered by <a href="https://pixeldesigner.fr" target="_blank" rel="noopener">Pixel Designer</a></p>
         </div>
     </footer>
+
+    <nav class="call-bar" aria-label="Actions rapides">
+        <a href="#" data-demo="Démo : sur le vrai site, ce bouton appelle l'artisan en un clic.">Appeler</a>
+        <a href="contact.html">Devis gratuit</a>
+    </nav>
 </body>
 </html>

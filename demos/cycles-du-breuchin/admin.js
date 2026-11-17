@@ -54,7 +54,7 @@
             const options = Object.entries(A.STATUS).map(([v, l]) => `<option value="${v}"${v === b.status ? ' selected' : ''}>${l}</option>`).join('');
             return `<li class="resa status-${esc(b.status)}">
                 <div class="resa-when"><b>${esc(A.dayLabel(b.day, { weekday: 'short', day: 'numeric', month: 'short' }))}</b><span>${esc(b.time.replace(':', ' h '))}</span></div>
-                <div class="resa-who"><b>${esc(b.name)}</b><span>${esc(s.name)} · ${esc(b.phone)}</span></div>
+                <div class="resa-who"><b>${esc(b.name)}</b><span>${esc(b.code || '')} · ${esc(s.name)} · ${esc(b.phone)}</span></div>
                 <label class="resa-status"><span class="sr">Statut de ${esc(b.name)}</span><select data-status="${esc(b.id)}">${options}</select></label>
                 <button class="icon-btn" type="button" data-remove="${esc(b.id)}" aria-label="Supprimer la réservation de ${esc(b.name)}">✕</button>
             </li>`;
@@ -82,7 +82,7 @@
         A.setStatus(sel.dataset.status, sel.value);
         renderKpis();
         renderList();
-        window.demoSay?.(sel.value === 'pret' ? 'Statut « Prêt » : sur le vrai site, le client reçoit un SMS.' : 'Statut mis à jour.');
+        window.demoSay?.(sel.value === 'pret' ? 'Statut « Prêt » : le client le voit sur la page Suivi (et reçoit un SMS sur un vrai site).' : 'Statut mis à jour.');
     });
     document.addEventListener('click', (e) => {
         const rm = e.target.closest('[data-remove]');
