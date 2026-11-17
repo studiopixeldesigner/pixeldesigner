@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Réparation vélo à Luxeuil-les-Bains | Cycles du Breuchin (démo)</title>
+    <meta name="description" content="Site de démonstration Sur mesure réalisé par Pixel Designer : atelier vélo fictif à Luxeuil-les-Bains avec réservation en ligne et espace d'administration.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://pixeldesigner.fr/demos/cycles-du-breuchin/">
+    <meta name="theme-color" content="#121a14">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121a14'/%3E%3Ccircle cx='10' cy='19' r='5' fill='none' stroke='%23c8f04a' stroke-width='2.5'/%3E%3Ccircle cx='22' cy='19' r='5' fill='none' stroke='%23c8f04a' stroke-width='2.5'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../demo-bandeau.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../demo.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="demo-bandeau">
+        <span class="demo-pastille">Démo</span>
+        <span><strong>Entreprise fictive.</strong> Exemple de l'offre <strong>Sur mesure</strong> de Pixel Designer&nbsp;: réservation en ligne et espace d'administration.</span>
+        <a href="admin.html">Ouvrir l'espace admin</a>
+    </div>
+
+    <header class="header" data-header>
+        <div class="wrap header-inner">
+            <a class="logo" href="#top" aria-label="Cycles du Breuchin, retour en haut">
+                <svg viewBox="0 0 48 28" aria-hidden="true"><circle cx="10" cy="18" r="8"/><circle cx="38" cy="18" r="8"/><path d="M10 18l9-12h12l7 12M19 6l5 12h-14M31 6l-3-4h-4"/></svg>
+                <span>Cycles du <b>Breuchin</b></span>
+            </a>
+            <button class="burger" type="button" data-burger aria-expanded="false" aria-controls="menu"><span class="sr">Menu</span><i></i><i></i></button>
+            <nav class="nav" id="menu" aria-label="Navigation principale">
+                <a href="#atelier">L'atelier</a>
+                <a href="#tarifs">Tarifs</a>
+                <a href="#infos">Infos pratiques</a>
+                <a class="btn btn-small" href="#reserver">Réserver</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <p class="label" data-reveal>Atelier vélo · Luxeuil-les-Bains</p>
+                    <h1 data-reveal>Réparation vélo à Luxeuil, <span class="mark">réservez votre créneau</span> en 1&nbsp;minute.</h1>
+                    <p class="lead" data-reveal>Vélos de ville, VTT, gravel et vélos électriques. Choisissez la prestation, l'heure de dépôt, et c'est réservé. Vous êtes prévenu dès que votre vélo est prêt.</p>
+                    <div class="hero-cta" data-reveal>
+                        <a class="btn" href="#reserver">Réserver un créneau</a>
+                        <a class="btn btn-ghost" href="#tarifs">Voir les tarifs</a>
+                    </div>
+                </div>
+                <div class="hero-panel" data-reveal aria-hidden="true">
+                    <p class="label">Suivi de réparation</p>
+                    <ol class="track">
+                        <li class="done"><span></span>Vélo déposé</li>
+                        <li class="done"><span></span>Diagnostic</li>
+                        <li class="now"><span></span>Réparation en cours</li>
+                        <li><span></span>Prêt à récupérer</li>
+                    </ol>
+                    <p class="panel-foot">Vous recevez un SMS à chaque étape.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="atelier">
+            <div class="wrap atelier">
+                <h2 data-reveal>Un atelier pensé pour <span class="mark">vous rendre la route vite</span></h2>
+                <ul class="atelier-list" role="list">
+                    <li data-reveal><b>Créneaux en ligne</b><span>Fini les files d'attente le samedi matin&nbsp;: vous déposez votre vélo à l'heure réservée.</span></li>
+                    <li data-reveal><b>Prix affichés</b><span>Chaque prestation a son tarif. Si une pièce est à changer, on vous appelle avant.</span></li>
+                    <li data-reveal><b>Spécialiste électrique</b><span>Diagnostic des principaux moteurs et batteries du marché.</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section section-dark" id="tarifs">
+            <div class="wrap">
+                <div class="section-head" data-reveal>
+                    <p class="label">Tarifs atelier</p>
+                    <h2>Des prix <span class="mark">clairs</span>, mis à jour par l'atelier</h2>
+                    <p class="lead">Ces tarifs se modifient depuis l'espace d'administration&nbsp;: essayez, le changement apparaît ici.</p>
+                </div>
+                <div class="tarifs" data-tarifs>
+                    <!-- rempli par app.js à partir des données de l'atelier -->
+                </div>
+                <noscript><p>Activez JavaScript pour afficher les tarifs.</p></noscript>
+            </div>
+        </section>
+
+        <section class="section" id="reserver">
+            <div class="wrap booking">
+                <div class="booking-intro" data-reveal>
+                    <p class="label">Réservation</p>
+                    <h2>Réservez votre <span class="mark">créneau de dépôt</span></h2>
+                    <p class="lead">Les créneaux déjà pris disparaissent en temps réel. Votre réservation apparaît aussitôt dans l'espace de l'atelier.</p>
+                    <p class="demo-note">Démo&nbsp;: la réservation reste dans votre navigateur. <a href="admin.html">Voir l'espace admin</a></p>
+                </div>
+                <form class="booking-form" data-booking data-reveal novalidate>
+                    <fieldset class="step">
+                        <legend><span>1</span>Prestation</legend>
+                        <div class="choice-grid" data-services></div>
+                    </fieldset>
+                    <fieldset class="step">
+                        <legend><span>2</span>Jour et heure de dépôt</legend>
+                        <div class="days" data-days></div>
+                        <div class="times" data-times></div>
+                    </fieldset>
+                    <fieldset class="step">
+                        <legend><span>3</span>Vos coordonnées</legend>
+                        <div class="fields">
+                            <div class="field"><label for="b-nom">Prénom et nom</label><input id="b-nom" name="name" autocomplete="name" required></div>
+                            <div class="field"><label for="b-tel">Téléphone</label><input id="b-tel" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+                        </div>
+                    </fieldset>
+                    <p class="hp" aria-hidden="true"><label>Ne pas remplir <input name="site" tabindex="-1" autocomplete="off"></label></p>
+                    <p class="form-error" data-error role="alert"></p>
+                    <button class="btn btn-full" type="submit">Confirmer la réservation</button>
+                    <div class="confirm" data-confirm role="status" tabindex="-1"></div>
+                    <p class="rgpd">Votre nom et votre téléphone servent uniquement à vous prévenir quand votre vélo est prêt. <a href="https://pixeldesigner.fr/confidentialite.html">Confidentialité</a></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="section section-lime" id="infos">
+            <div class="wrap infos">
+                <div data-reveal>
+                    <h2>Infos pratiques</h2>
+                    <p>8 rue du Breuchin, 70300 Luxeuil-les-Bains <small>(adresse fictive)</small></p>
+                    <a class="btn btn-dark" href="#" data-demo="Démo : sur le vrai site, ce bouton appelle l'atelier en un clic.">03 84 XX XX XX</a>
+                </div>
+                <dl class="hours" data-reveal>
+                    <div><dt>Mardi – Vendredi</dt><dd>9 h – 12 h · 14 h – 18 h 30</dd></div>
+                    <div><dt>Samedi</dt><dd>9 h – 17 h</dd></div>
+                    <div><dt>Dimanche, lundi</dt><dd>Fermé</dd></div>
+                </dl>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer-inner">
+            <p class="logo"><span>Cycles du <b>Breuchin</b></span></p>
+            <p>Atelier fictif, créé pour présenter l'offre Sur mesure&nbsp;: site, base de données et espace d'administration.</p>
+            <p><a href="admin.html">Espace atelier</a> · <a href="https://pixeldesigner.fr/mentions-legales.html">Mentions légales</a> · <a href="https://pixeldesigner.fr/confidentialite.html">Confidentialité</a></p>
+            <p class="credit">Powered by <a href="https://pixeldesigner.fr" target="_blank" rel="noopener">Pixel Designer</a></p>
+        </div>
+    </footer>
+</body>
+</html>

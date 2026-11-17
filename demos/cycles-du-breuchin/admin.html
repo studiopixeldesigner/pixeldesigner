@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Espace atelier | Cycles du Breuchin (démo)</title>
+    <meta name="description" content="Espace d'administration de démonstration : réservations, statut des réparations et tarifs.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#121a14">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121a14'/%3E%3Ccircle cx='10' cy='19' r='5' fill='none' stroke='%23c8f04a' stroke-width='2.5'/%3E%3Ccircle cx='22' cy='19' r='5' fill='none' stroke='%23c8f04a' stroke-width='2.5'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../demo-bandeau.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="../demo.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="admin.js" defer></script>
+</head>
+<body class="admin">
+    <div class="demo-bandeau">
+        <span class="demo-pastille">Démo</span>
+        <span><strong>Espace d'administration simulé.</strong> Les données restent dans votre navigateur&nbsp;; sur un vrai projet, elles sont dans une base sécurisée.</span>
+        <a href="index.html">Retour au site</a>
+    </div>
+
+    <main class="admin-main">
+        <section class="login" data-login>
+            <form class="login-card" data-login-form>
+                <p class="logo"><span>Cycles du <b>Breuchin</b></span></p>
+                <h1>Espace atelier</h1>
+                <p class="hint">Démo&nbsp;: identifiant <code>demo</code>, mot de passe <code>demo</code>.</p>
+                <div class="field"><label for="l-id">Identifiant</label><input id="l-id" name="id" autocomplete="username" value="demo" required></div>
+                <div class="field"><label for="l-pw">Mot de passe</label><input id="l-pw" name="pw" type="password" autocomplete="current-password" value="demo" required></div>
+                <p class="form-error" data-login-error role="alert"></p>
+                <button class="btn btn-full" type="submit">Se connecter</button>
+            </form>
+        </section>
+
+        <section class="dash" data-dash hidden>
+            <header class="dash-head">
+                <div>
+                    <p class="label" data-today></p>
+                    <h1>Bonjour, l'atelier</h1>
+                </div>
+                <div class="dash-actions">
+                    <a class="btn btn-ghost btn-small" href="index.html#reserver">Voir le site</a>
+                    <button class="btn btn-ghost btn-small" type="button" data-logout>Déconnexion</button>
+                </div>
+            </header>
+
+            <ul class="kpis" role="list" data-kpis></ul>
+
+            <div class="dash-grid">
+                <section class="panel" aria-labelledby="t-resa">
+                    <div class="panel-head">
+                        <h2 id="t-resa">Réservations</h2>
+                        <div class="filters" role="group" aria-label="Filtrer les réservations" data-filters>
+                            <button type="button" class="filter is-active" data-filter="tout" aria-pressed="true">Toutes</button>
+                            <button type="button" class="filter" data-filter="a-faire" aria-pressed="false">À faire</button>
+                            <button type="button" class="filter" data-filter="en-cours" aria-pressed="false">En cours</button>
+                            <button type="button" class="filter" data-filter="pret" aria-pressed="false">Prêts</button>
+                        </div>
+                    </div>
+                    <ul class="resa-list" role="list" data-list></ul>
+                </section>
+
+                <section class="panel" aria-labelledby="t-tarifs">
+                    <div class="panel-head"><h2 id="t-tarifs">Tarifs affichés sur le site</h2></div>
+                    <form class="price-form" data-prices></form>
+                    <p class="panel-note">Le nouveau tarif s'affiche tout de suite sur la page publique.</p>
+                </section>
+            </div>
+
+            <p class="reset"><button class="link-btn" type="button" data-reset>Remettre les données d'exemple</button></p>
+        </section>
+    </main>
+</body>
+</html>

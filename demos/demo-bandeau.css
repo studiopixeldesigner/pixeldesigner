@@ -1,0 +1,62 @@
+/* Bandeau commun aux sites de démonstration Pixel Designer.
+   Il rappelle, sur chaque page, que l'entreprise est fictive. */
+.demo-bandeau {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem .75rem;
+    padding: .55rem 1rem;
+    background: #050714;
+    color: #e8ecff;
+    font: 500 .8125rem/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+    text-align: center;
+}
+.demo-bandeau strong { color: #fff; font-weight: 700; }
+.demo-bandeau a {
+    color: #7ea8ff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    white-space: nowrap;
+}
+.demo-bandeau a:hover { color: #fff; }
+.demo-bandeau .demo-pastille {
+    display: inline-block;
+    padding: .1rem .5rem;
+    border: 1px solid #3a5bff;
+    border-radius: 99px;
+    color: #9fb8ff;
+    font-size: .6875rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.demo-note {
+    font-size: .875rem;
+    opacity: .8;
+}
+
+/* Message affiché à la place d'un appel ou d'un envoi réel */
+.demo-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.25rem;
+    z-index: 200;
+    width: min(92vw, 26rem);
+    margin: 0;
+    padding: .85rem 1.1rem;
+    border-radius: 12px;
+    background: #050714;
+    color: #fff;
+    font: 500 .9375rem/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .3);
+    transform: translate(-50%, 140%);
+    opacity: 0;
+    transition: transform .35s ease, opacity .35s ease;
+    pointer-events: none;
+}
+.demo-toast.is-visible { transform: translate(-50%, 0); opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+    .demo-toast { transition: none; }
+}
