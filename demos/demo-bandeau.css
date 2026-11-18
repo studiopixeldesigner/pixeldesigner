@@ -202,3 +202,21 @@
     .ticker-track { animation: none; }
 }
 .legal-kicker { margin-bottom: .5rem; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
+
+/* Menu mobile ouvert : l'en-tête perd son flou (sinon le menu plein écran reste
+   enfermé dans la hauteur de l'en-tête) et passe au-dessus de tout le reste. */
+body.menu-open .header {
+    z-index: 300;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+body.menu-open .call-bar,
+body.menu-open .demo-top { display: none; }
+body.menu-open .header .logo { position: relative; z-index: 2; }
+@media (max-width: 899px) {
+    body.menu-open .nav {
+        justify-content: flex-start;
+        padding-top: calc(var(--menu-top, 5rem) + 2rem);
+        overflow-y: auto;
+    }
+}

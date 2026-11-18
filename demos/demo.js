@@ -101,6 +101,9 @@
     if (burger) {
         const menu = document.getElementById(burger.getAttribute('aria-controls'));
         const setOpen = (open) => {
+            // Le menu commence sous l'en-tête, quelle que soit sa position (bandeau démo visible ou non)
+            const head = burger.closest('header');
+            if (open && head) menu.style.setProperty('--menu-top', `${Math.round(head.getBoundingClientRect().bottom)}px`);
             burger.setAttribute('aria-expanded', String(open));
             menu.classList.toggle('is-open', open);
             document.body.classList.toggle('menu-open', open);
