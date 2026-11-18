@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Boulangerie au levain à Lure | Fournil Belle-Aube (démo)</title>
-    <meta name="description" content="Site de démonstration One Page réalisé par Pixel Designer pour une boulangerie fictive de Lure : horaires, produits, commande en ligne.">
+    <meta name="description" content="Site de démonstration One Page réalisé par Pixel Designer pour une boulangerie fictive de Lure : horaires, produits et formulaire de contact.">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://pixeldesigner.fr/demos/fournil-belle-aube/">
     <meta name="theme-color" content="#f6efe4">
@@ -31,7 +31,7 @@
                 <a href="#fournil">Le fournil</a>
                 <a href="#comptoir">Au comptoir</a>
                 <a href="#horaires">Horaires</a>
-                <a class="btn btn-small" href="#commande">Commander</a>
+                <a class="btn btn-small" href="#contact">Nous écrire</a>
             </nav>
         </div>
     </header>
@@ -42,9 +42,9 @@
                 <div class="hero-text">
                     <p class="eyebrow" data-reveal>Boulangerie au levain · Lure</p>
                     <h1 data-reveal>Du pain au levain, <em>cuit chaque matin</em> à Lure.</h1>
-                    <p class="hero-sub" data-reveal>Farines de Haute-Saône, longue fermentation et viennoiseries pur beurre. Commandez la veille&nbsp;: votre pain vous attend, encore tiède.</p>
+                    <p class="hero-sub" data-reveal>Farines de Haute-Saône, longue fermentation et viennoiseries pur beurre. Quatre fournées par jour&nbsp;: votre pain est toujours chaud.</p>
                     <div class="hero-cta" data-reveal>
-                        <a class="btn" href="#commande">Commander pour demain</a>
+                        <a class="btn" href="#comptoir">Voir la carte</a>
                         <a class="btn btn-line" href="#" data-demo="Démo : sur le vrai site, ce bouton appelle la boulangerie en un clic.">Appeler le fournil</a>
                     </div>
                     <p class="hero-open" data-reveal><span class="dot" aria-hidden="true"></span>Ouvert du mardi au dimanche, dès 6&nbsp;h&nbsp;30</p>
@@ -69,8 +69,8 @@
 
         <div class="ticker" aria-hidden="true">
             <div class="ticker-track">
-                <span>Pain au levain</span><span>Baguette de tradition</span><span>Viennoiseries pur beurre</span><span>Tarte aux mirabelles</span><span>Farines de Haute-Saône</span><span>Commande la veille</span>
-                <span>Pain au levain</span><span>Baguette de tradition</span><span>Viennoiseries pur beurre</span><span>Tarte aux mirabelles</span><span>Farines de Haute-Saône</span><span>Commande la veille</span>
+                <span>Pain au levain</span><span>Baguette de tradition</span><span>Viennoiseries pur beurre</span><span>Tarte aux mirabelles</span><span>Farines de Haute-Saône</span><span>Quatre fournées par jour</span>
+                <span>Pain au levain</span><span>Baguette de tradition</span><span>Viennoiseries pur beurre</span><span>Tarte aux mirabelles</span><span>Farines de Haute-Saône</span><span>Quatre fournées par jour</span>
             </div>
         </div>
 
@@ -114,8 +114,8 @@
             <div class="wrap comptoir">
                 <div class="comptoir-head" data-reveal>
                     <h2>Au comptoir <em>cette semaine</em></h2>
-                    <p>Une carte courte, cuite en petites fournées. Les pains spéciaux partent vite&nbsp;: réservez-les.</p>
-                    <a class="btn" href="#commande">Réserver un pain</a>
+                    <p>Une carte courte, cuite en petites fournées. Les pains spéciaux partent vite&nbsp;: passez tôt.</p>
+                    <a class="btn" href="#horaires">Voir les horaires</a>
                 </div>
                 <div class="menu-cols">
                     <div class="menu" data-reveal>
@@ -176,38 +176,34 @@
             </div>
         </section>
 
-        <section class="section" id="commande">
+        <section class="section" id="contact">
             <div class="wrap commande">
                 <div class="commande-text" data-reveal>
-                    <h2>Commandez <em>la veille</em>, retirez le matin</h2>
-                    <p>Indiquez ce que vous voulez et l'heure de passage. Nous vous rappelons seulement s'il y a un souci.</p>
+                    <h2>Une question&nbsp;? <em>Écrivez&#8209;nous</em></h2>
+                    <p>Un gâteau pour un anniversaire, un plateau pour une réunion, une question sur nos farines&nbsp;: laissez-nous un message, nous vous rappelons.</p>
                     <ul class="checks" role="list">
-                        <li>Réponse avant 19&nbsp;h pour le lendemain</li>
-                        <li>Paiement sur place, sans compte à créer</li>
-                        <li>Idéal pour les repas de famille du dimanche</li>
+                        <li>Réponse dans la journée</li>
+                        <li>Pour les gâteaux, prévoyez 48 h</li>
+                        <li>Ou passez directement au comptoir</li>
                     </ul>
                 </div>
-                <form class="form" data-reveal data-demo-form="Merci ! Votre commande est notée pour demain matin. (Démo : rien n'a été envoyé.)">
+                <form class="form" data-reveal data-demo-form="Merci ! Votre message est bien parti, nous vous rappelons dans la journée. (Démo : rien n'a été envoyé.)">
                     <div class="field">
                         <label for="nom">Votre nom</label>
                         <input id="nom" name="nom" type="text" autocomplete="name" required>
                     </div>
                     <div class="field">
-                        <label for="tel">Téléphone</label>
-                        <input id="tel" name="tel" type="tel" autocomplete="tel" inputmode="tel" required>
+                        <label for="tel">Téléphone ou e-mail</label>
+                        <input id="tel" name="contact" type="text" autocomplete="email" required>
                     </div>
                     <div class="field">
-                        <label for="produit">Votre commande</label>
-                        <textarea id="produit" name="produit" rows="3" placeholder="Ex. : 1 campagne, 2 baguettes, 4 croissants" required></textarea>
-                    </div>
-                    <div class="field">
-                        <label for="jour">Jour de retrait</label>
-                        <input id="jour" name="jour" type="date" required>
+                        <label for="message">Votre message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Ex. : un fraisier pour 10 personnes samedi, c'est possible ?" required></textarea>
                     </div>
                     <p class="hp" aria-hidden="true"><label>Ne pas remplir <input name="site" tabindex="-1" autocomplete="off"></label></p>
-                    <button class="btn btn-full" type="submit">Envoyer ma commande</button>
+                    <button class="btn btn-full" type="submit">Envoyer mon message</button>
                     <p class="form-status" data-form-status role="status"></p>
-                    <p class="rgpd">Vos coordonnées servent uniquement à préparer votre commande. <a href="confidentialite.html">Confidentialité</a></p>
+                    <p class="rgpd">Vos coordonnées servent uniquement à vous répondre. <a href="confidentialite.html">Confidentialité</a></p>
                 </form>
             </div>
         </section>
@@ -219,7 +215,7 @@
                     <p class="section-sub">Une autre question&nbsp;? Posez-la au comptoir ou par téléphone.</p>
                 </div>
                 <div class="faq" data-stagger="80">
-                    <details data-reveal><summary>Puis-je commander pour le jour même&nbsp;?</summary><div><p>Oui, avant 10 h pour un retrait l'après-midi, dans la limite des fournées du jour. Pour être sûr d'avoir votre pain, commandez la veille.</p></div></details>
+                    <details data-reveal><summary>Peut-on vous mettre un pain de côté&nbsp;?</summary><div><p>Oui, appelez-nous le matin et nous le gardons jusqu'à 18 h.</p></div></details>
                     <details data-reveal><summary>Faites-vous du pain sans gluten&nbsp;?</summary><div><p>Non. Toutes nos farines contiennent du gluten et nous ne pouvons pas garantir l'absence de traces. Nous préférons vous le dire clairement.</p></div></details>
                     <details data-reveal><summary>Peut-on payer par carte&nbsp;?</summary><div><p>Oui, par carte et sans contact dès 1&nbsp;€, ou en espèces.</p></div></details>
                     <details data-reveal><summary>Où trouver la liste des allergènes&nbsp;?</summary><div><p>Elle est affichée au comptoir pour chaque produit. Demandez-nous, on vous explique.</p></div></details>
@@ -275,7 +271,7 @@
 
     <nav class="call-bar" aria-label="Actions rapides">
         <a href="#" data-demo="Démo : sur le vrai site, ce bouton appelle la boulangerie en un clic.">Appeler</a>
-        <a href="#commande">Commander</a>
+        <a href="#contact">Nous écrire</a>
     </nav>
 </body>
 </html>

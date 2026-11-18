@@ -7,10 +7,10 @@
             "category": "Démo One Page",
             "city": "Lure",
             "date": "2026-11",
-            "description": "Boulangerie fictive, créée pour montrer l'offre One Page à 450 € : une seule page claire, la carte, les horaires et la commande en ligne.",
+            "description": "Boulangerie fictive, créée pour montrer l'offre One Page à 450 € : une seule page claire avec la carte, les horaires et un formulaire de contact.",
             "tags": [
                 "One Page",
-                "Commande en ligne",
+                "Formulaire de contact",
                 "Mobile first"
             ],
             "url": "https://pixeldesigner.fr/demos/fournil-belle-aube/",
